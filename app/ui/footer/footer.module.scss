@@ -1,0 +1,42 @@
+.footer {
+  font-family: Poppins;
+  background-color: rgba(13, 24, 33, 1);
+  padding: 73px 0;
+  width: 100%;
+
+  &__container {
+    display: flex;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    justify-content: space-between;
+  }
+  a {
+    color: rgba(240, 244, 239, 1);
+    font-size: 20px;
+    line-height: 30px;
+    text-decoration: none;
+  }
+
+  &__logo {
+    padding-bottom: 40px;
+  }
+
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__address {
+    color: rgba(240, 244, 239, 1);
+    size: 20px;
+    line-height: 30px;
+    margin: 0;
+  }
+}

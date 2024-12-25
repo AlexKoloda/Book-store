@@ -1,0 +1,63 @@
+.log_in {
+  &__section {
+    display: flex;
+    justify-content: space-between;
+    padding: 90px 0 80px;
+  }
+
+  &__form {
+    width: 413px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 60px;
+  }
+
+  &__title {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 60px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    color: rgba(13, 24, 33, 1);
+  }
+
+  &__button {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0.75px;
+    text-align: center;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+  }
+
+  &__input {
+    color: rgba(185, 186, 195, 1);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 0.75px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    border: none;
+
+    padding: 20px;
+    border-radius: 16px;
+    background-color: rgba(240, 244, 239, 1);
+  }
+
+  &__description {
+    margin: 0 0 30px;
+    color: rgba(52, 73, 102, 1);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.75px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+  }
+}

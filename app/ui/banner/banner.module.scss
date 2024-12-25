@@ -1,0 +1,56 @@
+.banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 16px;
+  background-image: url('../../../public/banner-img/background-img.png');
+  background-repeat: no-repeat;
+  background-position: 843px;
+  position: relative;
+  margin-bottom: 150px;
+
+  &__container {
+    max-width: 415px;
+    width: 100%;
+  }
+
+  &__overlay {
+    background-color: rgb(240, 244, 239);
+    position: absolute;
+
+    border-radius: 16px;
+    top: 65px;
+    width: 1280px;
+    height: 400px;
+    width: 100%;
+    z-index: -1;
+  }
+
+  &__title {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 60px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+  }
+
+  &__description {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 30px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+  }
+
+  &__button {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0.75px;
+    text-align: center;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+  }
+}

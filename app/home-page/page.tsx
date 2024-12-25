@@ -1,8 +1,7 @@
 import { Metadata } from 'next';
-import Footer from '../ui/footer/footer';
-import style from './page.module.scss'
-import Header from '../ui/header/header';
 import Hero from '../ui/hero/hero';
+import Catalog from '../ui/catalog/catalog';
+import Banner from '../ui/banner/banner';
 
 
 export const metadata: Metadata = {
@@ -12,11 +11,9 @@ export const metadata: Metadata = {
 const Page: React.FC = () => {
   return (
     <>
-    <div className={style.wrapper__inner}>
-    <Header />  
     <Hero />
-    </div>
-    <Footer/>
+    <Catalog />
+    <Banner />
     </>
   )
 }

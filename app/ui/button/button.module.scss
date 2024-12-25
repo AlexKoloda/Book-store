@@ -1,0 +1,21 @@
+.button {
+  color: rgba(240, 244, 239, 1);
+  background-color: rgba(52, 73, 102, 1);
+  border-radius: 16px;
+  padding: 10px 50px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+
+
+
+&:hover {
+  background-color: rgba(13, 24, 33, 1);
+
+}
+
+&:active,
+&:focus-visible {
+  box-shadow: 0 0 0 8px rgba(214, 216, 231, 1);
+}
+}

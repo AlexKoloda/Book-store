@@ -6,7 +6,7 @@
   background-image: url('../../../public/hero-img/hero-background.png');
   background-repeat: no-repeat;
   background-position: 2px 139px;
-  
+
   &__container {
     padding: 80px 0 93px 0;
   }
@@ -33,14 +33,12 @@
   }
 
   &__button {
-    font-size: 16px;
-    line-height: 24px;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 28px;
     letter-spacing: 0.75px;
-    color: rgba(240, 244, 239, 1);
-
-    background-color: rgba(52, 73, 102, 1);
-    border-radius: 16px;
-    padding: 10px 50px;
-    border: none;
+    text-align: center;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
   }
 }

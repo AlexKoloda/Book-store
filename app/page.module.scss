@@ -1,8 +1,14 @@
 .wrapper {
   display: flex;
-
   &__inner {
     width: 1280px;
     margin: 0 auto;
   }
+}
+
+.body {
+  width: 100%;
+  scroll-behavior:smooth;
+  margin: 0;
+  padding: 0;
 }

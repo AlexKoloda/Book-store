@@ -5,12 +5,15 @@ type TButton = {
   type?: string,
   text: string,
   className: string,
+  onClick?: () => void;
 }
 
 const Button: React.FC <TButton> = (props) => {
+  
 
   return (
     <button
+    onClick = {props.onClick}
     className = { clsx (
     style.button, 
      props.className

@@ -28,16 +28,16 @@ const Footer: React.FC = () => {
     <nav className={style.footer__navigation}>
     <ul className={style.footer__list}>    
     <li className={style.footer__item}> 
-    <Link href='#'>Home Page</Link>
+    <Link href='/'>Home Page</Link>
     </li>
     <li className={style.footer__item}> 
-    <Link href='#'>Catalog</Link>
+    <Link href='#Catalog'>Catalog</Link>
     </li>
     <li className={style.footer__item}> 
-    <Link href='#'>My Account</Link>
+    <Link href='/profile'>My Account</Link>
     </li>
     <li className={style.footer__item}>  
-    <Link href='#'>Cart</Link>
+    <Link href='/cart'>Cart</Link>
     </li>
     </ul>   
     </nav> 

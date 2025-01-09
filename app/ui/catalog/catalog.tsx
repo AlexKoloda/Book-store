@@ -19,7 +19,7 @@ const Catalog: React.FC = () => {
 
       <h1 className={style.catalog__title}>Catalog</h1>
 
-      <div className={style.catalog__filters}>
+      <div id='Catalog' className={style.catalog__filters}>
         <Select         
         values = {listGenreValues}
         className = {style.catalog__select}

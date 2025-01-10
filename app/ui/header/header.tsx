@@ -4,6 +4,7 @@ import style from './header.module.scss';
 import Logo from '@/public/header-img/header-logo.png';
 import Input from '../input/input';
 import Button from '../button/button';
+import Form from 'next/form';
 
 const Header: React.FC = () => {
   return (
@@ -19,9 +20,15 @@ const Header: React.FC = () => {
       </Link>
 
       <p className={style.header__catalog}>Catalog</p>
-      <form>
-        <Input placeholder='Search' inputClass={style.header__input} />
-      </form>
+      <Form 
+      action='search'
+      >
+        <Input
+         type='search'
+         name='search'
+         placeholder='Search'
+         inputClass={style.header__input} />
+      </Form>
       <Link href='/auth/log-in'>
         <Button text='Log In/ Sign In' className={style.header__button} />
       </Link>

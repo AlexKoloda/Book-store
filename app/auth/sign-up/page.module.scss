@@ -60,5 +60,14 @@
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
   }
+
+  &__description_error{
+    margin: 0;
+    color: rgba(195, 0, 82, 1);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    display: hidden;
+  }
 }
 

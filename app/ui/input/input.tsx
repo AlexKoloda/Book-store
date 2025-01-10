@@ -3,7 +3,7 @@ type TInput = {
   type: string;
   placeholder: string;
   inputClass: string;
-  onChange: React.ChangeEventHandler<HTMLInputElement>;
+  onChange?: React.ChangeEventHandler<HTMLInputElement>;
 }
 
 

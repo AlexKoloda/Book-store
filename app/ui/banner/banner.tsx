@@ -13,7 +13,7 @@ const Banner: React.FC = () => {
         <p className={style.banner__description}>
           Authorize now and discover the fabulous world of books
         </p>
-        <Link href='/login'>
+        <Link href='/auth/log-in'>
           <Button text='Log In/ Sing Up' className={style.banner__button} />
         </Link>
       </div>

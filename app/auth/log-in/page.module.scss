@@ -10,7 +10,7 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin-bottom: 60px;
+    margin-bottom: 60px;    
   }
 
   &__title {
@@ -31,6 +31,7 @@
     text-align: center;
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
+    max-width: 150px; // TODO Уйти от фикс размеров, временное решение
   }
 
   &__input {
@@ -43,10 +44,17 @@
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
     border: none;
+    transition: 0.5s;
 
     padding: 20px;
     border-radius: 16px;
     background-color: rgba(240, 244, 239, 1);
+    &:focus-visible {
+      background-color: rgba(255, 255, 255, 1) ;
+      border: 2 px sold rgba(13, 24, 33, 1);
+      color: rgba(13, 24, 33, 1);
+      transition: 0.5s;
+    }
   }
 
   &__description {
@@ -59,6 +67,15 @@
     text-align: left;
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
+  }
+
+  &__description_error{
+    margin: 0;
+    color: rgba(195, 0, 82, 1);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    display: hidden;
   }
 }
 

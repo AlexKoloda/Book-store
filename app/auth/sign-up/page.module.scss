@@ -31,6 +31,7 @@
     text-align: center;
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
+    max-width: 150px; // TODO Уйти от фикс размеров, временное решение
   }
 
   &__input {

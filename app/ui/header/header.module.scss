@@ -21,6 +21,12 @@
     background-color: rgba(240, 244, 239, 1);
     border-radius: 16px;
     border: none;
+    &:focus-visible {
+      background-color: rgba(255, 255, 255, 1) ;
+      border: 2 px sold rgba(13, 24, 33, 1);
+      color: rgba(13, 24, 33, 1);
+      transition: 0.5s;
+    }
   }
 
   &__button {

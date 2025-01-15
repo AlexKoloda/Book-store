@@ -1,18 +1,13 @@
 'use client';
-import Button from '@/app/ui/button/button';
+import Button from '@/app/ui/Button/Button';
 import style from '@/app/auth/sign-up/page.module.scss';
 import Image from 'next/image';
 import LogInImage from '@/public/log-in-img/log_in-image.png';
 import { useForm } from 'react-hook-form';
 import { signUpSchema } from '@/public/validation/schemas';
 import { yupResolver } from '@hookform/resolvers/yup';
-import getUser from '@/public/util/getUser';
-
-type TInputs = {
-  email: string;
-  password: string;
-  passwordReplay: string;
-};
+import { authorization } from '@/public/util/getUser';
+import { InputDataRegisterType } from '@/app/lib/definitions';
 
 const RegisterPage: React.FC = () => {
   const {
@@ -20,12 +15,12 @@ const RegisterPage: React.FC = () => {
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm<TInputs>({
+  } = useForm<InputDataRegisterType>({
     resolver: yupResolver(signUpSchema),
   });
 
-  const onSubmit = (data: TInputs) => {
-    getUser(data);
+  const onSubmit = (data: InputDataRegisterType) => {
+    authorization(data);
     reset();
   };
 

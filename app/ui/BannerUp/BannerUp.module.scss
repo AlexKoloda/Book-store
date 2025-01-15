@@ -1,0 +1,44 @@
+.hero {
+  display: flex;
+  justify-content: space-around;
+  background-color: rgba(240, 244, 239, 1);
+  border-radius: 16px;
+  background-image: url('../../../public/hero-img/hero-background.png');
+  background-repeat: no-repeat;
+  background-position: 2px 139px;
+
+  &__container {
+    padding: 80px 0 93px 0;
+  }
+
+  &__background {
+    top: 100px;
+    width: 100%;
+  }
+
+  &__title {
+    margin: 10px 0;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 60px;
+    color: rgba(13, 24, 33, 1);
+  }
+
+  &__description {
+    max-width: 217px;
+    margin: 0 0 50px;
+    font-size: 20px;
+    line-height: 30px;
+    color: rgba(52, 73, 102, 1);
+  }
+
+  &__button {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 28px;
+    letter-spacing: 0.75px;
+    text-align: center;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+  }
+}

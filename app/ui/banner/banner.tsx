@@ -1,4 +1,4 @@
-import Button from '../button/button';
+import Button from '../Button/Button';
 import style from './banner.module.scss';
 import BannerImage from '@/public/banner-img/banner-img.png';
 import Image from 'next/image';

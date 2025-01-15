@@ -1,12 +1,17 @@
+'use client'
 import Link from 'next/link';
 import Image from 'next/image';
-import style from './header.module.scss';
+import style from './Header.module.scss';
 import Logo from '@/public/header-img/header-logo.png';
-import Input from '../input/input';
-import Button from '../button/button';
+import Input from '../Input/input';
+import Button from '../Button/Button';
 import Form from 'next/form';
+import { useUserContext } from '@/app/lib/contexts/UserContext';
+import Menu from '../Menu/Menu';
 
 const Header: React.FC = () => {
+  const user = useUserContext();
+
   return (
     <header className={style.header}>
       <Link href='/'>
@@ -18,20 +23,22 @@ const Header: React.FC = () => {
           alt='Book store logo'
         />
       </Link>
-
       <p className={style.header__catalog}>Catalog</p>
-      <Form 
-      action='search'
-      >
+      <Form action='search'>
         <Input
-         type='search'
-         name='search'
-         placeholder='Search'
-         inputClass={style.header__input} />
+          type='search'
+          name='search'
+          placeholder='Search'
+          inputClass={style.header__input}
+        />
       </Form>
-      <Link href='/auth/log-in'>
-        <Button text='Log In/ Sign In' className={style.header__button} />
+       { user.user ? (
+        < Menu />
+      ) : (
+        <Link href='/auth/log-in'>
+        <Button text='Log In / Sign In' className={style.header__button} />
       </Link>
+      )}
     </header>
   );
 };

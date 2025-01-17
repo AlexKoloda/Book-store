@@ -12,10 +12,11 @@ export const signInApi = async (data: { email: string; password: string }) => {
   return response.data.user;
 };
 
-export const signUpAp = async ( data: {email: string, password: string}) => {
+export const signUpApi = async ( data: {email: string, password: string}) => {
   const response = await axiosApi.post<{user: IUser; token: string}>(
     `/auth/sign-up`,
     data
   );
+  setCookie('access_token', response.data.token, { maxAge: 60 * 60 * 8 });
   return response.data.user;
 }

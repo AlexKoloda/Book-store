@@ -1,29 +1,31 @@
-.log_in {
-  &__section {
-    display: flex;
-    justify-content: space-between;
-    padding: 90px 0 80px;
-  }
+.profile {
 
   &__form {
-    width: 413px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    margin-bottom: 60px;
+    width: 100%;
+    max-width: 550px;
   }
 
   &__title {
-    font-size: 40px;
-    font-weight: 700;
-    line-height: 60px;
-    text-align: left;
-    text-underline-position: from-font;
-    text-decoration-skip-ink: none;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 30px;
     color: rgba(13, 24, 33, 1);
   }
 
   &__button {
+    font-size: 14px;
+    font-weight: 400;
+    background: none;
+    text-decoration: underline;
+    border: none;
+    color: rgba(141, 159, 79, 1);
+    cursor: pointer;
+  }
+
+  &__button_submit {
+    margin-top: 40px; // TODO Уйти от внешних отступов
     font-size: 16px;
     font-weight: 500;
     line-height: 24px;
@@ -31,11 +33,11 @@
     text-align: center;
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
-    max-width: 166px; // TODO Уйти от фикс размеров, временное решение
+    max-width: 170px; // TODO Уйти от фикс размеров, временное решение
   }
 
   &__input {
-    color: rgba(185, 186, 195, 1);
+    color: rgba(52, 73, 102, 1);
     font-size: 16px;
     font-weight: 400;
     line-height: 28px;
@@ -45,6 +47,7 @@
     text-decoration-skip-ink: none;
     border: none;
     transition: 0.5s;
+    margin-bottom: 10px;
 
     padding: 20px;
     border-radius: 16px;
@@ -55,6 +58,40 @@
       color: rgba(13, 24, 33, 1);
       transition: 0.5s;
     }
+  }
+
+  &__input_disable {
+    color: rgba(52, 73, 102, 1);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 0.75px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    border: none;
+    transition: 0.5s;
+    margin-bottom: 10px;
+    padding: 20px;
+    border-radius: 16px;
+    background-color: rgba(240, 244, 239, 1);
+
+    &:focus-visible {
+      outline: none;
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 550px;
+  }
+
+  &__box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
   &__description {
@@ -69,7 +106,7 @@
     text-decoration-skip-ink: none;
   }
 
-  &__description_error{
+  &__description_error {
     margin: 0;
     color: rgba(195, 0, 82, 1);
     font-size: 14px;
@@ -78,4 +115,3 @@
     display: hidden;
   }
 }
-

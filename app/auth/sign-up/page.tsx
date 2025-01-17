@@ -6,22 +6,33 @@ import LogInImage from '@/public/log-in-img/log_in-image.png';
 import { useForm } from 'react-hook-form';
 import { signUpSchema } from '@/public/validation/schemas';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { authorization } from '@/public/util/getUser';
-import { InputDataRegisterType } from '@/app/lib/definitions';
+import { InputDataRegisterType, InputDataType } from '@/app/lib/definitions';
+import { signUpApi } from '@/api/clientApi/authApi';
+import { useRouter } from 'next/navigation';
+import { useUserContext } from '@/app/lib/contexts/UserContext';
 
 const RegisterPage: React.FC = () => {
+  const router = useRouter();
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors },
   } = useForm<InputDataRegisterType>({
     resolver: yupResolver(signUpSchema),
   });
+  const { setUserData } = useUserContext();
 
-  const onSubmit = (data: InputDataRegisterType) => {
-    authorization(data);
-    reset();
+  const onSubmit = async (data: InputDataType) => {
+    try {
+      const response = await signUpApi({
+        email: data.email,
+        password: data.password,
+      });
+      setUserData(response);
+      router.replace('/profile');
+    } catch (error) {
+      console.log('ERROR signup', error);
+    }
   };
 
   return (
@@ -42,7 +53,7 @@ const RegisterPage: React.FC = () => {
           <input
             {...register('password')}
             type='password'
-            placeholder='Password replay'
+            placeholder='Password'
             className={style.log_in__input}
           />
           <p className={style.log_in__description}>Enter your password</p>
@@ -59,11 +70,11 @@ const RegisterPage: React.FC = () => {
             Repeat your password without errors
           </p>
           <p className={style.log_in__description_error}>
-            {errors.password?.message}
+            {errors.passwordReplay?.message}
           </p>
           <Button
             type='submit'
-            text='Log In'
+            text='Sign Up'
             className={style.log_in__button}
           />
         </form>

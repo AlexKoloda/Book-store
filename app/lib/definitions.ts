@@ -3,13 +3,20 @@ export interface IUser {
   name: string;
   email: string;
   password?: string;
+  avatar: string;
 }
 
 export type UserProfileType = {
   id?: number;
   name: string;
-  email: string;
+  email: string; 
 };
+
+export type ChangePasswordType = {
+  oldPassword: string;
+  newPassword: string;
+  passwordReplay: string;
+}
 
 export type InputDataType = {
   email: string;

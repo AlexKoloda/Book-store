@@ -36,7 +36,7 @@ const Header: React.FC = () => {
         < Menu />
       ) : (
         <Link href='/auth/log-in'>
-        <Button text='Log In / Sign In' className={style.header__button} />
+        <Button text='Log In/ Sing Up' className={style.header__button} />
       </Link>
       )}
     </header>

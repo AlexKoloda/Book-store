@@ -6,12 +6,13 @@ import LogInImage from '@/public/log-in-img/log_in-image.png';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { logInSchema } from '@/public/validation/schemas';
-// import { Authorization } from '@/public/util/getUser';
-
 import { signInApi } from '@/api/clientApi/authApi';
 import { useRouter } from 'next/navigation';
 import { useUserContext } from '@/app/lib/contexts/UserContext';
-import { InputDataAuthorizationType } from '@/app/lib/definitions';
+import {
+  InputDataAuthorizationType,
+  InputDataType,
+} from '@/app/lib/definitions';
 
 const LoginPage: React.FC = () => {
   const router = useRouter();
@@ -22,23 +23,19 @@ const LoginPage: React.FC = () => {
   } = useForm<InputDataAuthorizationType>({
     resolver: yupResolver(logInSchema),
   });
-
   const { setUserData } = useUserContext();
 
-  const onSubmit = async (data: InputDataAuthorizationType) => {
+  const onSubmit = async (data: InputDataType) => {
     try {
       const response = await signInApi({
         email: data.email,
         password: data.password,
       });
-
       setUserData(response);
       router.replace('/');
     } catch (err) {
-      console.log('>>> ERROR', err);
+      console.log('ERROR login', err);
     }
-    // const user = await Authorization(data);
-    // return user;
   };
 
   return (

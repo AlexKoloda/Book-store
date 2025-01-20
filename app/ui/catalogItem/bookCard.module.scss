@@ -1,5 +1,6 @@
 .book_card {
   &__title {
+    padding-top: 30px;
     font-size: 20px;
     font-weight: 500;
     line-height: 30px;
@@ -8,6 +9,7 @@
     text-decoration-skip-ink: none;
     color: rgba(52, 73, 102, 1);
     margin: 0;
+    
   }
 
   &__author {
@@ -30,5 +32,14 @@
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
     width: 100%;
+    margin-top: 20px;
   }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    text-wrap-mode: nowrap;
+    overflow: hidden;
+  }
+
 }

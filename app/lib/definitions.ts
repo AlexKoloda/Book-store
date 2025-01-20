@@ -6,17 +6,28 @@ export interface IUser {
   avatar: string;
 }
 
+export interface IBook {
+  id: number;
+  photo: string;
+  title: string;
+  author: string;
+  description: string;
+  price: string;
+  isNew: boolean;
+  isBestseller: boolean;
+}
+
 export type UserProfileType = {
   id?: number;
   name: string;
-  email: string; 
+  email: string;
 };
 
 export type ChangePasswordType = {
   oldPassword: string;
   newPassword: string;
   passwordReplay: string;
-}
+};
 
 export type InputDataType = {
   email: string;

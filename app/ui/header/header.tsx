@@ -3,11 +3,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 import style from './Header.module.scss';
 import Logo from '@/public/header-img/header-logo.png';
-import Input from '../Input/input';
 import Button from '../Button/Button';
 import Form from 'next/form';
 import { useUserContext } from '@/app/lib/contexts/UserContext';
 import Menu from '../Menu/Menu';
+import Input from '../Input/input';
 
 const Header: React.FC = () => {
   const user = useUserContext();
@@ -29,7 +29,7 @@ const Header: React.FC = () => {
           type='search'
           name='search'
           placeholder='Search'
-          inputClass={style.header__input}
+          className={style.header__input}
         />
       </Form>
        { user.user ? (

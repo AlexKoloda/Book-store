@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { useUserContext } from '@/app/lib/contexts/UserContext';
 import style from './InformationForm.module.scss';
 import Button from '../Button/Button';
+import Input from '../Input/input';
 
 const InformationForm: React.FC = () => {
   const { user } = useUserContext();
@@ -23,7 +24,7 @@ const InformationForm: React.FC = () => {
     updateInformationApi(data);
   };
   const toggleChange = () => {
-    setIsChange(!isChange);
+    setIsChange((prevState) => !prevState);
   };
   return (
     <form
@@ -39,7 +40,7 @@ const InformationForm: React.FC = () => {
       </div>
       {isChange ? (
         <>
-          <input
+          <Input
             {...register('name')}
             type='text'
             placeholder='Your name'
@@ -47,7 +48,7 @@ const InformationForm: React.FC = () => {
             className={style.profile__input}
             readOnly={true}
           />
-          <input
+          <Input
             {...register('email')}
             type='email'
             placeholder='email'
@@ -63,7 +64,7 @@ const InformationForm: React.FC = () => {
         </>
       ) : (
         <>
-          <input
+          <Input
             {...register('name')}
             type='text'
             placeholder='Your name'
@@ -71,7 +72,7 @@ const InformationForm: React.FC = () => {
             className={style.profile__input_disable}
             readOnly={true}
           />
-          <input
+          <Input
             {...register('email')}
             type='email'
             placeholder='email'

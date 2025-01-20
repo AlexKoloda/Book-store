@@ -6,6 +6,8 @@ import { useForm } from 'react-hook-form';
 import style from './PasswordForm.module.scss';
 import Button from '../Button/Button';
 import { updatePasswordApi } from '@/api/clientApi/updateApi';
+import Input from '../Input/input';
+
 
 const PasswordForm: React.FC = () => {
   const [isChangePassword, setIsChangePassword] = useState(false);
@@ -41,13 +43,13 @@ const PasswordForm: React.FC = () => {
       </div>
       {isChangePassword ? (
         <>
-          <input
+          <Input
             {...changePassword('oldPassword')}
             type='password'
             placeholder='Old password'
             className={style.profile__input}
           />
-          <input
+          <Input
             {...changePassword('newPassword')}
             type='password'
             placeholder='New password'
@@ -56,7 +58,7 @@ const PasswordForm: React.FC = () => {
           <p className={style.profile__description_error}>
             {errors.newPassword?.message}
           </p>
-          <input
+          <Input
             {...changePassword('passwordReplay')}
             type='password'
             placeholder='Password replay'
@@ -72,7 +74,7 @@ const PasswordForm: React.FC = () => {
           />
         </>
       ) : (
-        <input
+        <Input
           {...changePassword('oldPassword')}
           type='password'
           placeholder='Password'

@@ -1,22 +1,12 @@
-type TInput = {
-  name: string;
-  type: string;
-  placeholder: string;
-  inputClass: string;
-  onChange?: React.ChangeEventHandler<HTMLInputElement>;
-}
+import clsx from 'clsx';
 
-
-const Input: React.FC <TInput> = (props) => {
-  return (
-    <input 
-    name={props.name}
-    onChange={props.onChange}
-    type={props.type}
-    placeholder={props.placeholder}
-    className={props.inputClass}
-    ></input>
-  )
-}
+const Input: React.FC<
+  React.DetailedHTMLProps<
+    React.InputHTMLAttributes<HTMLInputElement>,
+    HTMLInputElement
+  >
+> = (props) => {
+  return <input {...props} className={clsx('default', props.className)} />;
+};
 
 export default Input;

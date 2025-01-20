@@ -1,8 +1,19 @@
+import { getBooks } from '@/api/serverApi/getBook';
 import BookCard from '../catalogItem/BookCard';
 import style from './Catalog.module.scss';
 import Select from './select/Select';
 
-const Catalog: React.FC = () => {
+// interface Pagination {
+//   totalPages: number; // 14
+//   currentPage: number; // 1
+//   prevPage: number | null; // null
+//   hasNextPage: boolean; // true
+//   hasPrevPage: boolean; // false
+//   itemsPerPage: number; // 12
+// }
+
+
+const Catalog: React.FC = async () => {
   const listGenreValues = [
     'Fiction',
     'Non-fiction',
@@ -30,11 +41,8 @@ const Catalog: React.FC = () => {
     'Rating',
     'Date of issue',
   ];
-  const bookCard = {
-    title: 'The Two towers',
-    author: 'J. R. R. Tolkien',
-    coast: 'Not available',
-  };
+
+  const books = await getBooks();
 
   return (
     <section className={style.catalog}>
@@ -49,26 +57,19 @@ const Catalog: React.FC = () => {
       </div>
       <div className={style.catalog__container}>
         <ul className={style.catalog__list}>
-          <BookCard
-            bookTitle={bookCard.title}
-            bookAuthor={bookCard.author}
-            bookCoast={bookCard.coast}
-          />
-          <BookCard
-            bookTitle={bookCard.title}
-            bookAuthor={bookCard.author}
-            bookCoast={bookCard.coast}
-          />
-          <BookCard
-            bookTitle={bookCard.title}
-            bookAuthor={bookCard.author}
-            bookCoast={bookCard.coast}
-          />
-          <BookCard
-            bookTitle={bookCard.title}
-            bookAuthor={bookCard.author}
-            bookCoast={bookCard.coast}
-          />
+          {books.map((book) => {
+            return (
+              <BookCard
+                key={book.id}
+                photo={book.photo}
+                bookPrice={book.price}
+                bookTitle={book.title}
+                bookAuthor={book.author}
+                isNew={book.isNew}
+                isBestseller={book.isBestseller}
+              />
+            );
+          })}
         </ul>
       </div>
     </section>

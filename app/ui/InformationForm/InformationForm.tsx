@@ -7,7 +7,7 @@ import { useState } from 'react';
 import { useUserContext } from '@/app/lib/contexts/UserContext';
 import style from './InformationForm.module.scss';
 import Button from '../Button/Button';
-import Input from '../Input/input';
+import Input from '../Input/Input';
 
 const InformationForm: React.FC = () => {
   const { user } = useUserContext();
@@ -46,7 +46,7 @@ const InformationForm: React.FC = () => {
             placeholder='Your name'
             defaultValue={userName}
             className={style.profile__input}
-            readOnly={true}
+
           />
           <Input
             {...register('email')}
@@ -54,7 +54,7 @@ const InformationForm: React.FC = () => {
             placeholder='email'
             defaultValue={user?.email}
             className={style.profile__input}
-            readOnly={true}
+
           />
           <Button
             text='Confirm'

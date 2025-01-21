@@ -1,8 +1,10 @@
+@import '../../mixins.module.scss';
+
 .hero {
   display: flex;
   justify-content: space-around;
-  background-color: rgba(240, 244, 239, 1);
-  border-radius: 16px;
+  background-color: var(--color-light);
+  border-radius: var(--border-radius);
   background-image: url('../../../public/hero-img/hero-background.png');
   background-repeat: no-repeat;
   background-position: 2px 139px;
@@ -17,18 +19,15 @@
   }
 
   &__title {
+    @include title-font;
     margin: 10px 0;
-    font-weight: 700;
-    font-size: 40px;
-    line-height: 60px;
     color: rgba(13, 24, 33, 1);
   }
 
   &__description {
+    @include description-font;
     max-width: 217px;
     margin: 0 0 50px;
-    font-size: 20px;
-    line-height: 30px;
     color: rgba(52, 73, 102, 1);
   }
 

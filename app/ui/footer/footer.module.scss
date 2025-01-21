@@ -1,6 +1,7 @@
+@import '../../mixins.module.scss';
+
 .footer {
-  font-family: Poppins;
-  background-color: rgba(13, 24, 33, 1);
+  background-color: var(--color-dark);
   padding: 73px 0;
   width: 100%;
 
@@ -11,10 +12,10 @@
     margin: 0 auto;
     justify-content: space-between;
   }
-  a {
-    color: rgba(240, 244, 239, 1);
-    font-size: 20px;
-    line-height: 30px;
+  &__link {
+    @include description-font;
+    @include reset;
+    color: var(--color-white);
     text-decoration: none;
   }
 
@@ -28,15 +29,13 @@
   }
 
   &__list {
-    margin: 0;
-    padding: 0;
+    @include reset;
     list-style: none;
   }
 
   &__address {
-    color: rgba(240, 244, 239, 1);
-    size: 20px;
-    line-height: 30px;
-    margin: 0;
+    @include description-font;
+    @include reset;
+    color: var(--color-white);
   }
 }

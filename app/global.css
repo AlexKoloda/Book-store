@@ -1,0 +1,9 @@
+:root {
+  --color-dark-blue: rgba(52, 73, 102, 1);
+  --color-dark: rgba(13, 24, 33, 1);
+  --color-light: rgba(240, 244, 239, 1);
+  --color-green: rgba(191, 204, 148, 1);
+  --color-white: rgba(255, 255, 255, 1);
+  --color-dark-grey: rgba(185, 186, 195, 1);
+  --border-radius: 16px;
+ }

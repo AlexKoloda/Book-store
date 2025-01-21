@@ -18,23 +18,23 @@ const Footer: React.FC = () => {
               alt='Book store logo'
             />
           </Link>
-          <a href='mailto:tranthuy.nute@gmail.com'>tranthuy.nute@gmail.com</a>
-          <a href='tel:(480) 555-0103'>(480) 555-0103</a>
+          <a className={style.footer__link} href='mailto:tranthuy.nute@gmail.com'>tranthuy.nute@gmail.com</a>
+          <a className={style.footer__link} href='tel:(480) 555-0103'>(480) 555-0103</a>
         </div>
 
         <nav className={style.footer__navigation}>
           <ul className={style.footer__list}>
             <li className={style.footer__item}>
-              <Link href='/'>Home Page</Link>
+              <Link className={style.footer__link} href='/'>Home Page</Link>
             </li>
             <li className={style.footer__item}>
-              <Link href='#Catalog'>Catalog</Link>
+              <Link className={style.footer__link} href='#Catalog'>Catalog</Link>
             </li>
             <li className={style.footer__item}>
-              <Link href='/profile'>My Account</Link>
+              <Link className={style.footer__link} href='/profile'>My Account</Link>
             </li>
             <li className={style.footer__item}>
-              <Link href='/cart'>Cart</Link>
+              <Link className={style.footer__link} href='/cart'>Cart</Link>
             </li>
           </ul>
         </nav>

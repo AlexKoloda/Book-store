@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import './global.css';
 import style from './page.module.scss';
 import { poppins } from './ui/fonts';
 import Footer from './ui/Footer/Footer';

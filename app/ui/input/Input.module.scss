@@ -1,0 +1,14 @@
+.global {
+  &__input {
+    font-size: 16px;
+    font-weight: 400;
+    text-align: left;
+    color: var(--color-dark-blue);
+    background-color: var(--color-light);
+    border: none;
+    padding: 18px;
+    border-radius: var(--border-radius);
+    transition: 0.3s;
+        
+  }
+}

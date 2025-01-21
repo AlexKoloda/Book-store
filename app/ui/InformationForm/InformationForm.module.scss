@@ -1,5 +1,6 @@
-.profile {
+@import '../../mixins.module.scss';
 
+.profile {
   &__form {
     display: flex;
     flex-direction: column;
@@ -8,9 +9,7 @@
   }
 
   &__title {
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 30px;
+    @include description-font;
     color: rgba(13, 24, 33, 1);
   }
 
@@ -37,9 +36,7 @@
   }
 
   &__input {
-    color: rgba(52, 73, 102, 1);
-    font-size: 16px;
-    font-weight: 400;
+    color: var(--color-dark);
     line-height: 28px;
     letter-spacing: 0.75px;
     text-align: left;
@@ -49,9 +46,6 @@
     transition: 0.5s;
     margin-bottom: 10px;
 
-    padding: 20px;
-    border-radius: 16px;
-    background-color: rgba(240, 244, 239, 1);
     &:focus-visible {
       background-color: rgba(255, 255, 255, 1);
       border: 2 px sold rgba(13, 24, 33, 1);
@@ -96,7 +90,7 @@
 
   &__description {
     margin: 0;
-    color: rgba(52, 73, 102, 1);
+    color: var(--color-dark-blue);
     font-size: 14px;
     font-weight: 400;
     line-height: 24px;

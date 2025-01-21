@@ -1,18 +1,20 @@
 .button {
-  color: rgba(240, 244, 239, 1);
-  background-color: rgba(52, 73, 102, 1);
-  border-radius: 16px;
+  color: var(--color-white);
+  background-color: var(--color-dark-blue);
+  border-radius: var(--border-radius);
   padding: 10px 50px;
   border: none;
   cursor: pointer;
   transition: 0.3s;
 
   &:hover {
-    background-color: rgba(13, 24, 33, 1);
+    background-color: var(--color-dark);
+    transition: 0.3s;
   }
 
   &:active,
   &:focus-visible {
     box-shadow: 0 0 0 8px rgba(214, 216, 231, 1);
+    transition: 0.1s;
   }
 }

@@ -7,7 +7,8 @@ import Button from '../Button/Button';
 import Form from 'next/form';
 import { useUserContext } from '@/app/lib/contexts/UserContext';
 import Menu from '../Menu/Menu';
-import Input from '../Input/input';
+import Input from '../Input/Input';
+
 
 const Header: React.FC = () => {
   const user = useUserContext();

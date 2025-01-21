@@ -1,6 +1,6 @@
 'use client';
 import Button from '@/app/ui/Button/Button';
-import style from '@/app/auth/sign-up/page.module.scss';
+import style from './page.module.scss';
 import Image from 'next/image';
 import LogInImage from '@/public/log-in-img/log_in-image.png';
 import { useForm } from 'react-hook-form';
@@ -10,6 +10,7 @@ import { InputDataRegisterType, InputDataType } from '@/app/lib/definitions';
 import { signUpApi } from '@/api/clientApi/authApi';
 import { useRouter } from 'next/navigation';
 import { useUserContext } from '@/app/lib/contexts/UserContext';
+import Input from '@/app/ui/Input/Input';
 
 const RegisterPage: React.FC = () => {
   const router = useRouter();
@@ -40,7 +41,7 @@ const RegisterPage: React.FC = () => {
       <div>
         <h1 className={style.log_in__title}> Sign Up </h1>
         <form onSubmit={handleSubmit(onSubmit)} className={style.log_in__form}>
-          <input
+          <Input
             {...register('email')}
             type='email'
             placeholder='Email'
@@ -50,7 +51,7 @@ const RegisterPage: React.FC = () => {
           <p className={style.log_in__description_error}>
             {errors.email?.message}
           </p>
-          <input
+          <Input
             {...register('password')}
             type='password'
             placeholder='Password'
@@ -60,7 +61,7 @@ const RegisterPage: React.FC = () => {
           <p className={style.log_in__description_error}>
             {errors.password?.message}
           </p>
-          <input
+          <Input
             {...register('passwordReplay')}
             type='password'
             placeholder='Password replay'

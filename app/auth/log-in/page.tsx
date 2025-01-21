@@ -9,10 +9,9 @@ import { logInSchema } from '@/public/validation/schemas';
 import { signInApi } from '@/api/clientApi/authApi';
 import { useRouter } from 'next/navigation';
 import { useUserContext } from '@/app/lib/contexts/UserContext';
-import {
-  InputDataAuthorizationType,
-  InputDataType,
-} from '@/app/lib/definitions';
+import { InputDataAuthorizationType, InputDataType } from '@/app/lib/definitions';
+import Input from '@/app/ui/Input/Input';
+
 
 const LoginPage: React.FC = () => {
   const router = useRouter();
@@ -43,7 +42,7 @@ const LoginPage: React.FC = () => {
       <div>
         <h1 className={style.log_in__title}> Log in </h1>
         <form onSubmit={handleSubmit(onSubmit)} className={style.log_in__form}>
-          <input
+          <Input
             {...register('email')}
             type='email'
             placeholder='Email'
@@ -53,7 +52,7 @@ const LoginPage: React.FC = () => {
           <p className={style.log_in__description_error}>
             {errors.email?.message}
           </p>
-          <input
+          <Input
             {...register('password')}
             type='password'
             placeholder='Password'

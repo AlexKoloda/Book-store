@@ -1,6 +1,6 @@
 'use client'
 import Button from '../Button/Button';
-import style from './banner.module.scss';
+import style from './Banner.module.scss';
 import BannerImage from '@/public/banner-img/banner-img.png';
 import Image from 'next/image';
 import Link from 'next/link';

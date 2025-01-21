@@ -1,26 +1,25 @@
+@import '../../mixins.module.scss';
+
 .book_card {
   &__title {
+    @include font-format;
+    @include reset;
     padding-top: 30px;
     font-size: 20px;
-    font-weight: 500;
-    line-height: 30px;
     text-align: left;
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
-    color: rgba(52, 73, 102, 1);
-    margin: 0;
-    
+    color: var(--color-dark-blue);   
   }
 
   &__author {
+    @include font-format;
+    @include reset;
     font-size: 20px;
-    font-weight: 500;
-    line-height: 30px;
     text-align: left;
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
     color:rgba(185, 186, 195, 1);
-    margin: 0;
   }
 
   &__button {
@@ -30,9 +29,7 @@
     letter-spacing: 0.75px;
     text-align: center;
     text-underline-position: from-font;
-    text-decoration-skip-ink: none;
-    width: 100%;
-    margin-top: 20px;
+    text-decoration-skip-ink: none;    
   }
 
   &__item {

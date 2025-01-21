@@ -1,8 +1,10 @@
+@import '../../mixins.module.scss';
+
 .banner {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  border-radius: 16px;
+  justify-content: space-around;
+  border-radius: var(--border-radius);
   background-image: url('../../../public/banner-img/background-img.png');
   background-repeat: no-repeat;
   background-position: 843px;
@@ -15,10 +17,10 @@
   }
 
   &__overlay {
-    background-color: rgb(240, 244, 239);
+    background-color: var(--color-light);
     position: absolute;
 
-    border-radius: 16px;
+    border-radius: var(--border-radius);
     top: 65px;
     width: 1280px;
     height: 400px;
@@ -27,21 +29,13 @@
   }
 
   &__title {
-    font-size: 40px;
-    font-weight: 700;
-    line-height: 60px;
-    text-align: left;
-    text-underline-position: from-font;
-    text-decoration-skip-ink: none;
+    @include title-font;
+    color: var(--color-dark);
   }
 
   &__description {
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 30px;
-    text-align: left;
-    text-underline-position: from-font;
-    text-decoration-skip-ink: none;
+    @include description-font;
+    color: var(--color-dark);
   }
 
   &__button {

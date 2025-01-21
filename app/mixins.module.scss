@@ -1,0 +1,27 @@
+@mixin reset {
+  margin: 0;
+  padding: 0;
+}
+
+@mixin title-font {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 60px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+
+@mixin description-font {
+font-size: 20px;
+font-weight: 400;
+line-height: 30px;
+text-align: left;
+text-underline-position: from-font;
+text-decoration-skip-ink: none;
+}
+
+@mixin font-format {
+  font-weight: 500;
+  line-height: 30px;
+}

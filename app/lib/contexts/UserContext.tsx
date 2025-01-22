@@ -6,9 +6,11 @@ import React from 'react';
 export const UserContext = createContext<{
   user: IUser | null;
   setUserData(user: IUser | null): void;
+  setUpdateUser(user: Partial<IUser>): void;
 }>({
   user: null,
   setUserData() {},
+  setUpdateUser() {},
 });
 
 export const UserContextProvider: React.FC<
@@ -20,8 +22,20 @@ export const UserContextProvider: React.FC<
     setUser(userData);
   }, []);
 
+  const setUpdateUser = React.useCallback((userData: Partial<IUser>) => {
+    setUser((prev) => {
+      if (!prev) {
+        return prev;
+      }
+      return {
+        ...prev,
+        ...userData,
+      }
+    });
+  }, [])
+
   return (
-    <UserContext.Provider value={{ user, setUserData }}>
+    <UserContext.Provider value={{ user, setUserData, setUpdateUser }}>
       {props.children}
     </UserContext.Provider>
   );

@@ -2,15 +2,7 @@ import { getBooks } from '@/api/serverApi/getBook';
 import BookCard from '../catalogItem/BookCard';
 import style from './Catalog.module.scss';
 import Select from './select/Select';
-
-// interface Pagination {
-//   totalPages: number; // 14
-//   currentPage: number; // 1
-//   prevPage: number | null; // null
-//   hasNextPage: boolean; // true
-//   hasPrevPage: boolean; // false
-//   itemsPerPage: number; // 12
-// }
+import PaginationControlled from '../Pagination/Pagination';
 
 
 const Catalog: React.FC = async () => {
@@ -57,7 +49,7 @@ const Catalog: React.FC = async () => {
       </div>
       <div className={style.catalog__container}>
         <ul className={style.catalog__list}>
-          {books.map((book) => {
+          {books?.map((book) => {
             return (
               <BookCard
                 key={book.id}
@@ -71,6 +63,9 @@ const Catalog: React.FC = async () => {
             );
           })}
         </ul>
+      </div>
+      <div className={style.catalog__pagination} >
+      <PaginationControlled />
       </div>
     </section>
   );

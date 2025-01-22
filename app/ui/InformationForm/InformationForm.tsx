@@ -23,6 +23,7 @@ const InformationForm: React.FC = () => {
     data.id = user?.id;
     updateInformationApi(data);
   };
+  
   const toggleChange = () => {
     setIsChange((prevState) => !prevState);
   };

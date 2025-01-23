@@ -22,7 +22,7 @@ export const UserContextProvider: React.FC<
     setUser(userData);
   }, []);
 
-  const setUpdateUser = React.useCallback((userData: Partial<IUser>) => {
+  const setUpdateUser = React.useCallback((userData: Partial<IUser>) => {  
     setUser((prev) => {
       if (!prev) {
         return prev;

@@ -18,11 +18,10 @@ export const updatePasswordApi = async ( data: {oldPassword: string, newPassword
   return response.status;
 }
 
-export const updateUserPhoto = async ( data: { avatar: string} ) => { 
+export const updateUserPhoto = async ( data: {type: string, avatar: string, } ) => { 
   const response = await axiosApi.patch(
     `/user/photo`,
     data
   );
-  console.log(response)
   return response.data;
 }

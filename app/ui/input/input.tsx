@@ -7,6 +7,7 @@ const Input: React.FC<
     HTMLInputElement
   >
 > = (props) => {
+  
   return <input {...props} className={clsx(props.className, style.global__input)} />;
 };
 

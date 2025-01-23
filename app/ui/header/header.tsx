@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import style from './Header.module.scss';
 import Logo from '@/public/header-img/header-logo.png';
+import SearchLogo from '@/public/icons/Search.png'
 import Button from '../Button/Button';
 import Form from 'next/form';
 import { useUserContext } from '@/app/lib/contexts/UserContext';
@@ -25,14 +26,20 @@ const Header: React.FC = () => {
         />
       </Link>
       <p className={style.header__catalog}>Catalog</p>
+
+      <label className={style.header__label}>
+      <div className={style.header__search}>
+        <Image src={SearchLogo} alt='Search logo' className={style.header__search_logo}/> 
       <Form action='search'>
         <Input
           type='search'
           name='search'
           placeholder='Search'
           className={style.header__input}
-        />
+          />
       </Form>
+      </div>
+      </label>
        { user.user ? (
         < Menu />
       ) : (

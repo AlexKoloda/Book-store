@@ -20,13 +20,16 @@ const InformationForm: React.FC = () => {
 
   const onSubmit = async (data: UserProfileType) => {
     setIsChange(false);
-    data.id = user?.id;
-    updateInformationApi(data);
+    const apiData = data;
+    apiData.id = user?.id;
+    updateInformationApi(apiData);
+    
   };
   
   const toggleChange = () => {
     setIsChange((prevState) => !prevState);
   };
+
   return (
     <form
       name='information'

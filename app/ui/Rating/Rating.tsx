@@ -8,7 +8,7 @@ export default function BasicRating() {
   const [value, setValue] = useState<number | null>(2);
 
   return (
-    <Box sx={{ '& > legend': { mt: 3 } }}>
+    <Box sx={{ '& > legend': { mt: 3} }}>
       <Typography component='legend' />
       <Rating
         name='simple-controlled'

@@ -2,6 +2,7 @@
 import InformationForm from '@/app/ui/InformationForm/InformationForm';
 import PasswordForm from '@/app/ui/PasswordForm/PasswordForm';
 import userAvatar from '@/public/profile-img/placeholderAvatar.png';
+import convertBase64 from '@/app/lib/util/convertBase64';
 import Image, { ImageLoader } from 'next/image';
 import uploadImage from '@/public/profile-img/button_photo.png';
 import style from './page.module.scss';
@@ -10,7 +11,6 @@ import { useUserContext } from '@/app/lib/contexts/UserContext';
 import { deleteCookie } from 'cookies-next/client';
 import { redirect } from 'next/navigation';
 import { ChangeEvent, useRef } from 'react';
-import convertBase64 from '@/public/util/convertBase64';
 import { updateUserPhoto } from '@/api/clientApi/updateApi';
 import React from 'react';
 import conf from '@/config';
@@ -21,7 +21,7 @@ const imageLoader: ImageLoader = ({ src }) => {
 };
 
 const Profile = () => {
-  const { setUserData } = useUserContext();
+  const { setUserData, setUpdateUser } = useUserContext();
   const { user } = useUserContext();
   const fileUpload = useRef(null);
 
@@ -36,14 +36,16 @@ const Profile = () => {
     if (!e.target.files) {
       return;
     }
+    const type = e.target.files[0].type.split('/')[1];
     const base64File = await convertBase64(e.target.files[0]);
     const base64String = base64File.toString().split(',');
-    const avatar = await updateUserPhoto({ avatar: base64String[1] });
-    if (user) {
-      setUserData({...user.avatar = avatar})
+   
+    const newAvatar = await updateUserPhoto({ type: type, avatar: base64String[1]});
+    
+    if (user) {  
+      setUpdateUser({ avatar: newAvatar })
     }
   };
-
 
   return (
     <section className={style.profile__section}>

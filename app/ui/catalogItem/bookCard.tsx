@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import Image from 'next/image';
 import style from './BookCard.module.scss';
 import BookImage from '@/public/placeholder.png';
@@ -17,11 +17,12 @@ type TBookCard = {
 };
 
 const BookCard: React.FC<TBookCard> = (props) => {
+ 
   const imageLoader = () => {
     return `${conf.url}${props.photo}`;
   };
 
-  return (
+    return (
     <li className={style.book_card__item}>
       <Image
         loader={imageLoader}
@@ -29,10 +30,11 @@ const BookCard: React.FC<TBookCard> = (props) => {
         alt={props.bookTitle}
         width={305}
         height={448}
+        className={style.book_card__photo}
       />
       <h2 className={style.book_card__title}>{props.bookTitle}</h2>
       <p className={style.book_card__author}>{props.bookAuthor}</p>
-      <BasicRating />
+      <BasicRating/>
       <Button text={props.bookPrice} className={style.book_card__button} />
     </li>
   );

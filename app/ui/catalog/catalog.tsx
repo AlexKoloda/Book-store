@@ -1,11 +1,35 @@
-import { getBooks } from '@/api/serverApi/getBook';
+'use client'
 import BookCard from '../catalogItem/BookCard';
 import style from './Catalog.module.scss';
 import Select from './select/Select';
 import PaginationControlled from '../Pagination/Pagination';
+import { getBooksApi } from '@/api/serverApi/getBook';
+import { useSearchParams } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { IBook } from '@/app/lib/definitions';
 
+const Catalog: React.FC = () => {
+  
+  const [books, setBooks] = useState<IBook[] | null>(null);
+  // const [currentPage, setCurrentPAge] = useState(1);
+  const searchParams = useSearchParams(); 
+  const search = searchParams.get('page');
 
-const Catalog: React.FC = async () => {
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        if ( search ) {
+          const response = await getBooksApi(search);
+          setBooks(response);    
+        }      
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    fetchData();
+  },[search]);
+    
+
   const listGenreValues = [
     'Fiction',
     'Non-fiction',
@@ -33,8 +57,6 @@ const Catalog: React.FC = async () => {
     'Rating',
     'Date of issue',
   ];
-
-  const books = await getBooks();
 
   return (
     <section className={style.catalog}>
@@ -65,7 +87,9 @@ const Catalog: React.FC = async () => {
         </ul>
       </div>
       <div className={style.catalog__pagination} >
-      <PaginationControlled />
+      <PaginationControlled 
+      totalPages={2}
+      />
       </div>
     </section>
   );

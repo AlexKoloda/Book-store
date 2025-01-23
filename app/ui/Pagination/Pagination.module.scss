@@ -1,0 +1,26 @@
+.pagination {
+
+  &__container {
+    display: inline-flex;
+  }
+
+  &__arrow {
+    cursor: pointer;
+  }
+
+  &__page {
+    padding: 0 10px;
+  }
+
+  &__page_active {
+    padding: 0 10px;
+    transform: scale(1.2);
+    color: var(--color-dark-blue);
+  }
+
+  &__pages {
+    display: inline-flex;
+  }
+  
+
+}

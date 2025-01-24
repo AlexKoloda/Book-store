@@ -1,9 +1,17 @@
 type TOptions = {
   value: string;
+  className: string;
 };
 
 const Option: React.FC<TOptions> = (props) => {
-  return <option value={props.value}>{props.value}</option>;
+  return (
+    <>
+
+    <p className={props.className}>{props.value}</p>
+
+    </>
+  )
+    
 };
 
 export default Option;

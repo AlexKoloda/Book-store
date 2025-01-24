@@ -17,11 +17,9 @@ const Catalog: React.FC = () => {
 
   useEffect(() => {
     async function fetchData() {
-      try {
-        if ( search ) {
-          const response = await getBooksApi(search);
-          setBooks(response);    
-        }      
+      try {        
+          const response = await getBooksApi(search || '1');
+          setBooks(response);   
       } catch (error) {
         console.log(error)
       }
@@ -64,12 +62,13 @@ const Catalog: React.FC = () => {
         <h1 className={style.catalog__title}>Catalog</h1>
 
         <div id='Catalog' className={style.catalog__filters}>
-          <Select values={listGenreValues} className={style.catalog__select} />
-          <Select values={listPriceValues} className={style.catalog__select} />
-          <Select values={listSortValues} className={style.catalog__sort} />
+          <Select values={listGenreValues} className={style.catalog__select} placeholder={"Genre"}/>
+          <Select values={listPriceValues} className={style.catalog__select} placeholder={"20"}/>
+          <Select values={listSortValues} className={style.catalog__sort} placeholder={"Price"}/>
         </div>
       </div>
       <div className={style.catalog__container}>
+
         <ul className={style.catalog__list}>
           {books?.map((book) => {
             return (
@@ -85,6 +84,7 @@ const Catalog: React.FC = () => {
             );
           })}
         </ul>
+
       </div>
       <div className={style.catalog__pagination} >
       <PaginationControlled 

@@ -8,6 +8,11 @@
     justify-content: space-between;
   }
 
+  &__filters {
+    display: flex;
+    gap: 10px;
+  }
+
   &__title {
     font-size: 40px;
     font-weight: 700;

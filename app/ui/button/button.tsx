@@ -4,7 +4,7 @@ import clsx from 'clsx';
 type TButton = {
   type?: string;
   text: string;
-  className: string;
+  className?: string;
   onClick?: () => void;
 };
 

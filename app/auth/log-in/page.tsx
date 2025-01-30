@@ -10,7 +10,7 @@ import { signInApi } from '@/api/clientApi/authApi';
 import { useRouter } from 'next/navigation';
 import { useUserContext } from '@/app/lib/contexts/UserContext';
 import { InputDataAuthorizationType, InputDataType } from '@/app/lib/definitions';
-import Input from '@/app/ui/Input/Input';
+import Input from '@/app/ui/Input/TextInput';
 
 
 const LoginPage: React.FC = () => {

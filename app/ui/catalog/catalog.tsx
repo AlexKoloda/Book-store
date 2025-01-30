@@ -1,95 +1,44 @@
-'use client'
 import BookCard from '../catalogItem/BookCard';
 import style from './Catalog.module.scss';
-import Select from './select/Select';
-import PaginationControlled from '../Pagination/Pagination';
-import { getBooksApi } from '@/api/serverApi/getBook';
-import { useSearchParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
-import { IBook } from '@/app/lib/definitions';
+import { IBook, IGenre } from '@/app/lib/definitions';
+import Filters from './Filters/Filters';
 
-const Catalog: React.FC = () => {
-  
-  const [books, setBooks] = useState<IBook[] | null>(null);
-  // const [currentPage, setCurrentPAge] = useState(1);
-  const searchParams = useSearchParams(); 
-  const search = searchParams.get('page');
+type CatalogPropsType = {
+  books: IBook[];
+  genres: IGenre[];
+};
 
-  useEffect(() => {
-    async function fetchData() {
-      try {        
-          const response = await getBooksApi(search || '1');
-          setBooks(response);   
-      } catch (error) {
-        console.log(error)
-      }
-    }
-    fetchData();
-  },[search]);
-    
-
-  const listGenreValues = [
-    'Fiction',
-    'Non-fiction',
-    'Light-fiction',
-    'Science-fiction',
-    'Fantasy',
-    'Business & Finance',
-    'Politics',
-    'Travel books',
-    'Autobiography',
-    'History',
-    'Thriller/ Mystery',
-    'Romance',
-    'Satire',
-    'Horror',
-    'Health / Medicine',
-    'Children`s books',
-    'Encyclopedia',
-  ];
-  const listPriceValues = ['0-100', '100 - 1000', '1000-5000'];
-  const listSortValues = [
-    'Price',
-    'Name',
-    'Author Name',
-    'Rating',
-    'Date of issue',
-  ];
-
+const Catalog: React.FC<CatalogPropsType> = (props) => {
   return (
-    <section className={style.catalog}>
+    <section className={style.catalog__section}>
       <div className={style.catalog__filter}>
         <h1 className={style.catalog__title}>Catalog</h1>
-
-        <div id='Catalog' className={style.catalog__filters}>
-          <Select values={listGenreValues} className={style.catalog__select} placeholder={"Genre"}/>
-          <Select values={listPriceValues} className={style.catalog__select} placeholder={"20"}/>
-          <Select values={listSortValues} className={style.catalog__sort} placeholder={"Price"}/>
-        </div>
+        <Filters genres={props.genres} />
       </div>
       <div className={style.catalog__container}>
 
+      {props.books.length? (
         <ul className={style.catalog__list}>
-          {books?.map((book) => {
+          {props.books.map((book) => {
             return (
               <BookCard
                 key={book.id}
                 photo={book.photo}
                 bookPrice={book.price}
                 bookTitle={book.title}
-                bookAuthor={book.author}
+                bookAuthor={book.author.name}
                 isNew={book.isNew}
                 isBestseller={book.isBestseller}
               />
             );
           })}
         </ul>
+      ) : (
+        <div className={style.catalog__empty}>
+        <h1 className={style.catalog__title}>Not found books for your request...</h1>
+        </div>
+      )}
 
-      </div>
-      <div className={style.catalog__pagination} >
-      <PaginationControlled 
-      totalPages={2}
-      />
       </div>
     </section>
   );

@@ -35,7 +35,7 @@ const BookCard: React.FC<TBookCard> = (props) => {
       <h2 className={style.book_card__title}>{props.bookTitle}</h2>
       <p className={style.book_card__author}>{props.bookAuthor}</p>
       <BasicRating/>
-      <Button text={props.bookPrice} className={style.book_card__button} />
+      <Button text={`$ ${props.bookPrice} USD`} className={style.book_card__button} />
     </li>
   );
 };

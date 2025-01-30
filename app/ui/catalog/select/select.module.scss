@@ -1,33 +1,105 @@
 .select {
-
-
   &__container {
     position: relative;
   }
 
-  &__input {
-    padding: 5px 20px;
+  &__box {
+    padding-right: 10px;
+    display: flex;
+    align-items: center;
     background-color: var(--color-light);
     border-radius: var(--border-radius);
-    font-size: 18px;
-    color: ver(--color-dark-blue);
-    border: none;
-    cursor: pointer;
+  }
+
+  &__box_white {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-white);
+    border-radius: var(--border-radius);
+  } 
+  
+
+  &__arrow_active {
+    transform: rotate(0.25turn);
+    transition: 0.3s;
+  }
+
+  &__arrow_disable {
+    transform: rotate(0turn);
+    transition: 0.3s;
+  }
+
+  &__arrow_active_white {
+    transform: rotate(0.25turn);
+    transition: 0.3s;
+    background-color: var(--color-white);
+  }
+
+  &__arrow_disable_white {
+    transform: rotate(0turn);
+    transition: 0.3s;
+    background-color: var(--color-white);
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
 
   &__drop_down {
-    position: absolute;
-    top: 50px;
-    left: 0px;
-    width: 100%;
-    background-color: vat(--color-light);
-    border-radius: var(--border-radius);    
+    display: none;
   }
 
-  &__options {
-    margin: 0;
-    padding: 10px;
-    opacity: 0;
+  &__drop_down_active {
+    position: absolute;
+    visibility: visible;
     background-color: var(--color-light);
+    border-radius: var(--border-radius);
+    width: 305px;
+    margin-top: 10px;
+    animation: fadeIn 0.5s;
+  }
+
+  &__drop_down_sort {
+    display: none;
+  }
+
+  &__drop_down_sort_active {
+    width: 100%;
+    position: absolute;
+    visibility: visible;
+    background-color: var(--color-light);
+    border-radius: var(--border-radius);
+    margin-top: 10px;
+    animation: fadeIn 0.5s;
+  }
+
+  &__item {
+    margin: 0;
+    padding: 0 10px;
+    color: var(--color-dark-blue);
+    cursor: pointer;
+  }
+}
+
+.filters {
+  &__select {
+    padding: 10px 8px 10px 15px;
+    border: none;
+    border-radius: 16px;
+    background: #f0f4ef;
+    margin-right: 20px;
+  }
+
+  &__sort {
+    padding: 10px 8px 10px 15px;
+    border: none;
+    border-radius: 16px;
+    font-size: 18px;
+    background-color: var(--color-white);
   }
 }

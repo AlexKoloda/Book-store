@@ -8,7 +8,9 @@
     border: none;
     padding: 18px;
     border-radius: var(--border-radius);
-    transition: 0.3s;
-        
+    transition: 0.3s;        
+  }
+  &:focus-visible {
+    border: none
   }
 }

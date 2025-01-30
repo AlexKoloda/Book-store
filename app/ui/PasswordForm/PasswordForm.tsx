@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form';
 import style from './PasswordForm.module.scss';
 import Button from '../Button/Button';
 import { updatePasswordApi } from '@/api/clientApi/updateApi';
-import Input from '../Input/input';
+import Input from '../Input/TextInput';
 
 
 const PasswordForm: React.FC = () => {

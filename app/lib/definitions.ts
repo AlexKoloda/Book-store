@@ -10,11 +10,19 @@ export interface IBook {
   id: number;
   photo: string;
   title: string;
-  author: string;
   description: string;
   price: string;
   isNew: boolean;
   isBestseller: boolean;
+  author: {
+    id: number,
+    name: string,
+  },
+}
+
+export interface IGenre {
+  id: number,
+  name: string,
 }
 
 export type UserProfileType = {

@@ -10,7 +10,7 @@ import { InputDataRegisterType, InputDataType } from '@/app/lib/definitions';
 import { signUpApi } from '@/api/clientApi/authApi';
 import { useRouter } from 'next/navigation';
 import { useUserContext } from '@/app/lib/contexts/UserContext';
-import Input from '@/app/ui/Input/Input';
+import Input from '@/app/ui/Input/TextInput';
 
 const RegisterPage: React.FC = () => {
   const router = useRouter();

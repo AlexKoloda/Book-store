@@ -1,9 +1,6 @@
-import Link from 'next/link';
 import style from './Pagination.module.scss';
 
 const PaginationNumber = ({
-  page,
-  href,
   isActive,
   position,
 }: {
@@ -13,11 +10,13 @@ const PaginationNumber = ({
   isActive: boolean;
 }) => {
   return isActive || position === 'middle' ? (
-    <div className={style.pagination__page_active}>{page}</div>
+    <div className={style.pagination__page_active}>
+      <div className={style.pagination__circle_active}></div>
+    </div>
   ) : (
-    <Link href={href} className={style.pagination__page}>
-      {page}
-    </Link>
+    <div className={style.pagination__page}>
+      <div className={style.pagination__circle}></div>
+    </div>
   );
 };
 

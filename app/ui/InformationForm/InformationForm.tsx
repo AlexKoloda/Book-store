@@ -7,7 +7,7 @@ import { useState } from 'react';
 import { useUserContext } from '@/app/lib/contexts/UserContext';
 import style from './InformationForm.module.scss';
 import Button from '../Button/Button';
-import Input from '../Input/Input';
+import Input from '../Input/TextInput';
 
 const InformationForm: React.FC = () => {
   const { user } = useUserContext();

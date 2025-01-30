@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import style from './Input.module.scss'
 
-const Input: React.FC<
+const TextInput: React.FC<
   React.DetailedHTMLProps<
     React.InputHTMLAttributes<HTMLInputElement>,
     HTMLInputElement
@@ -11,4 +11,4 @@ const Input: React.FC<
   return <input {...props} className={clsx(props.className, style.global__input)} />;
 };
 
-export default Input;
+export default TextInput;

@@ -22,20 +22,23 @@ const PaginationControlled = (props: IPagination) => {
   const searchParams = useSearchParams();
   const currentPage = Number(searchParams.get('page')) || 1;
   const allPages = generatePagination(currentPage, props.totalPages);
-
+ // TODO Переписать на query.string 
   const createPageURL = (pageNumber: number | string) => {
     const params = new URLSearchParams(searchParams);
     params.set('page', pageNumber.toString());
     return `${pathname}?${params.toString()}#Catalog`;
   };
-
-  return (
-    <div className={style.pagination__container}>
-      <Link href={createPageURL(currentPage - 1)}>
-        <Image src={ArrowLeft} alt='Arrow back' />
-      </Link>
-      <div className={style.pagination__pages}>
-        {allPages.map((page, index) => {
+ // TODO Изменить структуру компонента, что бы улучшить читаемость
+ // Вынести максимум в дочерний элемент
+  return props.totalPages > 0 ? (
+    <div className={style.pagination__section}>
+      <div className={style.pagination__container}>
+        <Link href={createPageURL(currentPage - 1)} className={style.pagination__link}>
+          <Image src={ArrowLeft} alt='Arrow back' />
+        </Link>
+      
+        <div className={style.pagination__pages}>
+          {allPages.map((page, index) => {
             let position: 'first' | 'last' | 'single' | 'middle' | undefined;
 
             if (index === 0) position = 'first';
@@ -52,12 +55,16 @@ const PaginationControlled = (props: IPagination) => {
                 isActive={currentPage === page}
               />
             );
-          })} 
+          })}
         </div>
-      <Link href={createPageURL(currentPage + 1)}>
-        <Image src={ArrowRight} alt='Arrow forward' />
-      </Link>
+        <Link href={createPageURL(currentPage + 1)} className={style.pagination__link}>
+          <Image src={ArrowRight} alt='Arrow forward' />
+        </Link>
+      </div>
     </div>
+  ) : (
+    <>
+    </>
   );
 };
 

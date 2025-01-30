@@ -1,6 +1,8 @@
 .catalog {
-
-  margin-bottom: 30px;
+  &__section {
+    margin-bottom: 40px;
+    scroll-margin-top: 50px;
+  }
 
   &__filter {
     display: flex;
@@ -8,37 +10,12 @@
     justify-content: space-between;
   }
 
-  &__filters {
-    display: flex;
-    gap: 10px;
-  }
-
   &__title {
     font-size: 40px;
     font-weight: 700;
     line-height: 60px;
-    text-align: left;
-    text-underline-position: from-font;
-    text-decoration-skip-ink: none;
-    color: rgba(13, 24, 33, 1);
+    color: var(--color-dark);
   }
-
-  &__select {
-    padding: 10px 8px 10px 15px;
-    border: none;
-    border-radius: 16px;
-    background: #f0f4ef;
-    margin-right: 20px;
-
-  }
-
-  &__sort {
-    padding: 10px 8px 10px 15px;
-    border: none;
-    border-radius: 16px;
-    font-size: 18px;
-  }
-
 
   &__list {
     list-style: none;
@@ -48,9 +25,9 @@
     padding: 0;
   }
 
-  &__pagination {
-    padding: 50px;
+  &__empty {
     display: flex;
     justify-content: center;
+    padding: 100px;
   }
 }

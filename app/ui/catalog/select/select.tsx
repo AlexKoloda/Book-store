@@ -39,7 +39,7 @@ const Select: React.FC<TSelectOption> = (props) => {
       (item) => item.id === Number(params.sort)
     );
     if (sortName) {
-      return sortName.name;
+      return (sortName.name).toLocaleLowerCase();
     }
     return 'price';
   };

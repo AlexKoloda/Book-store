@@ -11,7 +11,7 @@ export default function BasicRating() {
     <Box sx={{ mt: 3, display: 'flex', color: 'grey', justifyContent: 'space-around'}}>
       <Typography component='legend' />
       <Rating
-        sx={{ mb: 3, gap: 3, zIndex: -1}}
+        sx={{ mb: 3, gap: 3,}}
         name='simple-controlled'
         value={value}
         onChange={(event, newValue) => {

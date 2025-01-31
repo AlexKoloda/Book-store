@@ -14,6 +14,8 @@ export interface IBook {
   price: string;
   isNew: boolean;
   isBestseller: boolean;
+  dataIssue: Date;
+  numberBooksStock: number;
   author: {
     id: number,
     name: string,

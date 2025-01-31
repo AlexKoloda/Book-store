@@ -8,12 +8,13 @@ type FiltersProps = {
 
 const Filters = (props: FiltersProps) => {
   const sortList = [
-    { id: 1, name: 'Name' },
-    { id: 2, name: 'Price' },
-    { id: 3, name: 'Author' },
-    { id: 4, name: 'Data of issue' },
+    { id: 1, name: 'Price' },
+    { id: 2, name: 'Name' },
+    { id: 3, name: 'Author name' },
+    { id: 4, name: 'Rating (soon)' },
+    { id: 5, name: 'Date of issue' },
   ];
-
+  
   return (
     <div id='Catalog' className={style.filters__container}>
       <Select

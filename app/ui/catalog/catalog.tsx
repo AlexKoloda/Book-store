@@ -9,6 +9,7 @@ type CatalogPropsType = {
 };
 
 const Catalog: React.FC<CatalogPropsType> = (props) => {
+ 
   return (
     <section className={style.catalog__section}>
       <div className={style.catalog__filter}>
@@ -27,6 +28,7 @@ const Catalog: React.FC<CatalogPropsType> = (props) => {
                 bookPrice={book.price}
                 bookTitle={book.title}
                 bookAuthor={book.author.name}
+                bookLeft = {book.numberBooksStock}
                 isNew={book.isNew}
                 isBestseller={book.isBestseller}
               />

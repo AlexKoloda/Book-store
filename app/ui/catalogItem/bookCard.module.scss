@@ -23,13 +23,65 @@
   }
 
   &__button {
+    font-family: Poppins;
+font-size: 20px;
+font-weight: 400;
+line-height: 28px;
+letter-spacing: 0.75px;
+text-align: center;
+text-underline-position: from-font;
+text-decoration-skip-ink: none;
+
+  }
+
+  &__button_disable {
+    border-radius: var(--border-radius);
     font-size: 20px;
     font-weight: 500;
     line-height: 28px;
     letter-spacing: 0.75px;
     text-align: center;
     text-underline-position: from-font;
-    text-decoration-skip-ink: none;   
+    text-decoration-skip-ink: none; 
+    padding: 10px 50px;
+    
+    background-color: var(--color-dark-grey);
+    color: var(--color-light);
+    &:hover {
+      background-color: var(--color-dark-grey);
+      color: var(--color-light);
+    }
+    &:active {
+      transform: none;
+    }
+    &:focus-visible {
+      box-shadow: none;
+      transition: none;
+      transform: none;
+    }
+    
+
+  }
+
+  &__button_added {
+
+    font-family: Poppins;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 0.75px;
+    text-align: center;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    max-height: 48px;
+    color: var(--color-dark);
+    border: 1px solid var(--color-dark);
+    background-color: var(--color-white);
+
+    &:hover {
+      background-color: var(--color-light);
+      color: var(--color-dark);
+    }
   }
 
   &__item {
@@ -38,10 +90,56 @@
     text-wrap-mode: nowrap;
     overflow: hidden;
     padding: 10px 0;
+    position: relative;
   }
 
   &__photo {
+    z-index: -1;
     border-radius: var(--border-radius);
   }
+
+  &__label {
+    position: absolute;
+    border-radius: var(--border-radius);
+    left: 20px;
+    bottom: 240px;
+    padding: 10px 50px;
+    opacity: 90%;
+
+  }
+
+  &__text {
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    font-style: italic;
+    font-weight: 500;
+    line-height: 9.5px;
+    letter-spacing: 0.75px;
+    text-align: center;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;    
+  }
+
+  &__title_disable {
+    margin: 0;
+    padding: 0;
+  }
+
+}
+
+.label {
+
+  &__new {
+    color: var(--color-dark);
+    background-color: rgba(191, 204, 148, 1);
+  }
+
+  &__bestseller {
+    color: var(--color-white);
+    background-color: var(--color-dark-blue);
+  }
+
+
 
 }

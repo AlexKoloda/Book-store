@@ -1,6 +1,8 @@
 import { IGenre } from '@/app/lib/definitions';
-import Select from '../select/Select';
 import style from './Filters.module.scss';
+import GenreFilter from './GenreFilter/GenreFilter';
+import SortFilter from './SortFilter/SortFilter';
+import PriceFilter from './PriceFilter/PriceFilter';
 
 type FiltersProps = {
   genres: IGenre[];
@@ -14,28 +16,12 @@ const Filters = (props: FiltersProps) => {
     { id: 4, name: 'Rating (soon)' },
     { id: 5, name: 'Date of issue' },
   ];
-  
+
   return (
     <div id='Catalog' className={style.filters__container}>
-      <Select
-        type={'genre'}
-        options={props.genres}
-        placeholder={'Genre'}
-        classNameInput={style.filters__input}
-      />
-      <Select
-        type={"price"}
-        options={[{ id: 99, name: '1' }]}
-        placeholder={'20'}
-        isSlider={true}
-        classNameInput={style.filters__input}
-      />
-      <Select
-        type={'sort'}
-        options={sortList}
-        isSort
-        classNameInput={style.filters__input_white}
-      />
+      <GenreFilter type='genre' genre={props.genres} summary={'Genre'} />
+      <PriceFilter />
+      <SortFilter type='sort' sort={sortList} summary={'Sort by '} />
     </div>
   );
 };

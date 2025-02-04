@@ -4,7 +4,7 @@ import OutsideClickHandler from 'react-outside-click-handler';
 import style from './PriceFilter.module.scss';
 import Image from 'next/image';
 import ArrowFilter from '@/public/icons/Select.png';
-import RangeSlider from '../../select/Slider/RangeSlider';
+import RangeSlider from '../../../Slider/RangeSlider';
 
 
 const PriceFilter = () => {

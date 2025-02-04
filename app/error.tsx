@@ -19,7 +19,6 @@ export default function Error({
       className={style.error__button}
         text='Try again'
         onClick={() => {
-          console.log('>>> RELOAD')
           window.location.reload();
         }}
       />

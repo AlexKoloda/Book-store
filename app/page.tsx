@@ -24,7 +24,6 @@ const Page: NextPage<{searchParams: Promise<{page: number, genre: string, sort: 
   };
 
   const response = await getBooksApi(params)  
-  console.log(response)
   const genres = response.genres;
   const books = response.books[0];
   const totalPages = Math.ceil(response.books[1]/12);

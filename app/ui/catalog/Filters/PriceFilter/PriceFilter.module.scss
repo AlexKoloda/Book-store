@@ -1,0 +1,69 @@
+.price {
+  &__box {
+    padding-right: 10px;
+    display: flex;
+    align-items: center;
+    background-color: var(--color-light);
+    border-radius: var(--border-radius);
+  }
+
+
+  &__label {
+    position: relative;
+    padding: 5px 0 5px 10px;
+    background-color: var(--color-light);
+    border-radius: var(--border-radius);
+    font-size: 18px;
+    color: var(--color-dark-blue);
+    border: none;
+    cursor: pointer;
+
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 28px;
+    letter-spacing: 0.75px;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    outline: none;
+    &:focus-visible {
+      border: none;
+    }
+    &::placeholder {
+      color: var(--color-dark-blue);
+    }
+  }
+
+  &__details {
+    list-style: none;
+    padding-right: 10px;
+    background-color: var(--color-light);
+    border-radius: var(--border-radius);
+  }
+
+  &__arrow_active {
+    transform: rotate(0.25turn);
+    transition: 0.3s;
+  }
+
+  &__arrow_disable {
+    transform: rotate(0turn);
+    transition: 0.3s;
+  }
+  &__dropdown_close {
+    display: none;
+    animation: fadeIn 0.5s;
+  }
+
+  &__dropdown_open {
+    margin-top: 15px;
+    padding: 0;
+    position: absolute;
+    visibility: visible;
+    background-color: var(--color-light);
+    border-radius: var(--border-radius);
+    width: 305px;
+    animation: fadeIn 0.5s;
+    z-index: 99;
+    list-style: none;
+  }
+}

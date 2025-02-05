@@ -4,7 +4,6 @@ import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
 import { useRouter, useSearchParams } from 'next/navigation';
 import queryString from 'query-string';
-import OutsideClickHandler from 'react-outside-click-handler';
 import style from './RangeSlider.module.scss';
 
 export default function RangeSlider() {
@@ -20,10 +19,6 @@ export default function RangeSlider() {
   };
 
   const handleChange = (event: Event, newValue: number | number[]) => {
-    setValue(newValue as number[]);
-  };
-
-  const handleOutsideClick = () => {
     const queryParamsToNavigate = queryString.stringify(
       {
         ...params,
@@ -32,11 +27,11 @@ export default function RangeSlider() {
       { arrayFormat: 'comma', skipNull: true }
     );
 
-    router.push(`/?${queryParamsToNavigate}#Catalog`);
+    router.push(`/?${queryParamsToNavigate}`);
+    setValue(newValue as number[]);
   };
 
   return (
-    <OutsideClickHandler onOutsideClick={handleOutsideClick} display='flex'>
       <Box
         sx={{
           backgroundColor: 'white',
@@ -108,6 +103,5 @@ export default function RangeSlider() {
           </span>
         </div>
       </Box>
-    </OutsideClickHandler>
   );
 }

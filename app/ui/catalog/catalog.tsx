@@ -1,4 +1,4 @@
-import BookCard from '../catalogItem/BookCard';
+import BookCard from '../CatalogItem/BookCard';
 import style from './Catalog.module.scss';
 import { IBook, IGenre } from '@/app/lib/definitions';
 import Filters from './Filters/Filters';

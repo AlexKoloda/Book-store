@@ -10,7 +10,7 @@ const PriceFilter = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const handleToggleDropdown = () => {
-    setIsDropdownOpen(true);
+    setIsDropdownOpen((prev) => !prev);
   };
 
   const handleOutsideClick = () => {

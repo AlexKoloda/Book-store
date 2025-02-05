@@ -1,11 +1,10 @@
-'use client'
+'use client';
 import { useState } from 'react';
 import OutsideClickHandler from 'react-outside-click-handler';
 import style from './PriceFilter.module.scss';
 import Image from 'next/image';
 import ArrowFilter from '@/public/icons/Select.png';
-import RangeSlider from '../../../Slider/RangeSlider';
-
+import RangeSlider from '../../Slider/RangeSlider';
 
 const PriceFilter = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -38,12 +37,15 @@ const PriceFilter = () => {
             }
           />
         </div>
-      <div className={isDropdownOpen? style.price__dropdown_open : style.price__dropdown_close}>
-            <RangeSlider             
-            />
-
-      </div>
-          
+        <div
+          className={
+            isDropdownOpen
+              ? style.price__dropdown_open
+              : style.price__dropdown_close
+          }
+        >
+          <RangeSlider />
+        </div>
       </div>
     </OutsideClickHandler>
   );

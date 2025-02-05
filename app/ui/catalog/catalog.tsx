@@ -1,7 +1,7 @@
 import BookCard from '../CatalogItem/BookCard';
+import Filters from '../Filters/Filters';
 import style from './Catalog.module.scss';
 import { IBook, IGenre } from '@/app/lib/definitions';
-import Filters from './Filters/Filters';
 
 type CatalogPropsType = {
   books: IBook[];

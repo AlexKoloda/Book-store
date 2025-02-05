@@ -9,14 +9,17 @@ import Form from 'next/form';
 import { useUserContext } from '@/app/lib/contexts/UserContext';
 import Menu from '../Menu/Menu';
 import Input from '../Input/TextInput';
-import { redirect, usePathname } from 'next/navigation';
+import { redirect, usePathname, useRouter, useSearchParams } from 'next/navigation';
 
 const Header: React.FC = () => {
   const user = useUserContext();
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
+  const { replace } = useRouter();
   const logInPath = usePathname() === '/auth/log-in';
   const signUpPath = usePathname() === '/auth/sign-up';
 
-  const handleCLick = () => {
+  const handleToggleLogInButton = () => {
     if (signUpPath) {
       redirect('/auth/log-in');
     }
@@ -25,6 +28,16 @@ const Header: React.FC = () => {
     }
 
     redirect('/auth/log-in');
+  };
+
+  const handleSearch = (value: string) => {
+    const params = new URLSearchParams(searchParams);
+    if (value) {
+      params.set('quey', value);
+    } else {
+      params.delete('query');
+    }
+    replace(`${pathname}?${params.toString()}`)
   };
 
   return (
@@ -53,6 +66,8 @@ const Header: React.FC = () => {
               name='search'
               placeholder='Search'
               className={style.header__input}
+              onChange={(e) => handleSearch(e.target.value)}
+              //defaultValue={searchParams.get('query')?.toString()}
             />
           </Form>
         </div>
@@ -63,7 +78,7 @@ const Header: React.FC = () => {
         <Button
           text='Log In/ Sing Up'
           className={style.header__button}
-          onClick={handleCLick}
+          onClick={handleToggleLogInButton}
         />
       )}
     </header>

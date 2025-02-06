@@ -7,8 +7,9 @@
   border-radius: var(--border-radius);
   background-image: url('../../../public/hero-img/hero-background.png');
   background-repeat: no-repeat;
-  background-position: 2px 139px;
+  background-position: 2px 143px;
   margin-bottom: 110px;
+  align-items: flex-end;
 
   &__container {
     padding: 80px 0 93px 0;

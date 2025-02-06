@@ -5,8 +5,13 @@ import style from './PriceFilter.module.scss';
 import Image from 'next/image';
 import ArrowFilter from '@/public/icons/Select.png';
 import RangeSlider from '../../Slider/RangeSlider';
+import { useRouter, useSearchParams } from 'next/navigation';
+import queryString from 'query-string';
 
 const PriceFilter = () => {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const initialValue: [number, number] = [0, 100];
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const handleToggleDropdown = () => {
@@ -15,6 +20,25 @@ const PriceFilter = () => {
 
   const handleOutsideClick = () => {
     setIsDropdownOpen(false);
+  };
+
+  const handleSliderChange = (value: [number, number]) => {
+
+    const params = {
+      page: searchParams.get('page'),
+      sort: searchParams.get('sort'),
+      price: searchParams.get('price'),
+      genre: searchParams.get('genre'),
+    };
+    const queryParamsToNavigate = queryString.stringify(
+      {
+        ...params,
+        price: value,
+      },
+      { arrayFormat: 'comma', skipNull: true }
+    );
+
+    router.push(`/?${queryParamsToNavigate}`);
   };
 
   return (
@@ -44,7 +68,10 @@ const PriceFilter = () => {
               : style.price__dropdown_close
           }
         >
-          <RangeSlider />
+          <RangeSlider
+            initialValueRange={initialValue}
+            onDebouncedChange={handleSliderChange}
+          />
         </div>
       </div>
     </OutsideClickHandler>

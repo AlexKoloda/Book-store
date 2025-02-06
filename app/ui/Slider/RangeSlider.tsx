@@ -2,34 +2,29 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
-import { useRouter, useSearchParams } from 'next/navigation';
-import queryString from 'query-string';
 import style from './RangeSlider.module.scss';
+import { useDebouncedValue } from '@/app/lib/hooks/useDebouncedValue';
 
-export default function RangeSlider() {
-  const router = useRouter();
-  const searchParams = useSearchParams();
+type Props = {
+  initialValueRange?: [number, number];
+  valueRange?: [number, number];
+  onDebouncedChange(value: number[]): void;
+}
 
-  const [value, setValue] = React.useState<number[]>([5, 95]);
-  const params = {
-    page: searchParams.get('page'),
-    sort: searchParams.get('sort'),
-    price: searchParams.get('price'),
-    genre: searchParams.get('genre'),
-  };
+export default function RangeSlider({initialValueRange, onDebouncedChange}: Props) {
 
-  const handleChange = (event: Event, newValue: number | number[]) => {
-    const queryParamsToNavigate = queryString.stringify(
-      {
-        ...params,
-        price: value,
-      },
-      { arrayFormat: 'comma', skipNull: true }
-    );
+  const [value, setValue] = React.useState<number[]>(initialValueRange ?? [5, 95]);
+  const debouncedValue = useDebouncedValue(value, 400);
 
-    router.push(`/?${queryParamsToNavigate}`);
-    setValue(newValue as number[]);
-  };
+  React.useEffect(() => {
+    onDebouncedChange(debouncedValue)
+  }, [debouncedValue]);
+  
+  const handleChange = ( _: Event, newValue: number | number[]) => {
+    if( Array.isArray(newValue)) {
+      setValue(newValue);
+    }
+  }
 
   return (
       <Box

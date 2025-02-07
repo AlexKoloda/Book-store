@@ -9,7 +9,7 @@
     text-align: left;
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
-    color: var(--color-dark-blue);   
+    color: var(--color-dark-blue);
   }
 
   &__author {
@@ -19,19 +19,17 @@
     text-align: left;
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
-    color:rgba(185, 186, 195, 1);
+    color: rgba(185, 186, 195, 1);
   }
 
   &__button {
-    font-family: Poppins;
-font-size: 20px;
-font-weight: 400;
-line-height: 28px;
-letter-spacing: 0.75px;
-text-align: center;
-text-underline-position: from-font;
-text-decoration-skip-ink: none;
-
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 0.75px;
+    text-align: center;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
   }
 
   &__button_disable {
@@ -42,9 +40,9 @@ text-decoration-skip-ink: none;
     letter-spacing: 0.75px;
     text-align: center;
     text-underline-position: from-font;
-    text-decoration-skip-ink: none; 
+    text-decoration-skip-ink: none;
     padding: 10px 50px;
-    
+
     background-color: var(--color-dark-grey);
     color: var(--color-light);
     &:hover {
@@ -59,12 +57,9 @@ text-decoration-skip-ink: none;
       transition: none;
       transform: none;
     }
-    
-
   }
 
-  &__button_added {
-
+  &__button_added.book_card__button_added {
     font-family: Poppins;
     font-size: 20px;
     font-weight: 400;
@@ -91,11 +86,21 @@ text-decoration-skip-ink: none;
     overflow: hidden;
     padding: 10px 0;
     position: relative;
+    transition: 0.3s;
+    &:hover {
+      background: rgb(240 244 239 / 27%);
+      border-radius: var(--border-radius);
+      transition: 0.3s;
+      cursor: pointer;
+    }
   }
 
   &__photo {
     z-index: -1;
     border-radius: var(--border-radius);
+    &:active {
+      transform: scale(0.99);
+    }
   }
 
   &__label {
@@ -105,7 +110,6 @@ text-decoration-skip-ink: none;
     bottom: 240px;
     padding: 10px 50px;
     opacity: 90%;
-
   }
 
   &__text {
@@ -118,18 +122,16 @@ text-decoration-skip-ink: none;
     letter-spacing: 0.75px;
     text-align: center;
     text-underline-position: from-font;
-    text-decoration-skip-ink: none;    
+    text-decoration-skip-ink: none;
   }
 
   &__title_disable {
     margin: 0;
     padding: 0;
   }
-
 }
 
 .label {
-
   &__new {
     color: var(--color-dark);
     background-color: rgba(191, 204, 148, 1);
@@ -139,7 +141,4 @@ text-decoration-skip-ink: none;
     color: var(--color-white);
     background-color: var(--color-dark-blue);
   }
-
-
-
 }

@@ -7,9 +7,13 @@ import BasicRating from '../Rating/Rating';
 import conf from '@/config';
 import clsx from 'clsx';
 import { useState } from 'react';
+import { addBookApi } from '@/api/clientApi/cartApi';
+import { useRouter } from 'next/navigation';
+
 
 type TBookCard = {
-  key: number;
+  key: number | string;
+  id: number | string;
   photo: string;
   bookTitle: string;
   bookAuthor: string;
@@ -21,20 +25,30 @@ type TBookCard = {
 
 // TODO  Сделать отдельный компонент для этикеток, который будет использовать пропсы и рисовать нужную торговую этикетку
 const BookCard: React.FC<TBookCard> = (props) => {
+  const router = useRouter();
   const isBookAvailable = props.bookLeft !== 0;
   const [isAdded, setIsAdded] = useState(false);
 
-  const handleClickCartButton = () => {
-    setIsAdded(!isAdded);
+  const handleClickCartButton = async () => {
+    if(!isAdded) {
+      addBookApi(Number(props.id));
+      setIsAdded(true);
+    }
+    else 
+    router.push(`/cart`)
   };
+
+  const handleClickOnBook = () => {
+    router.push(`/book/${props.id}`)
+  };
+  
 
   const imageLoader = () => {
     return `${conf.url}${props.photo}`;
   };
 
-  return (
-    
-    <li className={style.book_card__item}>
+  return (    
+    <li className={style.book_card__item} onClick={handleClickOnBook}>
       <Image
         loader={imageLoader}
         src={BookImage}

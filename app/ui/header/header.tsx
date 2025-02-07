@@ -9,13 +9,14 @@ import Form from 'next/form';
 import { useUserContext } from '@/app/lib/contexts/UserContext';
 import Menu from '../Menu/Menu';
 import Input from '../Input/TextInput';
-import { redirect, usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { redirect, usePathname, useRouter } from 'next/navigation';
+import queryString from 'query-string';
+import { useState } from 'react';
 
 const Header: React.FC = () => {
+  const [queryParams, setQueryParams] = useState('');
   const user = useUserContext();
-  const searchParams = useSearchParams();
-  const pathname = usePathname();
-  const { replace } = useRouter();
+  const {replace} = useRouter();
   const logInPath = usePathname() === '/auth/log-in';
   const signUpPath = usePathname() === '/auth/sign-up';
 
@@ -26,19 +27,21 @@ const Header: React.FC = () => {
     if (logInPath) {
       redirect('/auth/sign-up');
     }
-
     redirect('/auth/log-in');
   };
 
   const handleSearch = (value: string) => {
-    const params = new URLSearchParams(searchParams);
-    if (value) {
-      params.set('quey', value);
-    } else {
-      params.delete('query');
-    }
-    replace(`${pathname}?${params.toString()}`)
+   setQueryParams(queryString.stringify(
+      {
+        value
+      },
+      { arrayFormat: 'comma', skipNull: true }
+    ))  
   };
+
+  const handleSubmitSearch = () => {
+    replace(`/${queryParams}`)
+  }
 
   return (
     <header className={style.header}>
@@ -60,14 +63,13 @@ const Header: React.FC = () => {
             alt='Search logo'
             className={style.header__search_logo}
           />
-          <Form action='search'>
+          <Form action='/' onSubmit={handleSubmitSearch}>
             <Input
               type='search'
               name='search'
               placeholder='Search'
               className={style.header__input}
               onChange={(e) => handleSearch(e.target.value)}
-              //defaultValue={searchParams.get('query')?.toString()}
             />
           </Form>
         </div>

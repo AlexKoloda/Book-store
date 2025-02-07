@@ -1,0 +1,94 @@
+@import '../../mixins.module.scss';
+
+.product {
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 110px;
+  }
+
+  &__photo {
+    border-radius: var(--border-radius);
+  }
+
+  &__content {
+    max-width: 630px;
+  }
+
+  &__title {
+    @include title-font;
+    @include reset;
+    color: var(--color-dark);
+  }
+
+  &__rating {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+  }
+
+  &__rate_description {
+    color: rgba(185, 186, 195, 1);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+  }
+
+  &__description_title {
+    @include reset;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 36px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+  }
+
+  &__description {
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    color: var(--color-dark-blue);
+  }
+
+  &__cover {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+    color: var(--color-dark-blue);
+    margin-top: 75px;
+  }
+
+  &__button {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 30px;
+    letter-spacing: 0.75px;
+    text-align: center;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+  }
+
+  &__button_added {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 0.75px;
+    text-align: center;
+    max-height: 48px;
+    color: var(--color-dark);
+    border: 1px solid var(--color-dark);
+    background-color: var(--color-white);
+    &:hover {
+      background-color: var(--color-light);
+      color: var(--color-dark);
+    }
+  }
+}

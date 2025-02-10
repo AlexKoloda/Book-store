@@ -48,15 +48,19 @@ const BookCard: React.FC<TBookCard> = (props) => {
   };
 
   return (    
-    <li className={style.book_card__item} onClick={handleClickOnBook}>
+    <li className={style.book_card__item}>
+      <div className={style.book_card__wrapper}  onClick={handleClickOnBook}>
       <Image
         loader={imageLoader}
         src={BookImage}
         alt={props.bookTitle}
         width={305}
         height={448}
-        className={style.book_card__photo}
-      />
+        className={style.book_card__photo}       
+        />
+        <div className={style.book_card__description}>
+        </div>
+        </div>
       {props.isNew ? (
         <div className={clsx(style.book_card__label, style.label__new)}>
           <p className={clsx(style.book_card__text, style.label__new)}>New</p>

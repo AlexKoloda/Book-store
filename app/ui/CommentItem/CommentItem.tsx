@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import style from './Comment.module.scss'
+import style from './CommentItem.module.scss'
 import placeholder from '@/public/placeholder.png'
 
 type Props = {
@@ -10,7 +10,7 @@ type Props = {
   commentText: string;
 }
 
-const Comment:React.FC<Props> = (props) => {
+const CommentItem:React.FC<Props> = (props) => {
 
 return (
 <div className={style.comment__box}>
@@ -28,4 +28,4 @@ return (
 );
 };
 
-export default Comment;
+export default CommentItem;

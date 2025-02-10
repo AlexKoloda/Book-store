@@ -24,8 +24,10 @@ export const getCurrentBookApi = async (id: string) => {
   return book;
 };
 
-export const getRecommendationBooks = async (id: number) => {
-  const res = await fetch(`${conf.url}/book/getRec/?id=${id}`, {
+export const getRecommendationBooks = async (params: {genreId: number, bookId: string | number}) => {
+  const paramsQueryString = queryString.stringify(params);
+  console.log(paramsQueryString)
+  const res = await fetch(`${conf.url}/book/getRec/?${paramsQueryString}`, {
     method: 'GET',
 });
   const recBooks = await res.json();

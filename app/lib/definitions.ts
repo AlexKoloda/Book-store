@@ -21,7 +21,7 @@ export interface IBook {
     name: string,
   },
   bookGenres: [{
-    id: number,
+    genre: IGenre,
   }];
 }
 

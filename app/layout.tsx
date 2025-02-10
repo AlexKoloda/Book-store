@@ -11,6 +11,7 @@ const RootLayout = async ({
 }: Readonly<{ children: React.ReactNode }>) => {
   return (
     <html lang='en' className={clsx(poppins.className, style.body)}>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
       <body className={style.body}>
         <ContextDataServerInitialization>
           <div className={style.wrapper__inner}>

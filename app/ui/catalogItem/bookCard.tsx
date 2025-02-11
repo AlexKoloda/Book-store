@@ -3,12 +3,13 @@ import Image from 'next/image';
 import style from './BookCard.module.scss';
 import BookImage from '@/public/placeholder.png';
 import Button from '../Button/Button';
-import BasicRating from '../Rating/Rating';
+//import BasicRating from '../Rating/Rating';
 import conf from '@/config';
 import clsx from 'clsx';
 import { useState } from 'react';
 import { addBookApi } from '@/api/clientApi/cartApi';
 import { useRouter } from 'next/navigation';
+import RatingAverage from '../Rating/RatingAverage';
 
 
 type TBookCard = {
@@ -77,7 +78,10 @@ const BookCard: React.FC<TBookCard> = (props) => {
 
       <h2 className={style.book_card__title}>{props.bookTitle}</h2>
       <p className={style.book_card__author}>{props.bookAuthor}</p>
-      <BasicRating />
+      {/* <BasicRating /> */}
+       <RatingAverage 
+       value={4}
+       />
 
       {isBookAvailable ? (
         <Button

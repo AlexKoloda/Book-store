@@ -17,9 +17,11 @@ type Props = {
   bookDescription: string;
   authorName: string;
   bookPrice: string;
+  rating: number;
 }
 
 const ProductInfo:React.FC<Props> = (props) => {
+
     const router = useRouter();
     const [isAdded, setIsAdded] = React.useState(false);
 
@@ -50,7 +52,10 @@ return (
           <h1 className={style.product__title}>{props.bookTitle}</h1>
           <p className={style.product__description_title}>{props.authorName}</p>
           <div className={style.product__rating}>
-          <BasicRating />
+          <BasicRating 
+          id={Number(props.id)}
+          rating={props.rating}
+          />
           <Image src={GreyArrow} alt={'arrow'} />
           <p className={style.product__rate_description}>Rate this book</p>
           </div>

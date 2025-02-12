@@ -32,6 +32,7 @@ const Catalog: React.FC<CatalogPropsType> = (props) => {
                 bookLeft = {book.numberBooksStock}
                 isNew={book.isNew}
                 isBestseller={book.isBestseller}
+                rating = {book.rating}
               />
             );
           })}

@@ -12,7 +12,6 @@ type Props = {
 
 const Recommendations:React.FC<Props> = (props) => {
 const hasBooks = Boolean(props.books.length);
-console.log(hasBooks)  
 
 return hasBooks? (
   <ul className={style.recommendations__list}>

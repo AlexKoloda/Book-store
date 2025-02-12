@@ -1,51 +1,40 @@
 import React from 'react';
-import style from './Rating.module.scss'
+import style from './Rating.module.scss';
 import Image from 'next/image';
-import StarIcon from '@/public/icons/StarIcon.png'
-import StarIconEmpty from '@/public/icons/StarIconEmpty.png'
+import StarIcon from '@/public/icons/StarIcon.png';
+import StarIconEmpty from '@/public/icons/StarIconEmpty.png';
 
-type Props = {
-  value: number,
-}
+const RatingAverage = (props: { rating: number }) => {
+  const starsArray = Array.from({ length: 5 }, (_, index) =>
+    index < props.rating ? 'filled' : 'empty'
+  );
 
-const RatingAverage:React.FC<Props> = (props) => {
- 
- const stars: number [] = []
- 
-  for(let i=1; i<= props.value; i++) {
-    stars.push(i);
-  }
-  if ( stars.length < 5) {
-    stars.push(0);
-  }
-
-  console.log(stars)
-
-  
-
-return (
-  <div className={style.average_rating__container}>
-  <ul className={style.average_rating__list}>
-    { stars.map((item) => {
-      return item? (
-        <li key={stars.indexOf(item)}>
-          <Image src={StarIcon} alt='Star icon'/>
-        </li>
-      ) : (
-        <li key={stars.indexOf(item)}>
-          <Image src={StarIconEmpty} alt='Star icon empty'/>
-        </li>
-      )
-    })
-
-    }
-
-  </ul>
-  <p className={style.average_rating__count}>
-  {props.value}.0
-  </p>
-  </div>
-);
+  return (
+    <div className={style.rating__container}>
+      <ul className={style.rating__list}>
+        {starsArray.map((item, index) => {
+          return item === 'filled' ? (
+            <Image
+              key={index}
+              src={StarIcon}
+              alt='Star icon'
+              width={26}
+              height={26}
+            />
+          ) : (
+            <Image
+              key={index}
+              src={StarIconEmpty}
+              alt='Star icon empty'
+              width={26}
+              height={26}
+            />
+          );
+        })}
+      </ul>
+      <p className={style.rating__count}>{props.rating}.0</p>
+    </div>
+  );
 };
 
 export default RatingAverage;

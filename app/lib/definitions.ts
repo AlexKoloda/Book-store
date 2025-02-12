@@ -22,7 +22,11 @@ export interface IBook {
   },
   bookGenres: [{
     genre: IGenre,
-  }];
+  }],
+  rating: [{
+    id: number,
+    value: number,
+  }],
 }
 
 export interface IGenre {

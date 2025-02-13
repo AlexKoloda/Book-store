@@ -1,64 +1,70 @@
 import Button from '@/app/ui/Button/Button';
-import BookImg from '@/public/cart-img/book-logo.png'
+import BookImg from '@/public/cart-img/book-logo.png';
 import Image from 'next/image';
 import Link from 'next/link';
-import style from './page.module.scss'
+import style from './page.module.scss';
 import CartItem from '@/app/ui/CartItem/CartItem';
+import { getBookInCartApi } from '@/api/serverApi/cartApi';
 import { IBook } from '@/app/lib/definitions';
 
+interface IBookCart {
+  id: number;
+  quantity: number;
+  book: IBook;
+}
 
+const Cart = async () => {
+  const response: IBookCart[] = await getBookInCartApi();
 
-const Cart = () => {
+  const totalPrice = response
+    .reduce((acc, item) => acc + item.book.price, 0)
+    .toFixed(2);
 
-  const testBook = {
-    id: 22,
-    photo: '/book-img/book-cover-reset.jpg',
-    title: 'Press Reset',
-    description: 'Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum',
-    dataIssue: '2019-01-12',
-    price: 27.99,
-    numberBooksStock: 2,
-    isNew: false,
-    isBestseller: true,
-    author: { id: 22, name: 'Jason Schreier' }
-  }
-
-
-  const cart = null
-  const booksInCart: IBook[] = [testBook,] 
-  const totalPrice = 35;
-return cart ? (
-<section className={style.cart__section}>
-  <Image src={BookImg} alt='Books' /> 
-  <div className={style.cart__container}>
-    <h1 className={style.cart__title}>Your cart is empty</h1>
-    <p className={style.cart__description}>Add items to cart to make a purchase.Go to the catalogue no.</p>
-    <Link href={'/#Catalog'}>
-    <Button text='Go to catalog' />
-    </Link>
-  </div>
-  </section>
-) : (
-  <section className={style.cart__section}>
-    {<ul className={style.cart__list}>
-          {booksInCart.map((book) => {
+  return !response ? (
+    <section className={style.cart__section}>
+      <Image src={BookImg} alt='Books' />
+      <div className={style.cart__container}>
+        <h1 className={style.cart__title}>Your cart is empty</h1>
+        <p className={style.cart__description}>
+          Add items to cart to make a purchase.Go to the catalogue no.
+        </p>
+        <Link href={'/#Catalog'}>
+          <Button text='Go to catalog' />
+        </Link>
+      </div>
+    </section>
+  ) : (
+    <section className={style.cart__section}>
+      {
+        <ul className={style.cart__list}>
+          {response.map((cart) => {
             return (
               <CartItem
-                key={book.id}
-                id = {book.id}
-                photo={book.photo}
-                bookPrice={book.price}
-                bookTitle={book.title}
-                bookAuthor={book.author.name}
-                bookLeft = {book.numberBooksStock}
-                totalPrice = {totalPrice}
+                key={cart.id}
+                cartItemId={cart.id}
+                photo={cart.book.photo}
+                bookPrice={cart.book.price}
+                bookTitle={cart.book.title}
+                bookAuthor={cart.book.author.name}
+                bookLeft={cart.book.numberBooksStock}
               />
             );
           })}
         </ul>
-}
-  </section>
-)
-}
+      }
+      <div className={style.cart__container}>
+        <h2 className={style.cart__total_title}>Total:</h2>
+        <p className={style.cart__total_text}>{totalPrice}</p>
+      </div>
+      <Link href={'/'}>
+        <Button
+          text={'Continue shopping'}
+          className={style.cart__button_continue}
+        />
+      </Link>
+      <Button text={'Checkout'} className={style.cart__button} />
+    </section>
+  );
+};
 
 export default Cart;

@@ -1,14 +1,23 @@
 @import '../../mixins.module.scss';
 
 .cart {
+
   &__section {
-    display: flex;
-    justify-content: space-around;
-    padding: 120px 0 130px
+    padding-bottom: 120px;
   }
 
   &__container {
     max-width: 465px;
+    display: flex;
+    gap: 10px;
+    padding: 20px 0;
+  }
+
+  &__list {
+    @include reset;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
   }
 
   &__title {
@@ -23,5 +32,44 @@
     line-height: 36px;
     color: var(--color-dark-blue);
     margin-bottom: 60px;
+  }
+
+  &__total_title {
+    @include reset;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 54px;
+    letter-spacing: 0;
+  }
+
+  &__total_text {
+    @include reset;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 54px;
+    letter-spacing: 0;
+  }
+
+  &__button_continue {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-dark);
+    color: var(--color-dark);
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 28px;
+    letter-spacing: 0.75px;
+    text-align: center;
+    &:hover {
+      background-color: var(--color-white);
+    }
+    margin-right: 20px;
+  }
+
+  &__button {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.75px;
+    text-align: center;    
   }
 }

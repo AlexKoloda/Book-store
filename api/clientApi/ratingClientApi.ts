@@ -7,6 +7,5 @@ export const updateRatingApi = async ( data: {value: number, id: string} ) => {
    `/rating/`,
    data
   );
-  console.log(response.data.value);
   return response.data.value;
 } 

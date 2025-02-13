@@ -1,57 +1,79 @@
 'use client';
 import React from 'react';
 import style from './Comments.module.scss';
+import { useUserContext } from '@/app/lib/contexts/UserContext';
+import { IComment } from '@/app/lib/definitions';
 
 import Comment from '@/app/ui/CommentItem/CommentItem';
-import { useUserContext } from '@/app/lib/contexts/UserContext';
-import TextInput from '../Input/TextInput';
 import Button from '../Button/Button';
+import Form from 'next/form';
+import Input from '../Input/TextInput';
+import { addCommentApi } from '@/api/clientApi/commentApi';
 
-const Comments: React.FC = () => {
+type CommentsPropsType = {
+  comments: IComment[];
+  bookId: string;
+};
+
+const Comments: React.FC<CommentsPropsType> = (props) => {
   const { user } = useUserContext();
-  // TODO Реализовать запрос на бек с комментариями по конкретной книге
-  const comments = [
-    {
-      id: 1,
-      commentAuthor: 'Lorem Ipsum',
-      commentDate: 'Left a comment 0 day ago',
-      commentText:
-        'Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum',
-    },
-    {
-      id: 2,
-      commentAuthor: 'Lorem Ipsum',
-      commentDate: 'Left a comment 1 day ago',
-      commentText: '  Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum',
-    },
-  ];
+  const [commentText, setCommentText] = React.useState(' ');
+  const [comments, setComments] = React.useState(props.comments);
+
+  const handleChangeForm = (newValue: string) => {
+    setCommentText(newValue);
+  };
+
+  const handleSubmitForm = async() => {
+    try {      
+     const newComment = await addCommentApi({ text: commentText, bookId: props.bookId });
+     setComments([...comments, newComment]);
+     setCommentText('');
+    } catch (error) {
+      console.log('Request comment error', error)
+    }
+  };
 
   return (
     <section className={style.comments__section}>
-      <h1 className={style.comments__title}>Comments</h1>
+      <h1 id='Comments' className={style.comments__title}>
+        Comments
+      </h1>
       <ul className={style.comments__list}>
-        {comments.map((comment) => {
+        {props.comments.map((comment) => {
           return (
             <Comment
               key={comment.id}
-              userName={comment.commentAuthor}
-              commentText={comment.commentText}
-              commentDate={comment.commentDate}
+              userPhoto={comment.user.avatar}
+              userName={comment.user.name}
+              commentText={comment.text}
+              commentDate={comment.dateOfCreate}
             />
           );
         })}
       </ul>
       {user ? (
         <div className={style.comments__container}>
-          <form className={style.comments__form}>
+          <Form
+            action=''
+            scroll={false}
+            replace={true}
+            onSubmit={handleSubmitForm}
+            className={style.comments__form}
+          >
+            <Input
+              type='textarea'
+              name='comment'
+              className={style.comments__input}
+              onChange={(e) => handleChangeForm(e.target.value)}
+            />
             <p className={style.comments__placeholder}>Share a comment</p>
-            <TextInput type='text' className={style.comments__input}/>
             <Button
               text='Post a comment'
               className={style.comments__button}
               type='submit'
             />
-          </form>
+          </Form>
         </div>
       ) : null}
     </section>

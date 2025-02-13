@@ -15,7 +15,7 @@ const hasBooks = Boolean(props.books.length);
 
 return hasBooks? (
   <ul className={style.recommendations__list}>
-  {props.books.map((book) => {            
+  {props.books.map((book) => {     
     return (
       <BookCard
         key={book.id}
@@ -27,6 +27,7 @@ return hasBooks? (
         bookLeft = {book.numberBooksStock}
         isNew={book.isNew}
         isBestseller={book.isBestseller}
+        rating={book.rating}
       />
     );
   })}

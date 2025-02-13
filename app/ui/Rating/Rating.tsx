@@ -7,25 +7,29 @@ import { updateRatingApi } from '@/api/clientApi/ratingClientApi';
 import style from './Rating.module.scss';
 
 type BasicRatingType = {
-  id: number;
+  bookId: number;
   rating: number;
 };
 
 const BasicRating: React.FC<BasicRatingType> = (props) => {
   const [value, setValue] = useState<number | null>(props.rating);
 
-  const handleChange = async (_: unknown, newValue: SetStateAction<number | null>) => {
-    updateRatingApi({ value: Number(newValue), id: String(props.id) });  
+  const handleChange = async (
+    _: unknown,
+    newValue: SetStateAction<number | null>
+  ) => {
+    updateRatingApi({ value: Number(newValue), id: String(props.bookId) });
     setValue(newValue);
   };
 
-  return props.rating? (
+  return (props.rating !== null) ? (
     <Box
       sx={{
         display: 'flex',
         color: 'grey',
         justifyContent: 'space-around',
         fontSize: '1.5rem',
+        alignItems: 'center',
       }}
     >
       <p className={style.average_rating__count}>{value}.0</p>

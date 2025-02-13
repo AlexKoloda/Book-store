@@ -20,10 +20,14 @@ type TBookCard = {
   bookLeft: number;
   isNew?: boolean;
   isBestseller?: boolean;
-  rating: [{
-    id: number,
-    value: number,
-  }] | [],
+  rating:
+    | [
+        {
+          id: number;
+          value: number;
+        }
+      ]
+    | [];
 };
 
 // TODO  Сделать отдельный компонент для этикеток, который будет использовать пропсы и рисовать нужную торговую этикетку
@@ -33,9 +37,10 @@ const BookCard: React.FC<TBookCard> = (props) => {
   const ratingValues = props.rating.map((item) => item.value);
 
   if (ratingValues.length) {
-  const sumRatingValues = ratingValues.reduce((acc, value) => acc + value);
-   averageRating = sumRatingValues/props.rating.length;
-  }    
+    const sumRatingValues = ratingValues.reduce((acc, value) => acc + value);
+    averageRating = (sumRatingValues / props.rating.length);
+    console.log(averageRating)
+  }
 
   const router = useRouter();
   const isBookAvailable = props.bookLeft !== 0;
@@ -85,9 +90,7 @@ const BookCard: React.FC<TBookCard> = (props) => {
 
       <h2 className={style.book_card__title}>{props.bookTitle}</h2>
       <p className={style.book_card__author}>{props.bookAuthor}</p>
-      <RatingAverage 
-       rating={averageRating}
-      /> 
+      <RatingAverage rating={averageRating.toFixed(1)} />
       {isBookAvailable ? (
         <Button
           text={!isAdded ? `$ ${props.bookPrice} USD` : `Added to cart`}

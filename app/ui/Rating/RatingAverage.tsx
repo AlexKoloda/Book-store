@@ -4,9 +4,10 @@ import Image from 'next/image';
 import StarIcon from '@/public/icons/StarIcon.png';
 import StarIconEmpty from '@/public/icons/StarIconEmpty.png';
 
-const RatingAverage = (props: { rating: number }) => {
+const RatingAverage = (props: { rating: string }) => {
+  const numberStar = Number(props.rating)
   const starsArray = Array.from({ length: 5 }, (_, index) =>
-    index < props.rating ? 'filled' : 'empty'
+    index < Math.round(numberStar - 0.5) ? 'filled' : 'empty'
   );
 
   return (
@@ -32,7 +33,7 @@ const RatingAverage = (props: { rating: number }) => {
           );
         })}
       </ul>
-      <p className={style.rating__count}>{props.rating}.0</p>
+      <p className={style.rating__count}>{props.rating}</p>
     </div>
   );
 };

@@ -1,0 +1,19 @@
+.favorite {
+  &__wrapper {
+    position: absolute;
+    padding: 20px;
+    z-index: 10;
+    cursor: pointer;
+    transition: 0.5s;
+  }
+
+  &__icon {
+    border-radius: 50%;
+  }
+
+  &__wrapper:hover img {
+    transition: 0.5s;
+      border-radius: 50%;
+      background: rgb(54 72 102);
+  }
+}

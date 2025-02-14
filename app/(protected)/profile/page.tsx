@@ -15,7 +15,6 @@ import { updateUserPhoto } from '@/api/clientApi/updateApi';
 import React from 'react';
 import conf from '@/config';
 
-
 const imageLoader: ImageLoader = ({ src }) => {
   return `${conf.url}/${src}`;
 };

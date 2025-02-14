@@ -1,13 +1,31 @@
 @import '../../mixins.module.scss';
 
 .cart {
-
   &__section {
     padding-bottom: 120px;
   }
 
-  &__container {
+  &__section_empty {
+    display: flex;
+    padding: 120px 0;
+    justify-content: space-evenly;
+  }
+
+  &__container_empty {
     max-width: 465px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__button_empty {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.75px;
+    text-align: center;
+  }
+
+  &__container {
     display: flex;
     gap: 10px;
     padding: 20px 0;
@@ -70,6 +88,6 @@
     font-size: 16px;
     line-height: 24px;
     letter-spacing: 0.75px;
-    text-align: center;    
+    text-align: center;
   }
 }

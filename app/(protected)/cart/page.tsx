@@ -6,6 +6,12 @@ import style from './page.module.scss';
 import CartItem from '@/app/ui/CartItem/CartItem';
 import { getBookInCartApi } from '@/api/serverApi/cartApi';
 import { IBook } from '@/app/lib/definitions';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Book Room: Cart',
+  description: 'Cart, built Fusion Interns',
+}
 
 interface IBookCart {
   id: number;
@@ -20,16 +26,16 @@ const Cart = async () => {
     .reduce((acc, item) => acc + item.book.price, 0)
     .toFixed(2);
 
-  return !response ? (
-    <section className={style.cart__section}>
+  return !response.length ? (
+    <section className={style.cart__section_empty}>
       <Image src={BookImg} alt='Books' />
-      <div className={style.cart__container}>
+      <div className={style.cart__container_empty}>
         <h1 className={style.cart__title}>Your cart is empty</h1>
         <p className={style.cart__description}>
           Add items to cart to make a purchase.Go to the catalogue no.
         </p>
         <Link href={'/#Catalog'}>
-          <Button text='Go to catalog' />
+          <Button text='Go to catalog' className={style.cart__button_empty}/>
         </Link>
       </div>
     </section>

@@ -16,6 +16,6 @@ export const addBookApi = async ( bookId : number) => {
   return response.data.quantity;
 } 
 
-export const removeBookApi = (cartItemId: number) => {
-  return axiosApi.patch(`/cart/delete/${cartItemId}`);
+export const removeBookFromCartApi = async (params: {id: number}) => {
+  return await axiosApi.delete(`/cart/`, { params });
 };

@@ -4,7 +4,7 @@ import style from './CartItem.module.scss';
 import Delete from '@/public/icons/Delete.png';
 import conf from '@/config';
 import { useState } from 'react';
-import { removeBookApi } from '@/api/clientApi/cartApi';
+import { removeBookFromCartApi } from '@/api/clientApi/cartApi';
 
 type cartItemPropsType = {
   key: number | string;
@@ -17,24 +17,29 @@ type cartItemPropsType = {
 };
 
 const CartItem = (props: cartItemPropsType) => {
-  const [count, setCount] = useState(1);
+  const [bookLeft, setBookLeft] = useState(props.bookLeft);
 
   const imageLoader = () => {
     return `${conf.url}${props.photo}`;
   };
 
   const handleClickCountMinus = () => {
-    setCount(count - 1);
+    if (bookLeft > 0) {
+      setBookLeft(bookLeft+1);
+    }
+    return;
   };
 
   const handleClickCountPlus = () => {
-    setCount(count + 1);
+    if (bookLeft <= props.bookLeft) {
+      setBookLeft(bookLeft-1);
+      }
 
+    return console.log('No more books in store');
   };
 
-  const handleClickDelete = (id: number) => {
-    setCount(0);
-    removeBookApi(id);
+  const handleClickDelete = () => {
+    removeBookFromCartApi({id: props.cartItemId});
   };
 
   return (
@@ -54,20 +59,24 @@ const CartItem = (props: cartItemPropsType) => {
         <div className={style.cart_item__wrapper}>
           <button
             className={style.cart_item__button}
-           
             onClick={handleClickCountMinus}
-          >-</button>
-          <p className={style.cart_item__count}>{count}</p>
+          >
+            -
+          </button>
+          <p className={style.cart_item__count}>{bookLeft}</p>
           <button
             className={style.cart_item__button}
             onClick={handleClickCountPlus}
-          >+</button>
-          <div className={style.trash__box} onClick={() => handleClickDelete(props.cartItemId)}>
-          <Image src={Delete} alt='Delete icon' className={style.trash__photo}/>  
-          <button
-            className={style.trash__button}            
-            content='trash'
+          >
+            +
+          </button>
+          <div className={style.trash__box} onClick={handleClickDelete}>
+            <Image
+              src={Delete}
+              alt='Delete icon'
+              className={style.trash__photo}
             />
+            <button className={style.trash__button} content='trash' />
           </div>
         </div>
         <p className={style.cart_item__price}>$ {props.bookPrice} USD</p>

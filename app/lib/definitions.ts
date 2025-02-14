@@ -7,7 +7,7 @@ export interface IUser {
 }
 
 export interface IBook {
-  id: number | string;
+  id: number;
   photo: string;
   title: string;
   description: string;

@@ -9,17 +9,19 @@ import { useState } from 'react';
 import { addBookApi } from '@/api/clientApi/cartApi';
 import { useRouter } from 'next/navigation';
 import RatingAverage from '../Rating/RatingAverage';
+import FavoriteButton from '../FavoriteButton/FavoriteButton';
 
 type TBookCard = {
   key: number | string;
-  id: number | string;
+  id: number;
   photo: string;
   bookTitle: string;
   bookAuthor: string;
-  bookPrice: string;
+  bookPrice: number;
   bookLeft: number;
   isNew?: boolean;
   isBestseller?: boolean;
+  isAdded?: boolean;
   rating:
     | [
         {
@@ -38,8 +40,7 @@ const BookCard: React.FC<TBookCard> = (props) => {
 
   if (ratingValues.length) {
     const sumRatingValues = ratingValues.reduce((acc, value) => acc + value);
-    averageRating = (sumRatingValues / props.rating.length);
-    console.log(averageRating)
+    averageRating = sumRatingValues / props.rating.length;
   }
 
   const router = useRouter();
@@ -63,6 +64,7 @@ const BookCard: React.FC<TBookCard> = (props) => {
 
   return (
     <li className={style.book_card__item}>
+      <FavoriteButton bookId={props.id} isAdded={props.isAdded}/>
       <div className={style.book_card__wrapper} onClick={handleClickOnBook}>
         <Image
           loader={imageLoader}

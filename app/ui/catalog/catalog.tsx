@@ -6,6 +6,7 @@ import { IBook, IGenre } from '@/app/lib/definitions';
 type CatalogPropsType = {
   books: IBook[];
   genres: IGenre[];
+  isAdded: number[];
 };
 
 const Catalog: React.FC<CatalogPropsType> = (props) => {
@@ -22,7 +23,9 @@ const Catalog: React.FC<CatalogPropsType> = (props) => {
         <ul className={style.catalog__list}>
           {props.books.map((book) => {
             return (
+              <>
               <BookCard
+                isAdded = {props.isAdded.includes(book.id)}
                 key={book.id}
                 id = {book.id}
                 photo={book.photo}
@@ -33,7 +36,8 @@ const Catalog: React.FC<CatalogPropsType> = (props) => {
                 isNew={book.isNew}
                 isBestseller={book.isBestseller}
                 rating = {book.rating}
-              />
+                />
+                </>
             );
           })}
         </ul>

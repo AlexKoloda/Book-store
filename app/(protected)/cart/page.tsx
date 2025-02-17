@@ -37,6 +37,7 @@ const Cart = async () => {
           {cartItems.map((cart) => {
             return (
               <CartItem
+                id={cart.book.id}
                 key={cart.id}
                 cartItemId={cart.id}
                 photo={cart.book.photo}

@@ -1,12 +1,12 @@
 'use client'
 import React from 'react';
 import style from './FavoriteItems.module.scss'
-import Image, { ImageLoader } from 'next/image';
-import conf from '@/config';
-import FavoriteButton from '../FavoriteButton/FavoriteButton';
-import Button from '../Button/Button';
 import { addBookApi } from '@/api/clientApi/cartApi';
 import { useRouter } from 'next/navigation';
+
+import Button from '../Button/Button';
+import FavoriteButton from '../FavoriteButton/FavoriteButton';
+import BookCover from '../BookCover/BookCover';
 
 type FavoriteItemsProps = {
   key:number;
@@ -20,14 +20,9 @@ type FavoriteItemsProps = {
   bookLeft: number; 
 }
 
-const imageLoader: ImageLoader = ({ src }) => {
-  return `${conf.url}/${src}`;
-};
-
 const FavoriteItem:React.FC<FavoriteItemsProps> = (props) => {
 const [isAdded, setIsAdded] = React.useState(false);
 const router = useRouter();
-
 
   const handleClickCartButton = async () => {    
       if (!isAdded) {
@@ -36,11 +31,16 @@ const router = useRouter();
       } else router.push(`/cart`);
     };
 
-
 return (
   <div className={style.favorite_item__container}>
    
-    <Image src={props.bookCover} alt='book cover' width={220} height={309} loader={imageLoader} className={style.favorite_item__photo}/>
+   <BookCover
+    id={props.bookId}
+    bookTitle={props.bookTitle}
+    photo={props.bookCover}
+    width={197}
+    height={289}
+   />
     <div className={style.favorite_item__wrapper}>
     <FavoriteButton isAdded={true} bookId={props.bookId}/>
     </div>

@@ -1,15 +1,14 @@
 'use client';
-import Image from 'next/image';
-import style from './BookCard.module.scss';
-import BookImage from '@/public/placeholder.png';
-import Button from '../Button/Button';
-import conf from '@/config';
 import clsx from 'clsx';
+import style from './BookCard.module.scss';
 import { useState } from 'react';
 import { addBookApi } from '@/api/clientApi/cartApi';
 import { useRouter } from 'next/navigation';
+
+import Button from '../Button/Button';
 import RatingAverage from '../Rating/RatingAverage';
 import FavoriteButton from '../FavoriteButton/FavoriteButton';
+import BookCover from '../BookCover/BookCover';
 
 type TBookCard = {
   key: number | string;
@@ -54,28 +53,17 @@ const BookCard: React.FC<TBookCard> = (props) => {
     } else router.push(`/cart`);
   };
 
-  const handleClickOnBook = () => {
-    router.push(`/book/${props.id}`);
-  };
-
-  const imageLoader = () => {
-    return `${conf.url}${props.photo}`;
-  };
-
   return (
     <li className={style.book_card__item}>
       <FavoriteButton bookId={props.id} isAdded={props.isAdded}/>
-      <div className={style.book_card__wrapper} onClick={handleClickOnBook}>
-        <Image
-          loader={imageLoader}
-          src={BookImage}
-          alt={props.bookTitle}
-          width={305}
-          height={448}
-          className={style.book_card__photo}
-        />
-        <div className={style.book_card__description}></div>
-      </div>
+     <BookCover
+     id={props.id}
+     bookTitle={props.bookTitle}
+     photo={props.photo}
+     width={305}
+     height={448}
+     />
+
       {props.isNew ? (
         <div className={clsx(style.book_card__label, style.label__new)}>
           <p className={clsx(style.book_card__text, style.label__new)}>New</p>

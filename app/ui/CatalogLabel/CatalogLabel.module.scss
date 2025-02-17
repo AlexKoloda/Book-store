@@ -1,0 +1,36 @@
+.catalog_label {
+
+  &__container {
+    position: absolute;
+    border-radius: var(--border-radius);
+    left: 20px;
+    bottom: 240px;
+    padding: 10px 50px;
+    opacity: 90%;
+  }
+
+  &__text {
+    font-size: 14px;
+    font-style: italic;
+    font-weight: 500;
+    line-height: 9.5px;
+    letter-spacing: 0.75px;
+    text-align: center;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+  }
+
+}
+
+
+.label {
+  &__new {
+    color: var(--color-dark);
+    background-color: rgba(191, 204, 148, 1);
+  }
+
+  &__bestseller {
+    color: var(--color-white);
+    background-color: var(--color-dark-blue);
+  }
+}

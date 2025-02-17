@@ -1,5 +1,5 @@
 'use client';
-import clsx from 'clsx';
+
 import style from './BookCard.module.scss';
 import { useState } from 'react';
 import { addBookApi } from '@/api/clientApi/cartApi';
@@ -9,6 +9,7 @@ import Button from '../Button/Button';
 import RatingAverage from '../Rating/RatingAverage';
 import FavoriteButton from '../FavoriteButton/FavoriteButton';
 import BookCover from '../BookCover/BookCover';
+import CatalogLabel from '../CatalogLabel/CatalogLabel';
 
 type TBookCard = {
   key: number | string;
@@ -30,8 +31,6 @@ type TBookCard = {
       ]
     | [];
 };
-
-// TODO  Сделать отдельный компонент для этикеток, который будет использовать пропсы и рисовать нужную торговую этикетку
 
 const BookCard: React.FC<TBookCard> = (props) => {
   let averageRating = 0;
@@ -63,21 +62,10 @@ const BookCard: React.FC<TBookCard> = (props) => {
      width={305}
      height={448}
      />
-
-      {props.isNew ? (
-        <div className={clsx(style.book_card__label, style.label__new)}>
-          <p className={clsx(style.book_card__text, style.label__new)}>New</p>
-        </div>
-      ) : null}
-
-      {props.isBestseller ? (
-        <div className={clsx(style.book_card__label, style.label__bestseller)}>
-          <p className={clsx(style.book_card__text, style.label__bestseller)}>
-            Bestseller
-          </p>
-        </div>
-      ) : null}
-
+     <CatalogLabel
+      isNew={props.isNew}
+      isBestseller={props.isBestseller}
+     />
       <h2 className={style.book_card__title}>{props.bookTitle}</h2>
       <p className={style.book_card__author}>{props.bookAuthor}</p>
       <RatingAverage rating={averageRating.toFixed(1)} />

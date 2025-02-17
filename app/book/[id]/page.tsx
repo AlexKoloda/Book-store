@@ -1,5 +1,5 @@
 import { Metadata, NextPage } from 'next';
-import { IBook, IComment } from '@/app/lib/definitions';
+import { IBook } from '@/app/lib/definitions';
 import { getCurrentBookRatingApi } from '@/api/serverApi/ratingApi';
 import { getRecommendationBooks, getCurrentBookApi } from '@/api/serverApi/getBook';
 import style from './page.module.scss';
@@ -17,8 +17,8 @@ export const metadata: Metadata = {
 const Book: NextPage<{ params: Promise<{ id: string }> }> = async (props) => {
   const queryParams = await props.params;
   const id = queryParams.id;
-  const book: IBook = await getCurrentBookApi(id);
-  const comments: IComment[] = book.comments;
+  const book = await getCurrentBookApi(id);
+  const comments = book.comments;
 
 
   const bookId = book.id;

@@ -6,7 +6,7 @@ import Image from 'next/image';
 import BookImg from '@/public/cart-img/book-logo.png';
 import Link from 'next/link';
 
-export const CartEmpty  = () => {
+const CartEmpty = () => {
 return (
   <section className={style.cart__section_empty}>
   <Image src={BookImg} alt='Books' />

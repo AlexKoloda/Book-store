@@ -25,17 +25,17 @@ const Catalog: React.FC<CatalogPropsType> = (props) => {
             return (
               <>
               <BookCard
-                isAdded = {props.isAdded.includes(book.id)}
                 key={book.id}
                 id = {book.id}
                 photo={book.photo}
                 bookPrice={book.price}
+                rating = {book.rating}
                 bookTitle={book.title}
                 bookAuthor={book.author.name}
                 bookLeft = {book.numberBooksStock}
                 isNew={book.isNew}
+                isAdded = {props.isAdded.includes(book.id)}
                 isBestseller={book.isBestseller}
-                rating = {book.rating}
                 />
                 </>
             );

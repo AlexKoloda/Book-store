@@ -52,12 +52,12 @@
 
   &__arrow_active {
     transform: rotate(0.25turn);
-    transition: 0.2s;
+    transition: 0.3s;
   }
 
   &__arrow_disable {
     transform: rotate(0turn);
-    transition: 0.2s;
+    transition: 0.3s;
   }
   &__dropdown_close {
     display: none;

@@ -1,0 +1,35 @@
+@import '../../mixins.module.scss';
+
+.cart {
+  &__section_empty {
+    display: flex;
+    padding: 120px 0;
+    justify-content: space-evenly;
+  }
+
+  &__container_empty {
+    max-width: 465px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    @include title-font;
+  }
+
+  &__description {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 36px;
+    color: var(--color-dark-blue);
+    margin-bottom: 60px;
+  }
+
+  &__button_empty {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.75px;
+    text-align: center;
+  }
+}

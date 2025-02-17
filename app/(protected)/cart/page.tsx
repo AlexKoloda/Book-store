@@ -1,17 +1,17 @@
-import Button from '@/app/ui/Button/Button';
-import BookImg from '@/public/cart-img/book-logo.png';
-import Image from 'next/image';
-import Link from 'next/link';
-import style from './page.module.scss';
-import CartItem from '@/app/ui/CartItem/CartItem';
+import { Metadata } from 'next';
 import { getBookInCartApi } from '@/api/serverApi/cartApi';
 import { IBook } from '@/app/lib/definitions';
-import { Metadata } from 'next';
+import style from './page.module.scss';
+
+import Link from 'next/link';
+import CartItem from '@/app/ui/CartItem/CartItem';
+import Button from '@/app/ui/Button/Button';
+import CartEmpty from '@/app/ui/CartEmpty/CartEmpty';
 
 export const metadata: Metadata = {
   title: 'Book Room: Cart',
   description: 'Cart, built Fusion Interns',
-}
+};
 
 interface IBookCart {
   id: number;
@@ -20,30 +20,21 @@ interface IBookCart {
 }
 
 const Cart = async () => {
-  const response: IBookCart[] = await getBookInCartApi();
+  const cartItems: IBookCart[] = await getBookInCartApi();
 
-  const totalPrice = response
+  const totalPrice = cartItems
     .reduce((acc, item) => acc + item.book.price, 0)
     .toFixed(2);
 
-  return !response.length ? (
-    <section className={style.cart__section_empty}>
-      <Image src={BookImg} alt='Books' />
-      <div className={style.cart__container_empty}>
-        <h1 className={style.cart__title}>Your cart is empty</h1>
-        <p className={style.cart__description}>
-          Add items to cart to make a purchase.Go to the catalogue no.
-        </p>
-        <Link href={'/#Catalog'}>
-          <Button text='Go to catalog' className={style.cart__button_empty}/>
-        </Link>
-      </div>
-    </section>
-  ) : (
+  if (!cartItems.length) {
+    return <CartEmpty />;
+  }
+
+  return (
     <section className={style.cart__section}>
       {
         <ul className={style.cart__list}>
-          {response.map((cart) => {
+          {cartItems.map((cart) => {
             return (
               <CartItem
                 key={cart.id}
@@ -62,7 +53,7 @@ const Cart = async () => {
         <h2 className={style.cart__total_title}>Total:</h2>
         <p className={style.cart__total_text}>{totalPrice}</p>
       </div>
-      <Link href={'/'}>
+      <Link href='/'>
         <Button
           text={'Continue shopping'}
           className={style.cart__button_continue}

@@ -1,12 +1,13 @@
 'use client';
-import CustomSelect, { SelectOption } from '@/app/ui/CustomSelect/CustomSelect';
-import OutsideClickHandler from 'react-outside-click-handler';
-import Image from 'next/image';
-import ArrowFilter from '@/public/icons/Select.png';
-import { useRouter, useSearchParams } from 'next/navigation';
-import { useMemo, useState } from 'react';
 import style from './SortFilter.module.scss';
 import queryString from 'query-string';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { useMemo, useState } from 'react';
+
+import Image from 'next/image';
+import ArrowFilter from '@/public/icons/Select.png';
+import OutsideClickHandler from 'react-outside-click-handler';
+import CustomSelect, { SelectOption } from '@/app/ui/CustomSelect/CustomSelect';
 
 type GenreFilterPropsType = {
   sort: ISort[];

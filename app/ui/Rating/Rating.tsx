@@ -1,10 +1,11 @@
 'use client';
+import style from './Rating.module.scss';
 import { SetStateAction, useState } from 'react';
+import { updateRatingApi } from '@/api/clientApi/ratingClientApi';
+
 import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
 import Typography from '@mui/material/Typography';
-import { updateRatingApi } from '@/api/clientApi/ratingClientApi';
-import style from './Rating.module.scss';
 
 type BasicRatingType = {
   bookId: number;

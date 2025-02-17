@@ -1,9 +1,10 @@
 'use client';
+import style from './RangeSlider.module.scss';
 import * as React from 'react';
+import { useDebouncedValue } from '@/app/lib/hooks/useDebouncedValue';
+
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
-import style from './RangeSlider.module.scss';
-import { useDebouncedValue } from '@/app/lib/hooks/useDebouncedValue';
 
 type Props = {
   initialValueRange?: [number, number];

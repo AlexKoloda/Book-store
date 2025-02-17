@@ -1,11 +1,12 @@
-import { ChangePasswordType } from '@/app/lib/definitions';
-import { passwordUpdateSchema } from '@/public/validation/schemas';
-import { yupResolver } from '@hookform/resolvers/yup';
+import style from './PasswordForm.module.scss';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import style from './PasswordForm.module.scss';
-import Button from '../Button/Button';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { ChangePasswordType } from '@/app/lib/definitions';
+import { passwordUpdateSchema } from '@/public/validation/schemas';
 import { updatePasswordApi } from '@/api/clientApi/updateApi';
+
+import Button from '../Button/Button';
 import Input from '../Input/TextInput';
 
 

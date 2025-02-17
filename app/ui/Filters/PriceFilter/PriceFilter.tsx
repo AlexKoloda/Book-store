@@ -1,12 +1,13 @@
 'use client';
-import { useState } from 'react';
-import OutsideClickHandler from 'react-outside-click-handler';
 import style from './PriceFilter.module.scss';
+import queryString from 'query-string';
+import { useState } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
+
 import Image from 'next/image';
 import ArrowFilter from '@/public/icons/Select.png';
 import RangeSlider from '../../Slider/RangeSlider';
-import { useRouter, useSearchParams } from 'next/navigation';
-import queryString from 'query-string';
+import OutsideClickHandler from 'react-outside-click-handler';
 
 const PriceFilter = () => {
   const router = useRouter();

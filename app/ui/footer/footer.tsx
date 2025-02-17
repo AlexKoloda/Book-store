@@ -1,8 +1,9 @@
+import style from './Footer.module.scss';
+
 import Link from 'next/link';
 import Image from 'next/image';
-import style from './Footer.module.scss';
-import Logo from '@/public/footer-img/footer-logo.png';
 import Map from '@/public/footer-img/map.png';
+import Logo from '@/public/footer-img/footer-logo.png';
 
 const Footer: React.FC = () => {
   return (

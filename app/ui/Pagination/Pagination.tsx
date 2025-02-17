@@ -1,11 +1,12 @@
 'use client';
-import { generatePagination } from '@/app/lib/util/pagination';
 import style from './Pagination.module.scss';
+import { generatePagination } from '@/app/lib/util/pagination';
+import { usePathname, useSearchParams } from 'next/navigation';
+
+import Link from 'next/link';
+import Image from 'next/image';
 import ArrowLeft from '@/public/icons/Back.png';
 import ArrowRight from '@/public/icons/Forward.png';
-import Image from 'next/image';
-import Link from 'next/link';
-import { usePathname, useSearchParams } from 'next/navigation';
 import PaginationNumber from './PaginationNumber';
 
 interface IPagination {

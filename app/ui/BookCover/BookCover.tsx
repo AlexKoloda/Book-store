@@ -16,7 +16,6 @@ type Props = {
 }
 
 const BookCover:React.FC<Props> = (props) => {
-  console.log( props.width )
   const router = useRouter();
 
   const imageLoader = () => {

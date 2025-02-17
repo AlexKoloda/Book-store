@@ -1,10 +1,11 @@
 'use client';
 import React from 'react';
-import Image, { ImageLoader } from 'next/image';
 import style from './CommentItem.module.scss';
 import conf from '@/config';
-import { pluralize } from '@/app/lib/util/pluralize';
 import { toWords } from 'number-to-words';
+import { pluralize } from '@/app/lib/util/pluralize';
+
+import Image, { ImageLoader } from 'next/image';
 
 type Props = {
   userPhoto: string;

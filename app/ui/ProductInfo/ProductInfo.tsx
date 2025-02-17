@@ -1,14 +1,15 @@
 'use client';
+import style from './ProductInfo.module.scss';
 import React from 'react';
+import { useRouter } from 'next/navigation';
+import { addBookApi } from '@/api/clientApi/cartApi';
+import conf from '@/config';
+
 import Image from 'next/image';
 import placeholder from '@/public/placeholder.png';
 import GreyArrow from '@/public/icons/BackArrowGrey.png';
 import Button from '@/app/ui/Button/Button';
 import BasicRating from '@/app/ui/Rating/Rating';
-import style from './ProductInfo.module.scss';
-import conf from '@/config';
-import { useRouter } from 'next/navigation';
-import { addBookApi } from '@/api/clientApi/cartApi';
 
 type Props = {
   id: string | number;

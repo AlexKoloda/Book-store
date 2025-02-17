@@ -1,11 +1,12 @@
+import style from './InformationForm.module.scss';
+import { useUserContext } from '@/app/lib/contexts/UserContext';
 import { UserProfileType } from '@/app/lib/definitions';
 import { userSchema } from '@/public/validation/schemas';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
-import { updateInformationApi } from '@/api/clientApi/updateApi';
 import { useState } from 'react';
-import { useUserContext } from '@/app/lib/contexts/UserContext';
-import style from './InformationForm.module.scss';
+import { updateInformationApi } from '@/api/clientApi/updateApi';
+
 import Button from '../Button/Button';
 import Input from '../Input/TextInput';
 

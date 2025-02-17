@@ -1,5 +1,6 @@
 import React from 'react';
 import style from './Rating.module.scss';
+
 import Image from 'next/image';
 import StarIcon from '@/public/icons/StarIcon.png';
 import StarIconEmpty from '@/public/icons/StarIconEmpty.png';

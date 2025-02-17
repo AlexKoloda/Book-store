@@ -1,8 +1,9 @@
+import style from './BannerUp.module.scss';
+
+import Link from 'next/link';
+import Image from 'next/image';
 import Button from '../Button/Button';
 import HeroImage from '@/public/hero-img/hero-img.png';
-import style from './BannerUp.module.scss';
-import Image from 'next/image';
-import Link from 'next/link';
 
 const BannerUp: React.FC = () => {
   return (

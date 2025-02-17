@@ -1,9 +1,10 @@
-import Link from 'next/link';
 import style from './Menu.module.scss';
-import profile from '@/public/header-img/button_user profile.png';
+
+import Image from 'next/image';
+import Link from 'next/link';
 import cart from '@/public/header-img/button-cart.svg';
 import favorite from '@/public/header-img/button_save.png';
-import Image from 'next/image';
+import profile from '@/public/header-img/button_user profile.png';
 
 const Menu: React.FC = () => {
   return (

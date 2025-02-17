@@ -1,13 +1,14 @@
 'use client';
 import style from './GenreFilter.module.scss';
-import { IGenre } from '@/app/lib/definitions';
-import CustomSelect, { SelectOption } from '@/app/ui/CustomSelect/CustomSelect';
-import { useMemo, useState } from 'react';
-import Image from 'next/image';
-import ArrowFilter from '@/public/icons/Select.png';
 import queryString from 'query-string';
-import OutsideClickHandler from 'react-outside-click-handler';
+import { IGenre } from '@/app/lib/definitions';
 import { useRouter, useSearchParams } from 'next/navigation';
+import { useMemo, useState } from 'react';
+
+import Image from 'next/image';
+import OutsideClickHandler from 'react-outside-click-handler';
+import CustomSelect, { SelectOption } from '@/app/ui/CustomSelect/CustomSelect';
+import ArrowFilter from '@/public/icons/Select.png';
 
 type GenreFilterPropsType = {
   genre: IGenre[];

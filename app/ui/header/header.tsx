@@ -1,17 +1,18 @@
 'use client';
-import Link from 'next/link';
-import Image from 'next/image';
 import style from './Header.module.scss';
-import Logo from '@/public/header-img/header-logo.png';
-import SearchLogo from '@/public/icons/Search.png';
-import Button from '../Button/Button';
-import Form from 'next/form';
+import { useState } from 'react';
 import { useUserContext } from '@/app/lib/contexts/UserContext';
-import Menu from '../Menu/Menu';
-import Input from '../Input/TextInput';
 import { redirect, usePathname, useRouter } from 'next/navigation';
 import queryString from 'query-string';
-import { useState } from 'react';
+
+import Form from 'next/form';
+import Link from 'next/link';
+import Image from 'next/image';
+import Menu from '../Menu/Menu';
+import Input from '../Input/TextInput';
+import Button from '../Button/Button';
+import SearchLogo from '@/public/icons/Search.png';
+import Logo from '@/public/header-img/header-logo.png';
 
 const Header: React.FC = () => {
   const [queryParams, setQueryParams] = useState('');

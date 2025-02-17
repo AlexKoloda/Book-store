@@ -1,4 +1,15 @@
 .price {
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+
   &__box {
     padding-right: 5px;
     display: flex;
@@ -16,7 +27,7 @@
     color: var(--color-dark-blue);
     border: none;
     cursor: pointer;
-
+ 
     font-size: 18px;
     font-weight: 500;
     line-height: 28px;
@@ -50,7 +61,7 @@
   }
   &__dropdown_close {
     display: none;
-    animation: fadeIn 0.5s;
+    animation: fadeIn 0.3s;
   }
 
   &__dropdown_open {
@@ -60,8 +71,8 @@
     background-color: var(--color-light);
     border-radius: var(--border-radius);
     width: 305px;
-    animation: fadeIn 0.5s;
     z-index: 99;
     list-style: none;
+    animation: fadeIn 0.3s;
   }
 }

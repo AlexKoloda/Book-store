@@ -9,7 +9,7 @@ export interface ICart {
 
 export const addBookApi = async ( bookId : number) => {
   const response = await axiosApi.post<ICart> (
-   `/cart/`,
+   `/cart`,
    {id: bookId}
   );
 
@@ -17,5 +17,5 @@ export const addBookApi = async ( bookId : number) => {
 } 
 
 export const removeBookFromCartApi = async (params: {id: number}) => {
-  return await axiosApi.delete(`/cart/`, { params });
+  return await axiosApi.delete(`/cart`, { params });
 };

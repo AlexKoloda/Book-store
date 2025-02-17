@@ -4,7 +4,7 @@ import axiosApi from '../axios';
 
 export const updateInformationApi = async ( data: UserProfileType) => {
   const response = await axiosApi.patch<{user: IUser}> (
-   `/user/`,
+   `/user`,
    data
   );
   return response.data.user;
@@ -12,7 +12,7 @@ export const updateInformationApi = async ( data: UserProfileType) => {
 
 export const updatePasswordApi = async ( data: {oldPassword: string, newPassword: string}) => {
   const response = await axiosApi.patch(
-    `user/password/`,
+    `user/password`,
     data
   );
   return response.status;

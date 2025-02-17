@@ -14,9 +14,9 @@ export const getBookFavoritesApi = async () => {
   const cookiesValues = await cookies();
     const token = cookiesValues.get('access_token');
     if (!token?.value) {
-      throw new Error('No token provided');
+      return [];
     }
-    const res = await fetch(`${conf.url}/favorites/get/`, {
+    const res = await fetch(`${conf.url}/favorites/get`, {
     method: 'GET',
     headers: {
       Authorization: `Bearer ${token.value}`,

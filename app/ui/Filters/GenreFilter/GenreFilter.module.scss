@@ -7,7 +7,6 @@
     border-radius: var(--border-radius);
   }
 
-
   &__label {
     padding: 10px 10px 10px;
     background-color: var(--color-light);
@@ -41,11 +40,11 @@
 
   &__arrow_active {
     transform: rotate(0.25turn);
-    transition: 0.3s;
+    transition: 0.2s;
   }
 
   &__arrow_disable {
     transform: rotate(0turn);
-    transition: 0.3s;
+    transition: 0.2s;
   }
 }

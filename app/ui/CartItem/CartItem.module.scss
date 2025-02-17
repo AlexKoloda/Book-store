@@ -14,7 +14,6 @@
   }
 
   &__book_title {
-    @include reset;
     font-weight: 700;
     font-size: 40px;
     line-height: 60px;
@@ -23,7 +22,6 @@
   }
 
   &__book_author {
-    @include reset;
     font-family: Poppins;
     font-weight: 400;
     font-size: 24px;
@@ -33,7 +31,6 @@
   }
 
   &__price {
-    @include reset;
     font-weight: 400;
     font-size: 36px;
     line-height: 54px;
@@ -67,12 +64,11 @@
     &:active {
       border: 2px solid var(--color-dark-blue);
       box-shadow: 0px 0px 0px 8px rgba(214, 216, 231, 1);
-      transition: 0.1s;
+      transition: 0.2s;
     }
   }
 
   &__count {
-    @include reset;
     font-weight: 600;
     font-size: 16px;
     line-height: 32px;
@@ -109,5 +105,4 @@
       transition: 0.2s;
     }
   }
-
 }

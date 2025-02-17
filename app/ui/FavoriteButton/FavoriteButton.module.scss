@@ -4,7 +4,7 @@
     padding: 20px;
     z-index: 10;
     cursor: pointer;
-    transition: 0.5s;
+    transition: 0.2s;
   }
 
   &__icon {
@@ -12,8 +12,8 @@
   }
 
   &__wrapper:hover img {
-    transition: 0.5s;
-      border-radius: 50%;
-      background: rgb(54 72 102);
+    transition: 0.2s;
+    border-radius: 50%;
+    background: rgb(54 72 102);
   }
 }

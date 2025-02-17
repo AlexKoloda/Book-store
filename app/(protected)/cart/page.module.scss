@@ -32,19 +32,16 @@
   }
 
   &__list {
-    @include reset;
     display: flex;
     flex-direction: column;
     gap: 40px;
   }
 
   &__title {
-    @include reset;
     @include title-font;
   }
 
   &__description {
-    @include reset;
     font-size: 24px;
     font-weight: 400;
     line-height: 36px;
@@ -53,7 +50,6 @@
   }
 
   &__total_title {
-    @include reset;
     font-weight: 400;
     font-size: 36px;
     line-height: 54px;
@@ -61,7 +57,6 @@
   }
 
   &__total_text {
-    @include reset;
     font-weight: 700;
     font-size: 36px;
     line-height: 54px;

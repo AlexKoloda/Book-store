@@ -1,14 +1,10 @@
 @import '../../mixins.module.scss';
 .favorite_item {
-
-
   &__container {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    
-    
   }
 
   &__photo {
@@ -20,14 +16,13 @@
     top: 145px;
   }
 
-  &__info{ 
+  &__info {
     display: flex;
     flex-direction: column;
     align-items: stretch;
   }
 
   &__title {
-    @include reset;
     font-size: 25px;
     color: var(--color-dark);
     overflow: hidden;
@@ -36,19 +31,16 @@
   }
 
   &__description {
-    @include reset;
     font-size: 20px;
   }
 
   &__author,
   &__genre {
-    @include reset;
     @include description-font;
     color: var(--color-dark);
   }
 
   &__text {
-    @include reset;
     font-weight: 500;
     font-size: 14px;
     line-height: 21px;

@@ -8,7 +8,6 @@
   }
 
   &__list {
-    @include reset;
     padding: 50px 0 60px;
     display: flex;
     flex-direction: column;
@@ -17,7 +16,7 @@
 
   &__title {
     @include title-font;
-    @include reset;
+
     color: var(--color-dark);
   }
 
@@ -34,11 +33,11 @@
     flex-direction: column;
     gap: 30px;
     position: relative;
-    :focus-visible &__placeholder {    
+    :focus-visible &__placeholder {
       top: -5px;
-      transition: 1s;
+      transition: 0.5s;
       outline: none;
-  }
+    }
   }
 
   &__input {
@@ -48,15 +47,14 @@
     transition: 0.2s;
     &:focus-visible {
       background-color: var(--color-white);
-      color:rgba(20, 20, 43, 1);
-      
+      color: rgba(20, 20, 43, 1);
     }
   }
 
   &__form:focus-within p {
     transform: translateY(-40px);
     z-index: 5;
-    transition: 1s;
+    transition: 0.5s;
     color: var(--color-dark);
   }
 
@@ -73,7 +71,6 @@
     position: absolute;
     top: 14px;
     left: 20px;
-    @include reset;
     color: var(--color-dark-grey);
     font-weight: 400;
     font-size: 16px;
@@ -81,6 +78,4 @@
     letter-spacing: 0.75px;
     z-index: 5;
   }
-
-
 }

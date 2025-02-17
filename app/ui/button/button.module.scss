@@ -5,17 +5,17 @@
   padding: 10px 50px;
   border: none;
   cursor: pointer;
-  transition: 0.3s;
+  transition: 0.2s;
 
   &:hover {
     background-color: var(--color-dark);
-    transition: 0.3s;
+    transition: 0.2s;
   }
 
   &:active,
   &:focus-visible {
     box-shadow: 0 0 0 8px rgba(214, 216, 231, 1);
-    transition: 0.1s ease-in-out;
+    transition: 0.2s ease-in-out;
     transform: scale(0.96);
   }
 }

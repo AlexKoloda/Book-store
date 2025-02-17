@@ -39,13 +39,13 @@
 
   &__arrow_active {
     transform: rotate(0.25turn);
-    transition: 0.3s;
+    transition: 0.2s;
     background-color: var(--color-white);
   }
 
   &__arrow_disable {
     transform: rotate(0turn);
-    transition: 0.3s;
+    transition: 0.2s;
   }
 
   &__item {

@@ -14,7 +14,7 @@
   }
   &__link {
     @include description-font;
-    @include reset;
+
     color: var(--color-white);
     text-decoration: none;
   }
@@ -29,13 +29,11 @@
   }
 
   &__list {
-    @include reset;
     list-style: none;
   }
 
   &__address {
     @include description-font;
-    @include reset;
     color: var(--color-white);
   }
 }

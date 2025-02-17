@@ -107,8 +107,6 @@
   }
 
   &__text {
-    margin: 0;
-    padding: 0;
     font-size: 14px;
     font-style: italic;
     font-weight: 500;
@@ -117,11 +115,6 @@
     text-align: center;
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
-  }
-
-  &__title_disable {
-    margin: 0;
-    padding: 0;
   }
 
   &__wrapper {

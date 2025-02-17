@@ -7,8 +7,6 @@
   }
 
   &__count {
-    margin: 0;
-    padding: 0;
     color: var(--color-dark-grey);
     font-weight: 500;
     font-size: 16px;
@@ -17,8 +15,6 @@
   }
 
   &__list {
-    padding: 0;
-    margin: 0;
     gap: 30px;
     list-style: none;
     display: inline-flex;

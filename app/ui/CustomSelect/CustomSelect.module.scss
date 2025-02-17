@@ -15,7 +15,6 @@
   }
 
   &__dropdown_open {
-    padding: 0;
     position: absolute;
     visibility: visible;
     background-color: var(--color-light);
@@ -27,7 +26,6 @@
   }
 
   &__dropdown_sort_open {
-    padding: 0;
     position: absolute;
     visibility: visible;
     background-color: var(--color-light);

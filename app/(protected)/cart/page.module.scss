@@ -11,12 +11,6 @@
     padding: 20px 0;
   }
 
-  &__list {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-  }
-
   &__title {
     @include title-font;
   }

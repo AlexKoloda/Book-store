@@ -17,6 +17,9 @@ type cartItemPropsType = {
   bookAuthor: string;
   bookPrice: number;
   bookLeft: number;
+  totalPrice: number;
+  onRemove: (bookId: number) => Promise<void>,
+  onChangePrice: (arg0: number) => void,
 };
 
 const CartItem = (props: cartItemPropsType) => {
@@ -30,6 +33,7 @@ const CartItem = (props: cartItemPropsType) => {
       setCount((prev) => prev - 1);
       setBookLeft(bookLeft + 1);
       setIsDisablePlusButton(false);
+      props.onChangePrice(props.totalPrice - props.bookPrice)
     } else {
       setIsDisableMinusButton(true);
       return;
@@ -41,6 +45,7 @@ const CartItem = (props: cartItemPropsType) => {
       setCount((prev) => prev + 1);
       setBookLeft(bookLeft - 1);
       setIsDisableMinusButton(false);
+      props.onChangePrice(props.totalPrice + props.bookPrice)
     } else {
       setIsDisablePlusButton(true);
       return;
@@ -49,7 +54,15 @@ const CartItem = (props: cartItemPropsType) => {
 
   const handleClickDelete = () => {
     removeBookFromCartApi({ id: props.cartItemId });
+    props.onRemove(props.id);
+    props.onChangePrice(props.totalPrice - props.bookPrice)
   };
+
+  if (count === 0 ) {
+    removeBookFromCartApi({ id: props.cartItemId });
+    props.onRemove(props.id);
+    props.onChangePrice(props.totalPrice - props.bookPrice)
+  }
 
   return (
     <li className={style.cart_item__item}>

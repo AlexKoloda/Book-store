@@ -4,16 +4,16 @@ import { IBook } from '@/app/lib/definitions';
 import style from './page.module.scss';
 
 import Link from 'next/link';
-import CartItem from '@/app/ui/CartItem/CartItem';
 import Button from '@/app/ui/Button/Button';
 import CartEmpty from '@/app/ui/CartEmpty/CartEmpty';
+import CartClientSide from '@/app/ui/CartClientSide/CartClientSide';
 
 export const metadata: Metadata = {
   title: 'Book Room: Cart',
   description: 'Cart, built Fusion Interns',
 };
 
-interface IBookCart {
+export interface IBookCart {
   id: number;
   quantity: number;
   book: IBook;
@@ -32,28 +32,7 @@ const Cart = async () => {
 
   return (
     <section className={style.cart__section}>
-      {
-        <ul className={style.cart__list}>
-          {cartItems.map((cart) => {
-            return (
-              <CartItem
-                id={cart.book.id}
-                key={cart.id}
-                cartItemId={cart.id}
-                photo={cart.book.photo}
-                bookPrice={cart.book.price}
-                bookTitle={cart.book.title}
-                bookAuthor={cart.book.author.name}
-                bookLeft={cart.book.numberBooksStock}
-              />
-            );
-          })}
-        </ul>
-      }
-      <div className={style.cart__container}>
-        <h2 className={style.cart__total_title}>Total:</h2>
-        <p className={style.cart__total_text}>{totalPrice}</p>
-      </div>
+      <CartClientSide cartItems={cartItems} totalPrice = {totalPrice}/>
       <Link href='/'>
         <Button
           text={'Continue shopping'}

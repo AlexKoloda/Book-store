@@ -1,17 +1,5 @@
 .favorite {
-  &__list {
-    display: grid;
-    grid-template-columns: repeat(6, auto);
-    overflow: hidden;
-    align-items: start;
-    grid-gap: 10px;
-    gap: 10px;
-    padding: 20px 0 80px;
-    justify-content: start;
-    justify-items: center;
-  }
 
-  
     &__title {
       font-size: 24px;
       display: flex;

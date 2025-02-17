@@ -3,7 +3,7 @@ import conf from '@/config';
 import { cookies } from 'next/headers';
 
 
-interface IFavoriteItems {
+export interface IFavoriteItems {
   id: number,
   dateAdded: string,
   book: IBook,

@@ -14,6 +14,7 @@ type Props = {
   bookId: number;
   isAdded?: boolean;
   style?: string;
+  onRemove?: (arg0: number) => void;
 };
 
 const FavoriteButton: React.FC<Props> = (props) => {
@@ -23,8 +24,13 @@ const FavoriteButton: React.FC<Props> = (props) => {
     if (!isAdded) {
       setIsAdded(true);
       addBookInFavoritesApi(props.bookId);
-    } else setIsAdded(false);
+    } else {
+    setIsAdded(false);
     removeBookFromFavorites({ id: props.bookId });
+    if (props.onRemove) {
+      props.onRemove(props.bookId);
+    }
+  }
   };
 
   return isAdded ? (

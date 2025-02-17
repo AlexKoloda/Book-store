@@ -18,6 +18,7 @@ type FavoriteItemsProps = {
   bookPrice: number;
   bookDescription: string;
   bookLeft: number;
+  onRemove: (bookId: number) => Promise<void>,
 };
 
 const FavoriteItem: React.FC<FavoriteItemsProps> = (props) => {
@@ -41,7 +42,7 @@ const FavoriteItem: React.FC<FavoriteItemsProps> = (props) => {
         height={289}
       />
       <div className={style.favorite_item__wrapper}>
-        <FavoriteButton isAdded={true} bookId={props.bookId} />
+        <FavoriteButton isAdded={true} bookId={props.bookId} onRemove={props.onRemove}/>
       </div>
       <div className={style.favorite_item__info}>
         <h1 className={style.favorite_item__title}>{props.bookTitle}</h1>

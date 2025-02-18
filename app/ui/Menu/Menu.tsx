@@ -1,17 +1,27 @@
+'use client'
 import style from './Menu.module.scss';
 
 import Image from 'next/image';
 import Link from 'next/link';
-import cart from '@/public/header-img/button-cart.svg';
+import Cart from '@/public/header-img/button_cart.png';
 import favorite from '@/public/header-img/button_save.png';
 import profile from '@/public/header-img/button_user profile.png';
+import { useUserContext } from '@/app/lib/contexts/UserContext';
+
 
 const Menu: React.FC = () => {
+  const numberOfCart = useUserContext().user?.cart.length;
+ 
   return (
     <nav className={style.menu__nav}>
+      <div className={style.menu__wrapper}>
+      <div className={style.menu__count}>
+        {numberOfCart}
+      </div>
       <Link className={style.menu__link} href='/cart'>
-        <Image className={style.menu__icon} src={cart} alt='Profile icon' />
+        <Image className={style.menu__icon_cart} src={Cart} alt='Profile icon' />
       </Link>
+      </div>
       <Link className={style.menu__link} href='/favorite'>
         <Image className={style.menu__icon} src={favorite} alt='Profile icon' />
       </Link>

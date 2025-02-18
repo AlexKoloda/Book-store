@@ -1,7 +1,36 @@
 .menu {
-
   &__nav {
     display: flex;
     gap: 27px;
+    align-items: center;
+  }
+
+  &__icon {
+    padding: 10px 0;
+  }
+
+  &__wrapper {
+    position: relative;
+  }
+
+  &__count {
+    font-family: Poppins;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0;
+    color: var(--color-dark-blue);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--color-green);
+    border-radius: 50%;
+    position: absolute;
+
+    right: 0px;
+    width: 23px;
+    height: 23px;
   }
 }

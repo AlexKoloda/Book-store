@@ -15,11 +15,11 @@ import SearchLogo from '@/public/icons/Search.png';
 import Logo from '@/public/header-img/header-logo.png';
 
 const Header: React.FC = () => {
-  const [queryParams, setQueryParams] = useState('');
-  const user = useUserContext();
+  const {user} = useUserContext();
   const {replace} = useRouter();
   const logInPath = usePathname() === '/auth/log-in';
   const signUpPath = usePathname() === '/auth/sign-up';
+  const [queryParams, setQueryParams] = useState('');
 
   const handleToggleLogInButton = () => {
     if (signUpPath) {
@@ -75,8 +75,9 @@ const Header: React.FC = () => {
           </Form>
         </div>
       </label>
-      {user.user ? (
-        <Menu />
+      {user ? (
+        <Menu 
+        />
       ) : (
         <Button
           text='Log In/ Sing Up'

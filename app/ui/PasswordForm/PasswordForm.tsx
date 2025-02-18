@@ -42,6 +42,8 @@ const PasswordForm: React.FC = () => {
           Change password
         </div>
       </div>
+      
+      <div className={style.profile__container}>
       {isChangePassword ? (
         <>
           <Input
@@ -83,6 +85,7 @@ const PasswordForm: React.FC = () => {
           readOnly={true}
         />
       )}
+      </div>
     </form>
   );
 };

@@ -45,13 +45,12 @@
   }
 
   &__description {
+    padding: 10px 0 75px;
     font-family: Poppins;
-    font-size: 16px;
     font-weight: 400;
+    font-size: 16px;
     line-height: 24px;
-    text-align: left;
-    text-underline-position: from-font;
-    text-decoration-skip-ink: none;
+    letter-spacing: 0;
     color: var(--color-dark-blue);
   }
 
@@ -61,7 +60,7 @@
     line-height: 24px;
     text-align: left;
     color: var(--color-dark-blue);
-    margin-top: 75px;
+    padding-bottom: 15px;
   }
 
   &__button {

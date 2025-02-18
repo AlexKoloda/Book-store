@@ -43,6 +43,8 @@ const InformationForm: React.FC = () => {
           Change information
         </div>
       </div>
+
+      <div className={style.profile__wrapper}>     
       {isChange ? (
         <>
           <Input
@@ -51,7 +53,6 @@ const InformationForm: React.FC = () => {
             placeholder='Your name'
             defaultValue={userName}
             className={style.profile__input}
-
           />
           <Input
             {...register('email')}
@@ -66,6 +67,7 @@ const InformationForm: React.FC = () => {
             type='submit'
             className={style.profile__button_submit}
           />
+          
         </>
       ) : (
         <>
@@ -87,6 +89,7 @@ const InformationForm: React.FC = () => {
           />
         </>
       )}
+       </div>
     </form>
   );
 };

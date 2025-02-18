@@ -8,6 +8,14 @@
     max-width: 550px;
   }
 
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 550px;
+    padding: 30px 0 50px;
+  }
+
   &__title {
     @include description-font;
     color: rgba(13, 24, 33, 1);

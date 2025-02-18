@@ -2,7 +2,7 @@
 import clsx from 'clsx';
 import style from './CartItem.module.scss';
 import { useState } from 'react';
-import { removeBookFromCartApi } from '@/api/clientApi/cartApi';
+import { addBookApi, removeBookFromCartApi, removeOneBook } from '@/api/clientApi/cartApi';
 
 import Delete from '@/public/icons/Delete.png';
 import Image from 'next/image';
@@ -18,12 +18,13 @@ type cartItemPropsType = {
   bookPrice: number;
   bookLeft: number;
   totalPrice: number;
+  quantity: number;
   onRemove: (bookId: number) => Promise<void>,
   onChangePrice: (arg0: number) => void,
 };
 
 const CartItem = (props: cartItemPropsType) => {
-  const [count, setCount] = useState(1);
+  const [count, setCount] = useState(props.quantity);
   const [bookLeft, setBookLeft] = useState(props.bookLeft - 1);
   const [isDisableMinusButton, setIsDisableMinusButton] = useState(false);
   const [isDisablePlusButton, setIsDisablePlusButton] = useState(false);
@@ -34,6 +35,7 @@ const CartItem = (props: cartItemPropsType) => {
       setBookLeft(bookLeft + 1);
       setIsDisablePlusButton(false);
       props.onChangePrice(props.totalPrice - props.bookPrice)
+      removeOneBook(props.id)
     } else {
       setIsDisableMinusButton(true);
       return;
@@ -46,6 +48,7 @@ const CartItem = (props: cartItemPropsType) => {
       setBookLeft(bookLeft - 1);
       setIsDisableMinusButton(false);
       props.onChangePrice(props.totalPrice + props.bookPrice)
+      addBookApi(props.id)
     } else {
       setIsDisablePlusButton(true);
       return;

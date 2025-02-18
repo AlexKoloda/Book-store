@@ -13,23 +13,22 @@ type Props = {
 
 const CartClientSide: React.FC<Props> = (props) => {
   const router = useRouter();
-  const [totalPrice, setTotalPrice] = React.useState(Number(props.totalPrice))
+  const [totalPrice, setTotalPrice] = React.useState(Number(props.totalPrice));
   const [cartItems, setCartItems] = React.useState(props.cartItems);
 
   const handleRemove = async (bookId: number) => {
-    try {
-      setCartItems((prev) => prev.filter((item) => item.book.id !== bookId));
-    } catch (error) {
-      console.log(error);
-    }
+    if ( cartItems.length ) {
+      setCartItems((prev) => prev.filter((item) => item.books.id !== bookId));
+    } 
+    return;
   };
 
   const handleChangePrice = (newPrice: number) => {
     setTotalPrice(newPrice);
-  }
+  };
 
-  if ( cartItems.length === 0) {    
-    router.refresh() 
+  if (!cartItems.length) {
+    router.refresh();
   }
 
   return (
@@ -38,15 +37,16 @@ const CartClientSide: React.FC<Props> = (props) => {
         {cartItems.map((cart) => {
           return (
             <CartItem
-              id={cart.book.id}
+              id={cart.books.id}
               key={cart.id}
               cartItemId={cart.id}
-              photo={cart.book.photo}
-              bookPrice={cart.book.price}
-              bookTitle={cart.book.title}
-              bookAuthor={cart.book.author.name}
-              bookLeft={cart.book.numberBooksStock}
-              totalPrice = {totalPrice}
+              photo={cart.books.photo}
+              bookPrice={cart.books.price}
+              bookTitle={cart.books.title}
+              bookAuthor={cart.books.author.name}
+              bookLeft={cart.books.numberBooksStock}
+              totalPrice={totalPrice}
+              quantity={cart.quantity}
               onRemove={handleRemove}
               onChangePrice={handleChangePrice}
             />

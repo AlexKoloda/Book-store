@@ -1,5 +1,4 @@
 import { Metadata, NextPage } from 'next';
-import { IBook } from '@/app/lib/definitions';
 import { getCurrentBookRatingApi } from '@/api/serverApi/ratingApi';
 import { getRecommendationBooks, getCurrentBookApi } from '@/api/serverApi/getBook';
 import style from './page.module.scss';
@@ -19,15 +18,14 @@ const Book: NextPage<{ params: Promise<{ id: string }> }> = async (props) => {
   const id = queryParams.id;
   const book = await getCurrentBookApi(id);
   const comments = book.comments;
-
-
   const bookId = book.id;
   const genreId = book.bookGenres[0].genre.id;
-  const recommendationBooks: IBook[] = await getRecommendationBooks({
-    genreId,
-    bookId,
-  });
-  const personalBookRating: number = await getCurrentBookRatingApi(Number(id));
+  const recommendationBooks = await getRecommendationBooks({
+     genreId,
+     bookId,
+   });
+   const personalBookRating: number = await getCurrentBookRatingApi(Number(id));  
+
 
   return (
     <section className={style.book__section}>

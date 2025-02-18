@@ -54,18 +54,15 @@ const BookCard: React.FC<TBookCard> = (props) => {
 
   return (
     <li className={style.book_card__item}>
-      <FavoriteButton bookId={props.id} isAdded={props.isAdded}/>
-     <BookCover
-     id={props.id}
-     bookTitle={props.bookTitle}
-     photo={props.photo}
-     width={305}
-     height={448}
-     />
-     <CatalogLabel
-      isNew={props.isNew}
-      isBestseller={props.isBestseller}
-     />
+      <FavoriteButton bookId={props.id} isAdded={props.isAdded} />
+      <BookCover
+        id={props.id}
+        bookTitle={props.bookTitle}
+        photo={props.photo}
+        width={305}
+        height={448}
+      />
+      <CatalogLabel isNew={props.isNew} isBestseller={props.isBestseller} />
       <h2 className={style.book_card__title}>{props.bookTitle}</h2>
       <p className={style.book_card__author}>{props.bookAuthor}</p>
       <RatingAverage rating={averageRating.toFixed(1)} />

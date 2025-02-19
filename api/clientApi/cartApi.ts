@@ -1,21 +1,23 @@
+import { IBook } from '@/app/lib/definitions';
 import axiosApi from '../axios';
 
 export interface ICart {
-  book: number,
-  id: number | string,
-  quantity: number,
-  user: number,
+  id: number;
+  quantity: number;
+  book: IBook;
 }
 
-export const addBookApi = async ( bookId : number) => {
-  const response = await axiosApi.post<ICart> (
-   `/cart`,
-   {id: bookId}
-  );
+export const addBookApi = async (bookId: number) => {
+  const response = await axiosApi.post<ICart[]>(`/cart`, { id: bookId });
+  return response.data;
+};
 
-  return response.data.quantity;
-} 
+export const removeOneBook = async (bookId: number) => {
+  const response = await axiosApi.patch<ICart[]>(`/cart`, { id: bookId });
+  return response.data;
+};
 
-export const removeBookFromCartApi = async (params: {id: number}) => {
-  return await axiosApi.delete(`/cart`, { params });
+export const removeBookFromCartApi = async (params: { id: number }) => {
+  const response = await axiosApi.delete<ICart[]>(`/cart`, { params });
+  return response.data;
 };

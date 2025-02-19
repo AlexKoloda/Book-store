@@ -2,9 +2,8 @@ import { IBook } from '@/app/lib/definitions';
 import React from 'react';
 import style from './Recommendations.module.scss';
 
-import AstroBoy from '@/public/icons/AstroBoy.jpeg';
-import Image from 'next/image';
 import BookCard from '../CatalogItem/BookCard';
+import EmptyContent from '../EmptyContent/EmptyContent';
 
 type Props = {
   books: IBook[];
@@ -14,13 +13,7 @@ const Recommendations: React.FC<Props> = (props) => {
   const hasBooks = Boolean(props.books.length);
 
   if (!hasBooks) {
-    return (
-      <h1 className={style.recommendations__title}>
-        {' '}
-        ...Nothing alike yet, but our scouts are in another galaxy!
-        <Image src={AstroBoy} alt='Astro boy' width={80} height={80} />
-      </h1>
-    );
+    return <EmptyContent />;
   }
 
   return (

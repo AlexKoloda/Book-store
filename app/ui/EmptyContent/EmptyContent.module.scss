@@ -1,0 +1,11 @@
+.empty {
+  &__title {
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    padding: 150px 0 150px;
+    color: rgb(52, 52, 62);
+    flex-direction: column;
+    align-items: center;
+  }
+}

@@ -20,13 +20,12 @@ const CartClientSide: React.FC<Props> = (props) => {
     if ( cartItems.length ) {
       setCartItems((prev) => prev.filter((item) => item.books.id !== bookId));
     } 
-    return;
   };
 
   const handleChangePrice = (newPrice: number) => {
     setTotalPrice(newPrice);
   };
-
+  
   if (!cartItems.length) {
     router.refresh();
   }

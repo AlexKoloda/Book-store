@@ -16,15 +16,12 @@ export const metadata: Metadata = {
 export interface IBookCart {
   id: number;
   quantity: number;
-  book: IBook;
+  books: IBook;
 }
 
 const Cart = async () => {
   const cartItems: IBookCart[] = await getBookInCartApi();
-
-  const totalPrice = cartItems
-    .reduce((acc, item) => acc + item.book.price, 0)
-    .toFixed(2);
+  const totalPrice = cartItems.reduce((acc, item) => acc + (item.books.price * item.quantity), 0)
 
   if (!cartItems.length) {
     return <CartEmpty />;
@@ -32,7 +29,7 @@ const Cart = async () => {
 
   return (
     <section className={style.cart__section}>
-      <CartClientSide cartItems={cartItems} totalPrice = {totalPrice}/>
+      <CartClientSide cartItems={cartItems} totalPrice = {(totalPrice.toFixed(2))}/>
       <Link href='/'>
         <Button
           text={'Continue shopping'}

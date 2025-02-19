@@ -3,6 +3,10 @@ import { IUser } from '@/app/lib/definitions';
 import conf from '@/config';
 import { cookies } from 'next/headers';
 
+type ResponseDataType = {
+  user: IUser,
+}
+
 export const getMe = async () => {
   const cookiesValues = await cookies();
   const token = cookiesValues.get('access_token');
@@ -16,6 +20,6 @@ export const getMe = async () => {
       Authorization: `Bearer ${token.value}`,
     },
   });
-  const user = await res.json();
-  return user as IUser;
+  const data:ResponseDataType = await res.json();
+  return data.user;
 };

@@ -10,6 +10,7 @@ import RatingAverage from '../Rating/RatingAverage';
 import FavoriteButton from '../FavoriteButton/FavoriteButton';
 import BookCover from '../BookCover/BookCover';
 import CatalogLabel from '../CatalogLabel/CatalogLabel';
+import { useUserContext } from '@/app/lib/contexts/UserContext';
 
 type TBookCard = {
   key: number | string;
@@ -34,6 +35,7 @@ type TBookCard = {
 
 const BookCard: React.FC<TBookCard> = (props) => {
   let averageRating = 0;
+  const { setUpdateUser } = useUserContext();
   const ratingValues = props.rating.map((item) => item.value);
 
   if (ratingValues.length) {
@@ -47,7 +49,9 @@ const BookCard: React.FC<TBookCard> = (props) => {
 
   const handleClickCartButton = async () => {
     if (!isAdded) {
-      addBookApi(Number(props.id));
+      const updateCart = await addBookApi(props.id)  
+
+      setUpdateUser({cart: updateCart})     
       setIsAdded(true);
     } else router.push(`/cart`);
   };

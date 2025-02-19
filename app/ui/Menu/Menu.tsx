@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import style from './Menu.module.scss';
 
 import Image from 'next/image';
@@ -10,17 +10,25 @@ import { useUserContext } from '@/app/lib/contexts/UserContext';
 
 
 const Menu: React.FC = () => {
-  const numberOfCart = useUserContext().user?.cart.length;
- 
+  const { user } = useUserContext();
+  
+  if (!user) {
+    return null;
+  }
+   console.log(user.cart)
+  const numberCartItems = user.cart.reduce((acc, item) => acc + item.quantity, 0);
+
   return (
     <nav className={style.menu__nav}>
       <div className={style.menu__wrapper}>
-      <div className={style.menu__count}>
-        {numberOfCart}
-      </div>
-      <Link className={style.menu__link} href='/cart'>
-        <Image className={style.menu__icon_cart} src={Cart} alt='Profile icon' />
-      </Link>
+        <div className={style.menu__count}>{numberCartItems}</div>
+        <Link className={style.menu__link} href='/cart'>
+          <Image
+            className={style.menu__icon_cart}
+            src={Cart}
+            alt='Profile icon'
+          />
+        </Link>
       </div>
       <Link className={style.menu__link} href='/favorite'>
         <Image className={style.menu__icon} src={favorite} alt='Profile icon' />

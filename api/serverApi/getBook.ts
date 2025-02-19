@@ -1,5 +1,20 @@
+import { IBook, IGenre } from '@/app/lib/definitions';
 import conf from '@/config';
 import queryString from 'query-string';
+
+type ResponseDataType = {
+  books: [IBook[], number];
+  genres: IGenre[];
+  pagination: {
+    hasPrevPage: boolean;
+    hasNextPage: boolean;
+    totalPage: number;
+  };
+};
+
+type ResponseDataRecType = {
+  books: IBook[];
+};
 
 export const getBooksApi = async (params: {
   page?: number;
@@ -12,8 +27,8 @@ export const getBooksApi = async (params: {
   const res = await fetch(`${conf.url}/book?${paramsQueryString}`, {
     method: 'GET',
   });
-  const books = await res.json();
-  return books;
+  const data: ResponseDataType = await res.json();
+  return data;
 };
 
 export const getCurrentBookApi = async (id: string) => {
@@ -24,18 +39,17 @@ export const getCurrentBookApi = async (id: string) => {
   return book;
 };
 
-export const getRecommendationBooks = async (params: {genreId: number, bookId: string | number}) => {
+export const getRecommendationBooks = async (params: {
+  genreId: number;
+  bookId: string | number;
+}): Promise<IBook[]> => {
   const paramsQueryString = queryString.stringify(params);
   const res = await fetch(`${conf.url}/book/getRec/?${paramsQueryString}`, {
     method: 'GET',
-});
-  const recBooks = await res.json();
-  return recBooks;
+  });
+  const data: ResponseDataRecType = await res.json();
+  return data.books;
 };
-
-
-
-
 
 // const foo = (name: string, age: number, company: string,  time: number, address?: string,) => {
 //   console.log(name, age, company, address)

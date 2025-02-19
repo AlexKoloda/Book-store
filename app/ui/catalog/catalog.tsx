@@ -3,6 +3,7 @@ import { IBook, IGenre } from '@/app/lib/definitions';
 
 import BookCard from '../CatalogItem/BookCard';
 import Filters from '../Filters/Filters';
+import EmptyContent from '../EmptyContent/EmptyContent';
 
 type CatalogPropsType = {
   books: IBook[];
@@ -39,11 +40,7 @@ const Catalog: React.FC<CatalogPropsType> = (props) => {
             })}
           </ul>
         ) : (
-          <div className={style.catalog__empty}>
-            <h1 className={style.catalog__title}>
-              Not found books for your request...
-            </h1>
-          </div>
+          <EmptyContent />
         )}
       </div>
     </section>

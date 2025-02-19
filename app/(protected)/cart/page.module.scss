@@ -37,7 +37,7 @@
     letter-spacing: 0;
   }
 
-  &__button_continue {
+  &__button_continue.cart__button_continue {
     background-color: var(--color-white);
     border: 1px solid var(--color-dark);
     color: var(--color-dark);

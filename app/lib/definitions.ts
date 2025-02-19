@@ -1,9 +1,12 @@
+import { ICart } from '@/api/clientApi/cartApi';
+
 export interface IUser {
   id: number;
   name: string;
   email: string;
   password?: string;
   avatar: string;
+  cart:  ICart[],
 }
 
 export interface IBook {
@@ -11,23 +14,23 @@ export interface IBook {
   photo: string;
   title: string;
   description: string;
+  dataIssue: Date;
   price: number;
+  numberBooksStock: number;
   isNew: boolean;
   isBestseller: boolean;
-  dataIssue: Date;
-  numberBooksStock: number;
   author: {
     id: number,
     name: string,
   },
-  bookGenres: [{
+  bookGenres?: [{
     genre: IGenre,
   }],
   rating: [{
     id: number,
     value: number,
   }],
-  comments: IComment[],
+  comments?: IComment[],
 }
 
 export interface IComment {
@@ -75,3 +78,23 @@ export type InputDataAuthorizationType = Omit<
   InputDataRegisterType,
   'passwordReplay'
 >;
+
+export interface IBookFavorite {
+  id: number;
+  photo: string;
+  title: string;
+  description: string;
+  dataIssue: Date;
+  price: number;
+  numberBooksStock: number;
+  isNew: boolean;
+  isBestseller: boolean;
+  author: {
+    id: number,
+    name: string,
+  },
+  bookGenres: [{
+    genre: IGenre,
+  }],
+}
+

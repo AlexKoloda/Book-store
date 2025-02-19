@@ -25,11 +25,16 @@ const FavoriteButton: React.FC<Props> = (props) => {
       setIsAdded(true);
       addBookInFavoritesApi(props.bookId);
     } else {
-    setIsAdded(false);
-    removeBookFromFavorites({ id: props.bookId });
-    if (props.onRemove) {
-      props.onRemove(props.bookId);
-    }
+      removeBookFromFavorites({ id: props.bookId })
+      setIsAdded(false);
+     
+
+      setTimeout(() => {
+         if (props.onRemove) {
+           props.onRemove(props.bookId);
+         }
+      }, 300);
+
   }
   };
 

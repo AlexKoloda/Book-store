@@ -1,12 +1,12 @@
-import { IBook } from '@/app/lib/definitions';
-import conf from '@/config';
+import { IBookFavorite } from '@/app/lib/definitions';
 import { cookies } from 'next/headers';
+import conf from '@/config';
 
 
 export interface IFavoriteItems {
   id: number,
   dateAdded: string,
-  book: IBook,
+  book: IBookFavorite,
 }
 
 export const getBookFavoritesApi = async () => {

@@ -11,6 +11,9 @@ import FavoriteButton from '../FavoriteButton/FavoriteButton';
 import BookCover from '../BookCover/BookCover';
 import CatalogLabel from '../CatalogLabel/CatalogLabel';
 import { useUserContext } from '@/app/lib/contexts/UserContext';
+import { toast } from 'react-toastify';
+import { parseError } from '@/app/lib/util/parseError';
+import { AxiosError } from 'axios';
 
 type TBookCard = {
   key: number | string;
@@ -23,6 +26,7 @@ type TBookCard = {
   isNew?: boolean;
   isBestseller?: boolean;
   isAdded?: boolean;
+  isInCart?: boolean;
   rating:
     | [
         {
@@ -35,26 +39,33 @@ type TBookCard = {
 
 const BookCard: React.FC<TBookCard> = (props) => {
   let averageRating = 0;
+  const router = useRouter();
   const { setUpdateUser } = useUserContext();
   const ratingValues = props.rating.map((item) => item.value);
+  const [isAdded, setIsAdded] = useState(props.isInCart);
 
   if (ratingValues.length) {
     const sumRatingValues = ratingValues.reduce((acc, value) => acc + value);
     averageRating = sumRatingValues / props.rating.length;
   }
 
-  const router = useRouter();
-  const isBookAvailable = props.bookLeft !== 0;
-  const [isAdded, setIsAdded] = useState(false);
-
   const handleClickCartButton = async () => {
-    if (!isAdded) {
-      const updateCart = await addBookApi(props.id)  
-
-      setUpdateUser({cart: updateCart})     
-      setIsAdded(true);
-    } else router.push(`/cart`);
+    try {
+      if (!isAdded) {
+        const updateCart = await addBookApi(props.id)  
+        console.log(updateCart)
+        setUpdateUser({cart: updateCart})     
+        setIsAdded(true);
+        toast.success('Book added in cart');
+      } else router.push(`/cart`);
+      
+    } catch (error) {
+          if (error instanceof AxiosError) {
+            toast.error(parseError(error));
+          }
+    }
   };
+
 
   return (
     <li className={style.book_card__item}>
@@ -70,7 +81,7 @@ const BookCard: React.FC<TBookCard> = (props) => {
       <h2 className={style.book_card__title}>{props.bookTitle}</h2>
       <p className={style.book_card__author}>{props.bookAuthor}</p>
       <RatingAverage rating={averageRating.toFixed(1)} />
-      {isBookAvailable ? (
+      {props.bookLeft ? (
         <Button
           text={!isAdded ? `$ ${props.bookPrice} USD` : `Added to cart`}
           className={

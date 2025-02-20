@@ -37,3 +37,11 @@
     color: var(--color-white);
   }
 }
+
+
+@media (320px <= width <= 834px) {
+  
+.footer {
+  display: none;
+}
+}

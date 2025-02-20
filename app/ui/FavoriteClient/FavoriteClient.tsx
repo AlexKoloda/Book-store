@@ -5,6 +5,9 @@ import { IFavoriteItems } from '@/api/serverApi/favoritesApi';
 
 import FavoriteItem from '../FavoriteItem/FavoriteItems';
 import EmptyContent from '../EmptyContent/EmptyContent';
+import { parseError } from '@/app/lib/util/parseError';
+import { AxiosError } from 'axios';
+import { toast } from 'react-toastify';
 
 type Props = {
   favoritesItems: IFavoriteItems[];
@@ -17,7 +20,9 @@ const FavoriteClient: React.FC<Props> = (props) => {
     try {
       setItems((prev) => prev.filter((item) => item.book.id !== bookId));
     } catch (error) {
-      console.log(error);
+      if (error instanceof AxiosError) {
+        toast.error(parseError(error));
+      }
     }
   };
 

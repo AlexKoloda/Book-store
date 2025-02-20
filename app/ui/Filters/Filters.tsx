@@ -13,7 +13,7 @@ const Filters = (props: FiltersProps) => {
     { id: 1, name: 'Price' },
     { id: 2, name: 'Name' },
     { id: 3, name: 'Author name' },
-    { id: 4, name: 'Rating (soon)' },
+    { id: 4, name: 'Rating(coming soon)' },
     { id: 5, name: 'Date of issue' },
   ];
 

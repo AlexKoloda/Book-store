@@ -3,7 +3,7 @@ import conf from '@/config';
 import queryString from 'query-string';
 
 type ResponseDataType = {
-  books: [IBook[], number];
+  books: IBook[];
   genres: IGenre[];
   pagination: {
     hasPrevPage: boolean;
@@ -50,27 +50,3 @@ export const getRecommendationBooks = async (params: {
   const data: ResponseDataRecType = await res.json();
   return data.books;
 };
-
-// const foo = (name: string, age: number, company: string,  time: number, address?: string,) => {
-//   console.log(name, age, company, address)
-// }
-
-// const foo2 = (data: {
-//   address?: string,
-//   name: string,
-//   age: number,
-//   company: string,
-//   time: number,
-// }) => {
-
-// }
-
-// foo('alex', 22, 'TCL', 55, 'NY')
-
-// foo2({
-//   address: 'NY',
-//   age: 33,
-//   company: "ЕДС",
-//   name: 'Alex',
-//   time: 134
-// })

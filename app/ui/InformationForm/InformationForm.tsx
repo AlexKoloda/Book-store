@@ -1,3 +1,4 @@
+'use client'
 import style from './InformationForm.module.scss';
 import { useUserContext } from '@/app/lib/contexts/UserContext';
 import { UserProfileType } from '@/app/lib/definitions';

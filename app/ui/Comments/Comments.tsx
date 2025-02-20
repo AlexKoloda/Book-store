@@ -9,6 +9,9 @@ import Button from '../Button/Button';
 import Form from 'next/form';
 import Input from '../Input/TextInput';
 import { addCommentApi } from '@/api/clientApi/commentApi';
+import { parseError } from '@/app/lib/util/parseError';
+import { AxiosError } from 'axios';
+import { toast } from 'react-toastify';
 
 type CommentsPropsType = {
   comments: IComment[];
@@ -29,10 +32,12 @@ const Comments: React.FC<CommentsPropsType> = (props) => {
      const newComment = await addCommentApi({ text: commentText, bookId: props.bookId });
      setComments([...comments, newComment]);
      setCommentText('');
-    } catch (error) {
-      console.log('Request comment error', error)
-    }
-  };
+    }catch (error) {
+          if (error instanceof AxiosError) {
+            toast.error(parseError(error));
+          }
+        }
+      };
 
   return (
     <section className={style.comments__section}>

@@ -1,10 +1,10 @@
-'use client';
-import React from 'react';
-import style from './CartClientSide.module.scss';
-import { IBookCart } from '@/app/(protected)/cart/page';
+"use client";
+import React from "react";
+import style from "./CartClientSide.module.scss";
+import { IBookCart } from "@/app/(protected)/cart/page";
 
-import CartItem from '../CartItem/CartItem';
-import { useRouter } from 'next/navigation';
+import CartItem from "../CartItem/CartItem";
+import { useRouter } from "next/navigation";
 
 type Props = {
   cartItems: IBookCart[];
@@ -17,15 +17,16 @@ const CartClientSide: React.FC<Props> = (props) => {
   const [cartItems, setCartItems] = React.useState(props.cartItems);
 
   const handleRemove = async (bookId: number) => {
-    if ( cartItems.length ) {
+    if (cartItems.length) {
       setCartItems((prev) => prev.filter((item) => item.books.id !== bookId));
-    } 
+    }
+    return;
   };
 
   const handleChangePrice = (newPrice: number) => {
     setTotalPrice(newPrice);
   };
-  
+
   if (!cartItems.length) {
     router.refresh();
   }

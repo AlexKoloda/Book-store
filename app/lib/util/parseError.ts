@@ -3,7 +3,7 @@ import { AxiosError } from 'axios';
 export const parseError = (error: AxiosError): string => {
   switch (error.status) {
     case 400: {
-      return 'Incorrect data';
+      return 'Incorrect email or password';
     }
     case 401: {
       return 'Access denied';

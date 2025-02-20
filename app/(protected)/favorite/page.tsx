@@ -6,6 +6,9 @@ import { Metadata } from 'next';
 import Image from 'next/image';
 import AstroBoy from '@/public/icons/AstroBoy.jpeg'
 import FavoriteClient from '@/app/ui/FavoriteClient/FavoriteClient';
+import { parseError } from '@/app/lib/util/parseError';
+import { AxiosError } from 'axios';
+import { toast } from 'react-toastify';
 
 export const metadata: Metadata = {
   title: 'Book Room: Favorites',
@@ -33,8 +36,10 @@ const Favorite = async () => {
   </h1>
   );
 } catch (error) {
-    console.log(error)
-}  
-};
+      if (error instanceof AxiosError) {
+        toast.error(parseError(error));
+      }
+    }
+  };
 
 export default Favorite;

@@ -9,9 +9,14 @@ import { logInSchema } from '@/public/validation/schemas';
 import { signInApi } from '@/api/clientApi/authApi';
 import { useRouter } from 'next/navigation';
 import { useUserContext } from '@/app/lib/contexts/UserContext';
-import { InputDataAuthorizationType, InputDataType } from '@/app/lib/definitions';
+import {
+  InputDataAuthorizationType,
+  InputDataType,
+} from '@/app/lib/definitions';
 import Input from '@/app/ui/Input/TextInput';
-
+import { toast } from 'react-toastify';
+import { parseError } from '@/app/lib/util/parseError';
+import { AxiosError } from 'axios';
 
 const LoginPage: React.FC = () => {
   const router = useRouter();
@@ -32,8 +37,11 @@ const LoginPage: React.FC = () => {
       });
       setUserData(response);
       router.replace('/');
-    } catch (err) {
-      console.log('ERROR login', err);
+      toast.success(`Welcome ${response.name}`);
+    } catch (error) {
+      if (error instanceof AxiosError) {
+        toast.error(parseError(error));
+      }
     }
   };
 

@@ -4,7 +4,7 @@ import axiosApi from '../axios';
 export interface ICart {
   id: number;
   quantity: number;
-  book: IBook;
+  books: IBook;
 }
 
 export const addBookApi = async (bookId: number) => {

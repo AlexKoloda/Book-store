@@ -9,6 +9,7 @@ type CatalogPropsType = {
   books: IBook[];
   genres: IGenre[];
   isAdded: number[];
+  isInCart: number[];
 };
 
 const Catalog: React.FC<CatalogPropsType> = (props) => {
@@ -34,6 +35,7 @@ const Catalog: React.FC<CatalogPropsType> = (props) => {
                   bookLeft={book.numberBooksStock}
                   isNew={book.isNew}
                   isAdded={props.isAdded.includes(book.id)}
+                  isInCart={props.isInCart.includes(book.id)}
                   isBestseller={book.isBestseller}
                 />
               );

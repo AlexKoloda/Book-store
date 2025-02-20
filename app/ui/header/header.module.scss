@@ -20,7 +20,6 @@
     border-radius: var(--border-radius);
     align-items: center;
     border: 2px solid var(--color-light);
-  
   }
 
   &__search:focus-within {
@@ -39,7 +38,7 @@
     text-decoration-skip-ink: none;
   }
 
- &__input {
+  &__input {
     width: 630px;
     margin: 0;
     padding: 22px !important;
@@ -50,6 +49,35 @@
     background-color: var(--color-white);
     color: var(--color-dark);
     outline: none;
-   } 
+  }
+}
 
+@media (320px <= width <= 834px) {
+  .header {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-area: 1/ 2/ 4/ 3;
+    
+
+    &__logo {
+      width: 63px;
+      height: 31px;
+    }
+
+    &__catalog {
+      font-size: 14px;
+      line-height: 21px;
+      letter-spacing: 0;
+    }
+
+    &__button {
+      font-size: 12px;
+      line-height: 18px;
+      letter-spacing: 0.75px;
+    }
+
+    &__input {
+      max-width: 290px;
+    }
+  }
 }

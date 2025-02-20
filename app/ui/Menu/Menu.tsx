@@ -15,7 +15,7 @@ const Menu: React.FC = () => {
   if (!user) {
     return null;
   }
-   console.log(user.cart)
+
   const numberCartItems = user.cart.reduce((acc, item) => acc + item.quantity, 0);
 
   return (

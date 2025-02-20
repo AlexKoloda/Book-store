@@ -16,6 +16,7 @@ interface IPagination {
 }
 
 const PaginationControlled = (props: IPagination) => {
+
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const currentPage = Number(searchParams.get('page')) || 1;

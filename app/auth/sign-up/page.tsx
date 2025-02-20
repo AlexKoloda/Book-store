@@ -11,6 +11,9 @@ import { signUpApi } from '@/api/clientApi/authApi';
 import { useRouter } from 'next/navigation';
 import { useUserContext } from '@/app/lib/contexts/UserContext';
 import Input from '@/app/ui/Input/TextInput';
+import { parseError } from '@/app/lib/util/parseError';
+import { AxiosError } from 'axios';
+import { toast } from 'react-toastify';
 
 const RegisterPage: React.FC = () => {
   const router = useRouter();
@@ -32,7 +35,9 @@ const RegisterPage: React.FC = () => {
       setUserData(response);
       router.replace('/profile');
     } catch (error) {
-      console.log('ERROR signup', error);
+      if (error instanceof AxiosError) {
+        toast.error(parseError(error));
+      }
     }
   };
 

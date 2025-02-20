@@ -2,6 +2,9 @@
 import style from './page.module.scss'
 import { useEffect } from 'react'
 import Button from './ui/Button/Button'
+import { AxiosError } from 'axios'
+import { toast } from 'react-toastify'
+import { parseError } from './lib/util/parseError'
  
 export default function Error({
   error,
@@ -9,7 +12,9 @@ export default function Error({
   error: Error & { digest?: string }
 }) {
   useEffect(() => {
-    console.error(error)
+    if (error instanceof AxiosError) {
+      toast.error(parseError(error));
+    }
   }, [error])
  
   return (

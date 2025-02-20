@@ -9,6 +9,8 @@ import {
 import Image from 'next/image';
 import FavoriteIconActive from '@/public/icons/FavoriteFilled.png';
 import FavoriteIconDisable from '@/public/icons/FavoriteEmpty.png';
+import { toast } from 'react-toastify';
+import { useUserContext } from '@/app/lib/contexts/UserContext';
 
 type Props = {
   bookId: number;
@@ -18,25 +20,28 @@ type Props = {
 };
 
 const FavoriteButton: React.FC<Props> = (props) => {
+  const {user} = useUserContext();
   const [isAdded, setIsAdded] = React.useState(props.isAdded);
 
   const handleClick = () => {
     if (!isAdded) {
       setIsAdded(true);
       addBookInFavoritesApi(props.bookId);
+      toast.success('Book added in favorites')
     } else {
-      removeBookFromFavorites({ id: props.bookId })
-      setIsAdded(false);
-     
-
-      setTimeout(() => {
-         if (props.onRemove) {
-           props.onRemove(props.bookId);
-         }
-      }, 300);
-
+    setIsAdded(false);
+    removeBookFromFavorites({ id: props.bookId });
+    toast.warning('Book remove fom favorites')
+    if (props.onRemove) {
+      props.onRemove(props.bookId);
+    }
   }
   };
+
+  if (!user) {
+    return null;
+  }
+
 
   return isAdded ? (
     <div className={style.favorite__wrapper} onClick={handleClick}>

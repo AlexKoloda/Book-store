@@ -43,5 +43,15 @@
 }
 
 
+@media (320px <= width <= 834px) {
+  .wrapper {
+
+   &__inner {
+    width: 100%;
+   }
+  }
+}
+
+
 
 

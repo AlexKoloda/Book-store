@@ -54,30 +54,40 @@
 
 @media (320px <= width <= 834px) {
   .header {
-    display: grid;
-    grid-template-columns: repeat(3, auto);
-    grid-area: 1/ 2/ 4/ 3;
-    
+    display: none;
+    grid-template-areas:
+      "logo catalog button"
+      "search search search";
 
     &__logo {
       width: 63px;
       height: 31px;
+      grid-area: logo;
+      max-width: 63px;
+    }
+
+    &__link{
+      max-width: 65px;
     }
 
     &__catalog {
       font-size: 14px;
       line-height: 21px;
       letter-spacing: 0;
+      grid-area: catalog;
     }
 
     &__button {
       font-size: 12px;
       line-height: 18px;
       letter-spacing: 0.75px;
+      grid-area: button;
     }
 
+    &__search,
     &__input {
       max-width: 290px;
+      grid-area: search;
     }
   }
 }

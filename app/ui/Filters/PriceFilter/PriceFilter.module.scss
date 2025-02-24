@@ -76,3 +76,17 @@
     animation: fadeIn 0.3s;
   }
 }
+
+
+@media (320px <= width <= 834px) {
+  .price {
+    &__arrow_active {
+      transform: rotate(-0.25turn);
+    }
+
+    &__arrow_disable {
+      transform: rotate(0.25turn);
+      transition: 0.3s;
+    }
+  }
+}

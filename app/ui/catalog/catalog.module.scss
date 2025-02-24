@@ -39,3 +39,23 @@
     padding: 100px;
   }
 }
+
+@media (320px <= width <= 834px) {
+
+  .catalog{
+    &__filter {
+      flex-direction: column;
+    }
+
+    &__container {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    &__list {
+      grid-template-columns: repeat(2, 135px);
+    }
+  }
+
+
+}

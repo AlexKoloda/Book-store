@@ -1,4 +1,4 @@
-@import '../../mixins.module.scss';
+@import "../../mixins.module.scss";
 
 .product {
   &__container {
@@ -35,7 +35,8 @@
     text-align: left;
   }
 
-  &__description_title {
+  &__description_title,
+  &__author {
     font-size: 24px;
     font-weight: 400;
     line-height: 36px;
@@ -86,6 +87,53 @@
     &:hover {
       background-color: var(--color-light);
       color: var(--color-dark);
+    }
+  }
+}
+
+@media (320px <= width <= 834px) {
+  .product {
+    &__container {
+      display: grid;
+      grid-template-areas:
+        "photo title"
+        "photo author";
+    }
+
+    &__photo {
+      border-radius: var(--border-radius);
+      width: 135px;
+      height: 202px;
+      grid-area: photo;
+    }
+
+    &__title {
+      grid-area: title;
+      font-size: 18px;
+      line-height: 20px;
+    }
+
+    &__author {
+      grid-area: author;
+      font-size: 12px;
+      line-height: 18px;
+    }
+
+    &__arrow {
+      display: none;
+    }
+
+    &__rating {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      grid-area: rating;
+    }
+
+    &__rate_description {
+      grid-area: rateText;
+      font-size: 12px;
+      line-height: 18px;
     }
   }
 }

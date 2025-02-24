@@ -34,3 +34,15 @@
     background-color: var(--color-dark-blue);
   }
 }
+
+@media (320px <= width <= 834px) {
+  .catalog_label 
+  {
+    &__container { 
+      left: 2px;
+      bottom: 175px;
+      padding: 15px;
+      width: 100px;
+    }
+  }
+}

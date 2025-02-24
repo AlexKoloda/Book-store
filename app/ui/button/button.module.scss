@@ -1,5 +1,5 @@
 .button {
-  color: #F0F4EF;
+  color: #f0f4ef;
   background-color: var(--color-dark-blue);
   border-radius: var(--border-radius);
   padding: 10px 50px;
@@ -17,5 +17,16 @@
     box-shadow: 0 0 0 8px rgba(214, 216, 231, 1);
     transition: 0.3s ease-in-out;
     transform: scale(0.96);
+  }
+}
+
+@media (320px <= width <= 834px) {
+  .button {
+    font-family: Poppins;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 28px;
+    letter-spacing: 0.75px;
+    text-align: center;
   }
 }

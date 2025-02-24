@@ -33,7 +33,7 @@ export default function RangeSlider({initialValueRange, onDebouncedChange}: Prop
           backgroundColor: 'white',
           padding: '30px',
           borderRadius: '16px',
-          width: '390px',
+          width: '100%',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',

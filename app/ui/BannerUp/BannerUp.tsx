@@ -19,7 +19,7 @@ const BannerUp: React.FC = () => {
         <div className={style.hero__background}> </div>
       </div>
 
-      <Image src={HeroImage} alt='Book store mascot' width={406} height={400} />
+      <Image src={HeroImage} alt='Book store mascot' width={406} height={400} className={style.hero__image}/>
     </section>
   );
 };

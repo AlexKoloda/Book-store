@@ -19,8 +19,10 @@ const Footer: React.FC = () => {
               alt='Book store logo'
             />
           </Link>
+          <div className={style.footer__links}>
           <a className={style.footer__link} href='mailto:tranthuy.nute@gmail.com'>tranthuy.nute@gmail.com</a>
           <a className={style.footer__link} href='tel:(480) 555-0103'>(480) 555-0103</a>
+          </div>
         </div>
 
         <nav className={style.footer__navigation}>
@@ -45,7 +47,7 @@ const Footer: React.FC = () => {
             {' '}
             6391 Elgin St. Celina, Delaware 10299
           </p>
-          <Image width={413} height={160} src={Map} alt='Address map' />
+          <Image width={413} height={160} src={Map} alt='Address map' className={style.footer__image} />
         </div>
       </div>
     </footer>

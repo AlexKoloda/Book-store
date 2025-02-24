@@ -39,3 +39,14 @@
     }
   }
 }
+
+
+@media (320px <= width <= 834px) {
+
+  .book_cover {
+    &__photo {
+      width: 135px;
+      height: 192px;
+    }
+  }
+}

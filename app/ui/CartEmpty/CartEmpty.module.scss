@@ -1,4 +1,4 @@
-@import '../../mixins.module.scss';
+@import "../../mixins.module.scss";
 
 .cart {
   &__section_empty {
@@ -31,5 +31,44 @@
     line-height: 24px;
     letter-spacing: 0.75px;
     text-align: center;
+  }
+}
+
+@media (320px <= width <= 834px) {
+  .cart {
+    &__section_empty {
+      display: grid;
+      justify-items: center;
+      grid-template-areas:
+        "title"
+        "text"
+        "button"
+        "photo";
+    }
+
+    &__title {
+      grid-area: title;
+      font-size: 18px;
+      line-height: 27px;
+      padding: 10px 0;
+    }
+
+    &__description {
+      grid-area: text;
+      font-size: 12px;
+      line-height: 18px;
+    }
+
+    &__photo {
+      grid-area: photo;
+      max-width: 290px;
+      max-height: 176px;
+    }
+
+    &__button_empty {
+      grid-area: button;
+      width: 100%;
+      margin-bottom: 30px;
+    }
   }
 }

@@ -22,6 +22,8 @@ const PaginationControlled = (props: IPagination) => {
   const currentPage = Number(searchParams.get('page')) || 1;
   const allPages = generatePagination(currentPage, props.totalPages);
 
+  console.log(props)
+
   // TODO Переписать на query.string 
   const createPageURL = (pageNumber: number | string) => {
     const params = new URLSearchParams(searchParams);

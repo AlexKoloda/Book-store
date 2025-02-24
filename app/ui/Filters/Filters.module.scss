@@ -8,3 +8,12 @@
     scroll-behavior: smooth;
   }
 }
+
+@media (320px <= width <= 834px) {
+  .filters {
+    &__container {
+      flex-direction: column;
+    }
+  }
+  }
+

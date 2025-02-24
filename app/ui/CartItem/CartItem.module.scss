@@ -1,4 +1,4 @@
-@import '../../mixins.module.scss';
+@import "../../mixins.module.scss";
 .cart_item {
   &__photo {
     border-radius: var(--border-radius);
@@ -8,8 +8,9 @@
     display: flex;
     gap: 20px;
     padding-bottom: 40px;
-    &:first-child {
-      border-bottom: 1px solid rgba(214, 216, 231, 1);
+    border-bottom: 1px solid rgba(214, 216, 231, 1);
+    &:last-child {
+      border-bottom: none;
     }
   }
 
@@ -112,6 +113,25 @@
     &:active {
       transform: scale(0.99);
       transition: 0.3s;
+    }
+  }
+}
+
+@media (320px <= width <= 834px) {
+  .cart_item {
+    &__book_title {
+      font-size: 18px;
+      line-height: 20px;
+    }
+
+    &__book_author {
+      font-size: 12px;
+      line-height: 18px;
+    }
+
+    &__price {
+      font-size: 18px;
+      line-height: 27px;
     }
   }
 }

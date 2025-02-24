@@ -18,8 +18,13 @@ const Recommendations: React.FC<Props> = (props) => {
 
   return (
     <ul className={style.recommendations__list}>
+     
+
       {props.books.map((book) => {
+        
+        
         return (
+          <li key={book.id} className={style.recommendations__item}>
           <BookCard
             key={book.id}
             id={book.id}
@@ -31,7 +36,8 @@ const Recommendations: React.FC<Props> = (props) => {
             isNew={book.isNew}
             isBestseller={book.isBestseller}
             rating={book.rating}
-          />
+            />
+            </li>
         );
       })}
     </ul>

@@ -18,3 +18,18 @@
     align-items: center;
   }
 }
+
+
+@media (320px <= width <= 834px) {
+  .recommendations {
+    &__list {
+      grid-template-columns: repeat(3, 195px);
+    }
+    &__item {
+      &:last-child {
+        display: none;
+      }
+    }
+  }
+
+}

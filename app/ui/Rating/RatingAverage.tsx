@@ -22,6 +22,7 @@ const RatingAverage = (props: { rating: string }) => {
               alt='Star icon'
               width={26}
               height={26}
+              className={style.rating__icon}
             />
           ) : (
             <Image
@@ -30,6 +31,7 @@ const RatingAverage = (props: { rating: string }) => {
               alt='Star icon empty'
               width={26}
               height={26}
+              className={style.rating__icon}
             />
           );
         })}

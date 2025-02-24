@@ -1,8 +1,11 @@
 .wrapper {
   display: flex;
+  width: 100%;
+
   &__inner {
     width: 1280px;
     margin: 0 auto;
+    padding: 15px;
   }
 }
 
@@ -44,12 +47,23 @@
 
 
 @media (320px <= width <= 834px) {
+
+
+  .body {
+    display: flex;
+    flex-direction: column;
+  }
+
+
   .wrapper {
+    display: flex;
+    flex-direction: column;
+
 
    &__inner {
-    width: 100%;
-   }
+    width: 100%; 
   }
+}
 }
 
 

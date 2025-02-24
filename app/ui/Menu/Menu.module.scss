@@ -6,7 +6,7 @@
   }
 
   &__icon {
-    padding: 10px 0;
+    display: flex;
   }
 
   &__wrapper {
@@ -32,5 +32,26 @@
     right: 0px;
     width: 23px;
     height: 23px;
+  }
+
+  &__count_favorites {
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0;
+    color: var(--color-dark-blue);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--color-green);
+    border-radius: 50%;
+    position: absolute;
+    top: -7px;
+    right: -5px;
+    width: 23px;
+    height: 23px;
+    
   }
 }

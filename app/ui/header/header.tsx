@@ -46,7 +46,7 @@ const Header: React.FC = () => {
 
   return (
     <header className={style.header}>
-      <Link href='/'>
+      <Link href='/' className={style.header__link}>
         <Image
           className={style.header__logo}
           width={88}

@@ -17,3 +17,17 @@
     background: rgb(54 72 102);
   }
 }
+
+@media (320px <= width <= 834px) {
+  .favorite {
+    &__icon {
+      width: 25px;
+      height: 25px;
+    }
+
+    &__wrapper {
+      left: -10px;
+      top: 0;
+    }
+  }
+}

@@ -21,3 +21,24 @@
   }
 }
 
+
+
+@media (320px <= width <= 834px) {
+
+  .rating {
+
+    &__container {
+      padding: 10px 0 15px;
+    }
+    
+    &__list {
+      gap: 5px;
+    }
+
+    &__icon {
+      width: 15px;
+      height: 15px;
+    }
+  }
+
+}

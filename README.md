@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Book Room
 
-## Getting Started
+Creating a full-stack bookstore application using Next.js and PostgreSQL technologies.
 
-First, run the development server:
+# Home page
+![Снимок экрана 2025-02-24 в 12 06 20](https://github.com/user-attachments/assets/d25d6965-455b-42e1-94ff-b2b281752aa5)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+# Autorisation page
+<img width="1778" alt="Снимок экрана 2025-02-24 в 10 22 24" src="https://github.com/user-attachments/assets/63b52e0f-f128-4aad-99ad-d3c0798b110f" />
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# Cart page 
+<img width="1712" alt="Снимок экрана 2025-02-24 в 10 24 35" src="https://github.com/user-attachments/assets/52aeff3b-0462-40cd-ab0f-984304f61742" />
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+# Favorites page 
+<img width="1562" alt="Снимок экрана 2025-02-24 в 10 25 01" src="https://github.com/user-attachments/assets/8f679db2-6e38-4e2f-ab09-eb5a888507c2" />
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Product page 
+<img width="1774" alt="Снимок экрана 2025-02-24 в 10 42 51" src="https://github.com/user-attachments/assets/2312c824-cd97-4058-85f1-a10fefe30fad" />
 
-## Learn More
+# User profile 
+<img width="1724" alt="Снимок экрана 2025-02-24 в 10 25 47" src="https://github.com/user-attachments/assets/685cae6e-b3a1-4f7b-978c-0fc3462ee167" />
 
-To learn more about Next.js, take a look at the following resources:
+# Comments 
+<img width="1587" alt="Снимок экрана 2025-02-24 в 10 44 55" src="https://github.com/user-attachments/assets/e65f3279-bf2b-4be2-bdfd-41e0b36b7e0a" />
+<img width="1728" alt="Снимок экрана 2025-02-24 в 10 43 04" src="https://github.com/user-attachments/assets/ac28264a-026c-4854-b4a3-43e0ab586966" />
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Recommendations 
+<img width="1757" alt="Снимок экрана 2025-02-24 в 10 44 25" src="https://github.com/user-attachments/assets/65b73393-8f2b-4af6-9722-cfeac16e8f1b" />
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# Filters
+<img width="1754" alt="Снимок экрана 2025-02-24 в 10 24 07" src="https://github.com/user-attachments/assets/40bf97ed-fa97-4c8b-81b4-9ac083398070" />
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+

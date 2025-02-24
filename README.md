@@ -22,6 +22,8 @@ Creating a full-stack bookstore application using Next.js and PostgreSQL technol
 
 # Comments 
 <img width="1587" alt="Снимок экрана 2025-02-24 в 10 44 55" src="https://github.com/user-attachments/assets/e65f3279-bf2b-4be2-bdfd-41e0b36b7e0a" />
+
+
 <img width="1728" alt="Снимок экрана 2025-02-24 в 10 43 04" src="https://github.com/user-attachments/assets/ac28264a-026c-4854-b4a3-43e0ab586966" />
 
 # Recommendations 

@@ -42,8 +42,12 @@
     width: 630px;
     margin: 0;
     padding: 22px !important;
-    border-radius: var(--border-radius);
+    border-radius: var(--border-radius);   
   }
+
+  &__input:auto-fill {
+    background-color: var(--color-white);
+   }
 
   &__input:focus-visible {
     background-color: var(--color-white);

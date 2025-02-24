@@ -8,5 +8,11 @@
     border: 2px transparent;
     padding: 18px;
     border-radius: var(--border-radius);
+    
 }
+
+&__input:auto-fill {
+ background-color: var(--color-white);
+}
+
 }

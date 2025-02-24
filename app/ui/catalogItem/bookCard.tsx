@@ -53,7 +53,6 @@ const BookCard: React.FC<TBookCard> = (props) => {
     try {
       if (!isAdded) {
         const updateCart = await addBookApi(props.id)  
-        console.log(updateCart)
         setUpdateUser({cart: updateCart})     
         setIsAdded(true);
         toast.success('Book added in cart');

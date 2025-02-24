@@ -71,6 +71,7 @@ const Header: React.FC = () => {
               placeholder='Search'
               className={style.header__input}
               onChange={(e) => handleSearch(e.target.value)}
+              autoComplete='off'
             />
           </Form>
         </div>
